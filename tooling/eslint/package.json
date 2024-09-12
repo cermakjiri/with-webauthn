@@ -1,0 +1,39 @@
+{
+    "name": "@tooling/eslint",
+    "version": "0.0.1",
+    "type": "module",
+    "bin": {
+        "eslint-lint": "./bin/cli.js"
+    },
+    "files": [
+        "bin",
+        "config"
+    ],
+    "exports": {
+        "./config": "./config/next.js"
+    },
+    "scripts": {
+        "format": "prettier-format --write ./**/*.js"
+    },
+    "dependencies": {
+        "@eslint/eslintrc": "3.1.0",
+        "@tanstack/eslint-plugin-query": "5.51.15",
+        "@tooling/typescript": "workspace:*",
+        "@types/eslint__eslintrc": "2.1.2",
+        "@types/eslint__js": "8.42.3",
+        "eslint": "8.57.0",
+        "eslint-config-next": "14.2.5",
+        "eslint-config-prettier": "9.1.0",
+        "eslint-plugin-turbo": "2.0.14",
+        "next": "14.2.5",
+        "react": "18.3.1",
+        "react-dom": "18.3.1",
+        "typescript-eslint": "7.18.0"
+    },
+    "devDependencies": {
+        "@tooling/prettier": "workspace:*",
+        "@tooling/staged": "workspace:^",
+        "@types/eslint": "8.56.11"
+    },
+    "prettier": "@tooling/prettier/config"
+}

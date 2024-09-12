@@ -1,0 +1,54 @@
+{
+    "name": "simplewebauthn-example",
+    "version": "0.0.1",
+    "type": "module",
+    "scripts": {
+        "dev": "next dev",
+        "build": "next build",
+        "start": "next start",
+        "lint": "eslint-lint --config=eslint.config.mjs './src/**/*.{ts,tsx}'",
+        "lint:fix": "yarn lint --fix",
+        "format": "prettier-format",
+        "cir-dep": "check-cir-deps ./src"
+    },
+    "dependencies": {
+        "@ackee/antonio-core": "5.0.0",
+        "@hookform/resolvers": "3.9.0",
+        "@simplewebauthn/browser": "10.0.0",
+        "@simplewebauthn/server": "10.0.1",
+        "@t3-oss/env-nextjs": "0.10.1",
+        "@tanstack/react-query": "5.51.23",
+        "@types/cookie": "0.6.0",
+        "@workspace/logger": "workspace:*",
+        "@workspace/ui": "workspace:*",
+        "cookie": "0.7.1",
+        "firebase": "10.13.1",
+        "firebase-admin": "12.4.0",
+        "next": "14.2.5",
+        "normalize.css": "8.0.1",
+        "react": "18.3.1",
+        "react-dom": "18.3.1",
+        "react-intl": "6.7.1",
+        "react-toastify": "10.0.5",
+        "reset.css": "2.0.2",
+        "string-ts": "2.2.0",
+        "zod": "3.23.8"
+    },
+    "devDependencies": {
+        "@tanstack/react-query-devtools": "5.51.23",
+        "@tooling/eslint": "workspace:*",
+        "@tooling/madge": "workspace:*",
+        "@tooling/prettier": "workspace:*",
+        "@tooling/typescript": "workspace:*",
+        "@types/react": "18.3.3",
+        "@types/react-dom": "18.3.0",
+        "browserslist-config": "workspace:*",
+        "fork-ts-checker-webpack-plugin": "9.0.2",
+        "type-fest": "4.24.0",
+        "typescript": "5.5.4"
+    },
+    "prettier": "@tooling/prettier/config",
+    "browserslist": [
+        "extends browserslist-config"
+    ]
+}

@@ -1,0 +1,8 @@
+{
+    "extends": "@tooling/typescript/nextjs",
+    "include": ["./src", "./next-env.d.ts"],
+    "compilerOptions": {
+        "baseUrl": "./src",
+        "tsBuildInfoFile": "./.cache/.tsbuildinfo"
+    }
+}

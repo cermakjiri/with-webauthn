@@ -1,0 +1,22 @@
+{
+    // ESlint
+    "eslint.format.enable": true,
+    "eslint.experimental.useFlatConfig": true,
+    "eslint.debug": true,
+    "eslint.runtime": "node",
+    "eslint.nodePath": "node_modules",
+    "eslint.workingDirectories": [
+        {
+            "!cwd": false,
+            "pattern": "./**/*",
+        }
+    ],
+    // Editor
+    "editor.codeActionsOnSave": {
+        "source.fixAll": "explicit",
+        "source.organizeImports": "always",
+        "source.fixAll.eslint": "explicit",
+        "source.addMissingImports": "explicit",
+    },
+    "editor.formatOnSave": true
+}

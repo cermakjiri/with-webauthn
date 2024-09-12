@@ -1,0 +1,27 @@
+{
+    "$schema": "https://json.schemastore.org/tsconfig",
+    "display": "Next.js",
+    "extends": "./base.json",
+    "plugins": [
+        {
+            "name": "next"
+        }
+    ],
+    "compilerOptions": {
+        "lib": ["dom", "dom.iterable", "esnext", "ESNext.Promise", "WebWorker"],
+        "baseUrl": "src",
+        "jsx": "preserve",
+        "module": "ESNext",
+        "moduleResolution": "Bundler",
+        "plugins": [
+            {
+                "name": "next"
+            }
+        ],
+        "paths": {
+            "~*": ["./src/*"],
+            "~public/*": ["./public/*"]
+        }
+    },
+    "include": ["src", "next-env.d.ts"]
+}

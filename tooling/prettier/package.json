@@ -1,0 +1,23 @@
+{
+    "name": "@tooling/prettier",
+    "version": "0.0.1",
+    "type": "commonjs",
+    "bin": {
+        "prettier-format": "./bin/cli.js"
+    },
+    "exports": {
+        "./config": "./config/index.js"
+    },
+    "scripts": {
+        "format": "prettier-format"
+    },
+    "dependencies": {
+        "@ianvs/prettier-plugin-sort-imports": "4.3.1",
+        "prettier": "3.3.3"
+    },
+    "devDependencies": {
+        "@tooling/staged": "workspace:^",
+        "@tooling/typescript": "workspace:*"
+    },
+    "prettier": "./config/index.js"
+}

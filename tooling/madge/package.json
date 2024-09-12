@@ -1,0 +1,16 @@
+{
+    "name": "@tooling/madge",
+    "version": "0.0.1",
+    "type": "module",
+    "bin": {
+        "check-cir-deps": "./bin/cli.js"
+    },
+    "scripts": {
+        "format": "prettier-format"
+    },
+    "devDependencies": {
+        "@tooling/prettier": "workspace:*",
+        "madge": "7.0.0"
+    },
+    "prettier": "@tooling/prettier/config"
+}

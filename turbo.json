@@ -1,0 +1,38 @@
+{
+    "$schema": "https://turbo.build/schema.json",
+    "tasks": {
+        "test:ci": {
+            "dependsOn": ["//#audit", "build"]
+        },
+        "build": {
+            "outputs": ["dist/**", ".next/**", "!.next/cache/**"],
+            "dependsOn": ["cir-dep", "format", "lint", "^build"],
+            "inputs": ["$TURBO_DEFAULT$", ".env.local", ".env", ".env.local.server"]
+        },
+        "lint": {
+            "cache": true,
+            "outputLogs": "full"
+        },
+        "format": {
+            "cache": true,
+            "outputLogs": "errors-only"
+        },
+        "dev": {
+            "cache": false,
+            "persistent": true,
+            "dependsOn": ["cir-dep"]
+        },
+        "cir-dep": {
+            "cache": true,
+            "outputLogs": "errors-only"
+        },
+        "//#audit": {
+            "dependsOn": [],
+            "cache": false
+        },
+        "//#pre-commit": {
+            "dependsOn": [],
+            "cache": true
+        }
+    }
+}

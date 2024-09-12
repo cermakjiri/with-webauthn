@@ -1,0 +1,4 @@
+# Keep LF line endings, even on Windows to make it compatible with default Prettier settings
+*.{ts,tsx,js,jsx,json,tsx,yml,json,md,lock,mjs,cjs,jsonc,properties} text eol=lf
+
+*.{jpg,png,webp,gif} binary

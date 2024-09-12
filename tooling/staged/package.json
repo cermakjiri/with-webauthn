@@ -1,0 +1,11 @@
+{
+    "name": "@tooling/staged",
+    "version": "0.0.1",
+    "type": "commonjs",
+    "exports": {
+        ".": "./index.js"
+    },
+    "devDependencies": {
+        "@tooling/typescript": "workspace:*"
+    }
+}

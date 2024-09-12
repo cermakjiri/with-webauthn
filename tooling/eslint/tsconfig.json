@@ -1,0 +1,7 @@
+{
+    "extends": "@tooling/typescript/node",
+    "compilerOptions": {
+        "baseUrl": ".",
+    },
+    "include": ["./**/*.js", "config/nextjs.js", "bin/cli.js", "config/base.js"],
+}

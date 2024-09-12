@@ -1,0 +1,36 @@
+{
+    "name": "with-webauthn",
+    "packageManager": "yarn@4.3.1",
+    "private": true,
+    "type": "commonjs",
+    "engines": {
+        "node": "20"
+    },
+    "scripts": {
+        "postinstall": "turbo telemetry disable",
+        "build": "turbo run build --parallel",
+        "dev": "turbo run dev --concurrency 100%",
+        "cir-dep": "turbo run cir-dep --parallel",
+        "test:ci": "turbo run test:ci --parallel",
+        "lint": "turbo run lint --parallel",
+        "lint:fix": "turbo run lint --parallel -- --fix",
+        "format": "turbo run format --parallel",
+        "audit": "yarn npm audit --severity moderate --environment production --all",
+        "pre-commit": "prettier-format --staged --log-level=log && turbo run lint --parallel --force -- --staged --fix",
+        "prepare": "husky"
+    },
+    "workspaces": [
+        "examples/*",
+        "packages/*",
+        "tooling/*"
+    ],
+    "dependencies": {
+        "@tooling/eslint": "workspace:*",
+        "@tooling/prettier": "workspace:*",
+        "@tooling/typescript": "workspace:*",
+        "dotenv": "16.4.5",
+        "husky": "9.1.4",
+        "turbo": "2.0.14"
+    },
+    "prettier": "@tooling/prettier/config"
+}
