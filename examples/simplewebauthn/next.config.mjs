@@ -1,5 +1,4 @@
 // @ts-check
-import path from 'path';
 import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 
 import './src/env/env.mjs';
@@ -10,11 +9,6 @@ import './src/env/env.mjs';
 const nextConfig = {
     reactStrictMode: true,
     swcMinify: true,
-
-    output: 'standalone',
-    experimental: {
-        outputFileTracingRoot: path.join(import.meta.dirname, '../../'),
-    },
 
     i18n: {
         locales: ['en'],
