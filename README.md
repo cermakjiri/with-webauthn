@@ -13,6 +13,7 @@ A repository with full stack WebAuthn API examples.
     - Issuing a JWT token via Firebase Auth once user is authenticated.
     - Passkes are stored in Firebase Firestore.
     - Formatting and parsing of WebAuthn API request / responses done via SimpleWebAuthn library.
+    - 👉 [**Check out the demo**](https://with-webauthn.dev)
 
 ---
 
