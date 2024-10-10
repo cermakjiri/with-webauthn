@@ -14,7 +14,7 @@
     "dependencies": {
         "@ackee/antonio-core": "5.0.0",
         "@hookform/resolvers": "3.9.0",
-        "@sentry/nextjs": "^8",
+        "@sentry/nextjs": "8.33.1",
         "@simplewebauthn/browser": "10.0.0",
         "@simplewebauthn/server": "10.0.1",
         "@t3-oss/env-nextjs": "0.11.1",
