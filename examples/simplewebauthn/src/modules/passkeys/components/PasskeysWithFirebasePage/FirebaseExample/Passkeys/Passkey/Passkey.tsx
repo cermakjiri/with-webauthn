@@ -73,7 +73,7 @@ export const Passkey = ({ passkey, removable, removePasskey }: PasskeyProps) => 
                                 pb: 0.5,
                                 height: 'auto',
                             }}
-                            loading={removePasskey.isPending}
+                            disabled={removePasskey.isPending}
                             onClick={() => {
                                 removePasskey.mutate(passkey.id);
                             }}

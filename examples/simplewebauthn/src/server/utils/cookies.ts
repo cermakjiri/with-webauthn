@@ -1,7 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { parse, serialize, type CookieSerializeOptions } from 'cookie';
+import { parse, serialize, type SerializeOptions } from 'cookie';
 
-export interface SetCookieProps extends CookieSerializeOptions {
+export interface SetCookieProps extends SerializeOptions {
     name: string;
     value: string;
 }

@@ -1,5 +1,5 @@
 {
-    "name": "browserslist-config",
+    "name": "browserslist-config-custom",
     "version": "0.0.1",
     "type": "commonjs",
     "exports": {

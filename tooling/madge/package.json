@@ -10,7 +10,7 @@
     },
     "devDependencies": {
         "@tooling/prettier": "workspace:*",
-        "madge": "7.0.0"
+        "madge": "8.0.0"
     },
     "prettier": "@tooling/prettier/config"
 }
