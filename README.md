@@ -51,4 +51,4 @@ A repository with full stack WebAuthn API examples.
 
 ## Have you a found a bug?
 
-Please, open an [Github issue](https://github.com/cermakjiri/with-webauthn/issues/new/choose). Thank you. ❤️
+Please, open a [Github issue](https://github.com/cermakjiri/with-webauthn/issues/new/choose). Thank you. ❤️
