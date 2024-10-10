@@ -12,7 +12,7 @@ export const MainHeader = ({ pageTitle }: MainHeaderProps) => {
             <Head>
                 <title>{`${pageTitle} | With WebAuthn`}</title>
             </Head>
-            <PageHeader>With WebAuthn demos</PageHeader>
+            <PageHeader>With WebAuthn demo</PageHeader>
         </>
     );
 };
