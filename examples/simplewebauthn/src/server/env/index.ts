@@ -1,13 +1,15 @@
 import dotenv from 'dotenv';
 import { z } from 'zod';
 
-const envs = dotenv.config({
-    path: '.env.server',
-    processEnv: {},
-});
+if (process.env.NODE_ENV !== 'production') {
+    const envs = dotenv.config({
+        path: '.env.server',
+        processEnv: {},
+    });
 
-if (envs.error) {
-    throw new Error(envs.error.message);
+    if (envs.error) {
+        throw new Error(envs.error.message);
+    }
 }
 
 export const env = z
@@ -16,4 +18,8 @@ export const env = z
         FIREBASE_PRIVATE_KEY: z.string(),
         FIREBASE_CLIENT_EMAIL: z.string(),
     })
-    .parse(envs.parsed);
+    .parse({
+        FIREBASE_PROJECT_ID: process.env.FIREBASE_PROJECT_ID,
+        FIREBASE_PRIVATE_KEY: process.env.FIREBASE_PRIVATE_KEY,
+        FIREBASE_CLIENT_EMAIL: process.env.FIREBASE_CLIENT_EMAIL,
+    });

@@ -16,7 +16,9 @@ export function useCopyTextToClipboard() {
 
             await navigator.clipboard.write([clipboardItem]);
         },
-        onError: logger.error,
+        onError(error) {
+            logger.error(error);
+        },
         onSuccess: () => {
             snack('success', 'Copied to clipboard');
         },

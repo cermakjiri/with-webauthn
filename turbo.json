@@ -7,7 +7,7 @@
         "build": {
             "outputs": ["dist/**", ".next/**", "!.next/cache/**"],
             "dependsOn": ["cir-dep", "format", "lint", "^build"],
-            "inputs": ["$TURBO_DEFAULT$", ".env.local", ".env", ".env.local.server"]
+            "inputs": ["$TURBO_DEFAULT$", ".env.local", ".env", ".env.server"]
         },
         "lint": {
             "cache": true,
