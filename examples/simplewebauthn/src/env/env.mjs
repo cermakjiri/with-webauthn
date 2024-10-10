@@ -5,7 +5,7 @@ export const env = createEnv({
     shared: {
         NEXT_PUBLIC_CLIENT_ORIGIN: z.string().url(),
         NEXT_PUBLIC_DEV_SENTRY_DISABLED: z.enum(['true', 'false']).optional(),
-        NEXT_PUBLIC_SENTRY_DSN: z.string(),
+        NEXT_PUBLIC_SENTRY_DSN: process.env.NODE_ENV === 'development' ? z.string().optional() : z.string(),
     },
 
     client: {

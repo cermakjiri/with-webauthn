@@ -3,7 +3,7 @@ import { config } from 'dotenv';
 // @ts-check
 import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 
-// import './src/env/env.mjs';
+import './src/env/env.mjs';
 
 if (process.env.NODE_ENV === 'development') {
     config({

@@ -18,7 +18,7 @@ export const RegisterWithPasskey = () => {
                 schema={registerFormSchema}
                 defaultValues={{
                     // Some some random email to make it easier for demo users
-                    email: 'some.user@gmail.com',
+                    email: `user${Math.floor(Math.random() * 1e3)}@gmail.com`,
                 }}
                 onSubmit={registerPasskey}
             >

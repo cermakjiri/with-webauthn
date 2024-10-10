@@ -2,14 +2,9 @@ import dotenv from 'dotenv';
 import { z } from 'zod';
 
 if (process.env.NODE_ENV !== 'production') {
-    const envs = dotenv.config({
+    dotenv.config({
         path: '.env.server',
-        processEnv: {},
     });
-
-    if (envs.error) {
-        throw new Error(envs.error.message);
-    }
 }
 
 export const env = z

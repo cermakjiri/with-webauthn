@@ -1,6 +1,0 @@
-{
-    "extends": "@tooling/typescript/node",
-    "include": [
-        "**/*.js",
-    ],
-}
