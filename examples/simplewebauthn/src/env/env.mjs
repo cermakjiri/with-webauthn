@@ -4,6 +4,8 @@ import { z } from 'zod';
 export const env = createEnv({
     shared: {
         NEXT_PUBLIC_CLIENT_ORIGIN: z.string().url(),
+        NEXT_PUBLIC_DEV_SENTRY_DISABLED: z.enum(['true', 'false']).optional(),
+        NEXT_PUBLIC_SENTRY_DSN: z.string(),
     },
 
     client: {
@@ -26,6 +28,7 @@ export const env = createEnv({
     runtimeEnv: {
         NEXT_PUBLIC_NODE_ENV: process.env.NODE_ENV,
         NEXT_PUBLIC_CLIENT_ORIGIN: process.env.NEXT_PUBLIC_CLIENT_ORIGIN,
+        NEXT_PUBLIC_SENTRY_DSN: process.env.NEXT_PUBLIC_SENTRY_DSN,
 
         // Firebase
         NEXT_PUBLIC_FIREBASE_API_KEY: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
@@ -39,6 +42,7 @@ export const env = createEnv({
         // Dev
         ...(process.env.NODE_ENV === 'development' && {
             NEXT_PUBLIC_DEV_RETRY_QUERIES: process.env.NEXT_PUBLIC_DEV_RETRY_QUERIES,
+            NEXT_PUBLIC_DEV_SENTRY_DISABLED: process.env.NEXT_PUBLIC_DEV_SENTRY_DISABLED,
         }),
     },
 

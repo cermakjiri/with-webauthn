@@ -1,3 +1,5 @@
+import { captureException, setExtras } from '@sentry/browser';
+import type { Extras } from '@sentry/types';
 import { getLogger } from 'loglevel';
 
 export function createLogger(
@@ -14,5 +16,18 @@ export function createLogger(
         logger.disableAll();
     }
 
-    return logger;
+    const logError = logger.error;
+
+    return {
+        ...logger,
+        error: (error: any, extras?: Extras) => {
+            if (extras) {
+                setExtras(extras);
+            }
+
+            captureException(error);
+
+            logError(error, extras);
+        },
+    };
 }
