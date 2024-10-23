@@ -31,14 +31,14 @@ A repository with full stack WebAuthn API examples.
 ### How to start the project locally?
 
 1. Initialize package manager:
-   Make sure you're running Node v20. Then initialize a package manager (corepack) by calling:
+   Make sure you're running Node v20. Then initialize a package manager:
 
     ```sh
     corepack enable
     corepack install
     ```
 
-    It finds `packageManager` field and install Yarn 4.
+    It finds `packageManager` field and installs Yarn 4.
 
 2. Install dependencies:
 
