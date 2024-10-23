@@ -33,12 +33,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
         // This might happen if the user has removed the passkey from the account
         // but the private passkey source is still stored in a keychain / password manager.
         if (!passkey) {
-            /**
-             * Or we could return registration options and pass it back with a custom error code,
-             * so client can start registration process right away.
-             * Depends on a use-case, of course.
-             */
-            return res.status(400).end('Passkey not found.');
+            // Yes, this message would have been better however it could be a security risk (i.e. username enumeration):
+            // Checkout https://w3c.github.io/webauthn/#sctn-username-enumeration.
+            // return res.status(400).end('Passkey not found.');
+            return res.status(401).end('User not verified.');
         }
 
         const { transports, credentialId, credentialPublicKey, credentialCounter } = passkey;
