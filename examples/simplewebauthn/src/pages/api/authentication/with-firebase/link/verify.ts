@@ -43,10 +43,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
         const userId = idTokenResult.uid;
 
-        await addUserPasskey(userId, {
-            registrationResponse,
-            verifiedRegistrationInfo: verifiedRegistrationResponse.registrationInfo,
-        });
+        await addUserPasskey(userId, verifiedRegistrationResponse.registrationInfo);
 
         res.status(200).end();
     } catch (error) {

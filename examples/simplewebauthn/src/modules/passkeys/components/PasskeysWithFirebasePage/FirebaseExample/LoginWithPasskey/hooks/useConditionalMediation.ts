@@ -38,7 +38,10 @@ export function useConditionalMediation() {
 
                 logger.info('/authentication/with-firebase/login/options', publicKeyOptions);
 
-                const result = await startAuthentication(publicKeyOptions, true);
+                const result = await startAuthentication({
+                    optionsJSON: publicKeyOptions,
+                    useBrowserAutofill: true,
+                });
 
                 logger.info('startAuthentication', result);
 

@@ -1,6 +1,5 @@
 import { bufferToBase64URLString } from '@simplewebauthn/browser';
 import type { VerifiedRegistrationResponse } from '@simplewebauthn/server';
-import type { RegistrationResponseJSON } from '@simplewebauthn/types';
 
 import { db } from '~server/config/firebase';
 import { collections } from '~server/constants/collections';
@@ -55,35 +54,32 @@ export async function getUser(userId: User['id']) {
     return doc.data() as User;
 }
 
-interface CreateUserPasskeyProps {
-    registrationResponse: RegistrationResponseJSON;
-    verifiedRegistrationInfo: VerifiedRegistrationResponse['registrationInfo'];
-}
-
-function mapPropsToPasskey(userId: string, { verifiedRegistrationInfo, registrationResponse }: CreateUserPasskeyProps) {
-    const { credentialID, credentialPublicKey, counter, credentialBackedUp, credentialDeviceType, aaguid, rpID } =
-        verifiedRegistrationInfo!;
+function mapPropsToPasskey(userId: string, verifiedRegistrationInfo: VerifiedRegistrationResponse['registrationInfo']) {
+    const { credential, credentialBackedUp, credentialDeviceType, aaguid, rpID } = verifiedRegistrationInfo!;
 
     return {
-        credentialId: credentialID,
+        credentialId: credential.id,
         credentialBackedUp,
-        credentialPublicKey: bufferToBase64URLString(credentialPublicKey),
+        credentialPublicKey: bufferToBase64URLString(credential.publicKey),
         credentialDeviceType,
-        credentialCounter: counter,
+        credentialCounter: credential.counter,
         userId,
-        transports: registrationResponse.response.transports ?? [],
+        transports: credential.transports ?? [],
         rpId: rpID!,
         provider: getPasskeyProvider(aaguid),
     } satisfies AddPasskeyProps;
 }
 
-export async function createUserPasskey(username: string, createUserPaskeyProps: CreateUserPasskeyProps) {
+export async function createUserPasskey(
+    username: string,
+    verifiedRegistrationInfo: VerifiedRegistrationResponse['registrationInfo'],
+) {
     // Get empty document from user collection
     const newUserDoc = getNewUserDoc();
     const userId = newUserDoc.id;
 
     // Adds passkey to Firestore 'passkeys' collection
-    const passkey = await addPasskey(mapPropsToPasskey(userId, createUserPaskeyProps));
+    const passkey = await addPasskey(mapPropsToPasskey(userId, verifiedRegistrationInfo));
 
     await addUser(newUserDoc, {
         username,
@@ -99,14 +95,17 @@ export async function createUserPasskey(username: string, createUserPaskeyProps:
     return userId;
 }
 
-export async function addUserPasskey(userId: User['id'], createUserPaskeyProps: CreateUserPasskeyProps) {
+export async function addUserPasskey(
+    userId: User['id'],
+    verifiedRegistrationInfo: VerifiedRegistrationResponse['registrationInfo'],
+) {
     const user = await getUser(userId);
 
     if (!user) {
         throw new Error('User not found');
     }
 
-    const passkey = await addPasskey(mapPropsToPasskey(userId, createUserPaskeyProps));
+    const passkey = await addPasskey(mapPropsToPasskey(userId, verifiedRegistrationInfo));
 
     await updateUser(userId, {
         passkeyIds: [passkey.id, ...user.passkeyIds],

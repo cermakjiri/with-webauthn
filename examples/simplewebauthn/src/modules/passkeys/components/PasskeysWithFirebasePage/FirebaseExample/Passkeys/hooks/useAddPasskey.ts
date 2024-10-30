@@ -21,7 +21,9 @@ export function useAddPasskey() {
 
             logger.info('/authentication/with-firebase/link/options', publicKeyOptions);
 
-            const result = await startRegistration(publicKeyOptions);
+            const result = await startRegistration({
+                optionsJSON: publicKeyOptions,
+            });
 
             logger.info('Registration result:', result);
 

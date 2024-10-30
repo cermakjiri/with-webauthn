@@ -35,7 +35,7 @@
         "@tooling/madge": "workspace:*",
         "@tooling/prettier": "workspace:*",
         "@tooling/typescript": "workspace:*",
-        "@types/react": "18.3.11",
+        "@types/react": "18.3.12",
         "next": "14.2.16",
         "storybook": "8.3.6",
         "typescript": "5.6.3"
