@@ -6,6 +6,10 @@ export function createLogger(
     name: string,
     props: {
         outputToConsole: boolean;
+        /**
+         * If returns true, the error will be captured by Sentry.
+         */
+        captureExceptionFilter?: (error: Error) => boolean;
     },
 ) {
     const logger = getLogger(name);
@@ -17,6 +21,7 @@ export function createLogger(
     }
 
     const logError = logger.error;
+    const { captureExceptionFilter = () => true } = props;
 
     return {
         ...logger,
@@ -25,7 +30,9 @@ export function createLogger(
                 setExtras(extras);
             }
 
-            captureException(error);
+            if (captureExceptionFilter(error)) {
+                captureException(error);
+            }
 
             logError(error, extras);
         },
