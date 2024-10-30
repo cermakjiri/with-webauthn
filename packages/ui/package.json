@@ -23,21 +23,21 @@
         "@mui/material": "5.16.7",
         "@workspace/logger": "workspace:*",
         "radash": "12.1.0",
-        "react-hook-form": "7.53.0"
+        "react-hook-form": "7.53.1"
     },
     "devDependencies": {
-        "@storybook/addon-actions": "8.3.5",
-        "@storybook/addon-essentials": "8.3.5",
-        "@storybook/addon-interactions": "8.3.5",
-        "@storybook/nextjs": "8.3.5",
-        "@storybook/react": "8.3.5",
+        "@storybook/addon-actions": "8.3.6",
+        "@storybook/addon-essentials": "8.3.6",
+        "@storybook/addon-interactions": "8.3.6",
+        "@storybook/nextjs": "8.3.6",
+        "@storybook/react": "8.3.6",
         "@tooling/eslint": "workspace:*",
         "@tooling/madge": "workspace:*",
         "@tooling/prettier": "workspace:*",
         "@tooling/typescript": "workspace:*",
         "@types/react": "18.3.11",
-        "next": "14.2.15",
-        "storybook": "8.3.5",
+        "next": "14.2.16",
+        "storybook": "8.3.6",
         "typescript": "5.6.3"
     },
     "prettier": "@tooling/prettier/config"

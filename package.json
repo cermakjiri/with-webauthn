@@ -31,7 +31,7 @@
         "@tooling/typescript": "workspace:*",
         "dotenv": "16.4.5",
         "husky": "9.1.6",
-        "turbo": "2.1.3"
+        "turbo": "2.2.3"
     },
     "prettier": "@tooling/prettier/config",
     "license": "GPL-3.0-only",
