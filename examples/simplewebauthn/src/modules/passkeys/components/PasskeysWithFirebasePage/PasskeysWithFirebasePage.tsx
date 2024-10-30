@@ -8,17 +8,17 @@ import { ExampleWrapper } from './PasskeysWithFirebasePage.styles';
 export const PasskeysWithFirebasePage = () => {
     return (
         <>
-            <MainHeader pageTitle='WebAuthn Authentication with Firebase' />
+            <MainHeader pageTitle='Passkeys Authentication with Firebase' />
 
             <ExampleWrapper>
                 <Container maxWidth='lg'>
                     <ExampleHeader
-                        title='WebAuthn Authentication with Firebase'
+                        title='Passkeys authentication with Firebase'
                         description={
                             <>
-                                A full-stack example of creating a passkey (registration ceremony) and then retrieving
-                                it (login ceremony) with Firebase Firestore integration to store the passkey and
-                                Firebase Auth for issuing JWT token.
+                                A full-stack example of creating a passkey (attestation ceremony) and then retrieving it
+                                (assertation ceremony) with Firebase Firestore integration to store the passkey and
+                                Firebase Auth for issuing a JWT token.
                             </>
                         }
                     />
