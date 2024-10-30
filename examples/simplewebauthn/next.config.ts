@@ -1,7 +1,7 @@
+import type { NextConfig } from 'next';
 import { withSentryConfig } from '@sentry/nextjs';
 import { config } from 'dotenv';
-// @ts-check
-import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
+import type { dependencies } from 'package.json';
 
 import './src/env/env.mjs';
 
@@ -11,38 +11,17 @@ if (process.env.NODE_ENV === 'development') {
     });
 }
 
-/**
- * @type {import('next').NextConfig}
- */
-const nextConfig = {
+type Dependency = keyof typeof dependencies;
+
+const nextConfig: NextConfig = {
     reactStrictMode: true,
-    swcMinify: true,
 
     i18n: {
         locales: ['en'],
         defaultLocale: 'en',
     },
 
-    // https://dev.to/chromygabor/add-typescript-type-check-to-next-js-2nbb
-    webpack(config, options) {
-        // Do not run type checking twice:
-        if (options.dev && options.isServer) {
-            config.plugins.push(
-                new ForkTsCheckerWebpackPlugin({
-                    typescript: {
-                        memoryLimit: 4096,
-                    },
-                }),
-            );
-        }
-
-        return config;
-    },
-
-    /**
-     * @type {(keyof (typeof import('./package.json'))['dependencies'])[]}
-     */
-    transpilePackages: ['@workspace/ui', '@workspace/logger'],
+    transpilePackages: ['@workspace/ui', '@workspace/logger'] satisfies Dependency[],
 
     redirects: async () => {
         return [];
