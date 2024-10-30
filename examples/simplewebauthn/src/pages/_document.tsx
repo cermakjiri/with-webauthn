@@ -14,6 +14,10 @@ function MyDocument({ emotionStyleTags }: MyDocumentProps) {
         <Html lang='en'>
             <Head>
                 <meta charSet='utf-8' />
+                <meta
+                    name='description'
+                    content='A full-stack WebAuthn example of creating a passkey (attestation ceremony) and then retrieving it (assertation ceremony) with Firebase Firestore integration to store the passkey and Firebase Auth for issuing a JWT token.'
+                />
                 {/* TODO: */}
                 {/* <meta name='theme-color' content='#D2D119' /> */}
                 <meta name='emotion-insertion-point' content='' />
