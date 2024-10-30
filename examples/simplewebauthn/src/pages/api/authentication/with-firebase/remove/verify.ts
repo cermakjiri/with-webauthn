@@ -48,11 +48,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
             expectedRPID: challengeSession.rpId,
             expectedOrigin: challengeSession.origin,
             expectedChallenge: challengeSession.challenge,
-            authenticator: {
-                credentialPublicKey: new Uint8Array(base64URLStringToBuffer(credentialPublicKey)),
+            credential: {
+                publicKey: new Uint8Array(base64URLStringToBuffer(credentialPublicKey)),
                 counter: credentialCounter,
                 transports,
-                credentialID: credentialId,
+                id: credentialId,
             },
             requireUserVerification: true,
         });

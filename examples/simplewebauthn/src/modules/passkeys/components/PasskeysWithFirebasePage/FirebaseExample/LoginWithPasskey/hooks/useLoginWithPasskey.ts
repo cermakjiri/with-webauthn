@@ -33,7 +33,9 @@ export function useLoginWithPasskey(): FormProps<LoginFormSchema, LoginFormValue
 
             logger.info('/authentication/with-firebase/login/options', { publicKeyOptions });
 
-            const result = await startAuthentication(publicKeyOptions);
+            const result = await startAuthentication({
+                optionsJSON: publicKeyOptions,
+            });
 
             logger.info('Authentication result:', result);
 

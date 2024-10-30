@@ -33,7 +33,9 @@ export function useRegisterWithPasskey(): FormProps<RegisterFormSchema, Register
 
             logger.info('/authentication/with-firebase/register/options', { publicKeyOptions, username });
 
-            const result = await startRegistration(publicKeyOptions);
+            const result = await startRegistration({
+                optionsJSON: publicKeyOptions,
+            });
 
             logger.info('Registration result', result);
 

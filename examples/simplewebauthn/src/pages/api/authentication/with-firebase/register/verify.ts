@@ -50,10 +50,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
             return res.status(400).end('User already exists.');
         }
 
-        const userId = await createUserPasskey(username, {
-            registrationResponse,
-            verifiedRegistrationInfo: verifiedRegistrationResponse.registrationInfo,
-        });
+        const userId = await createUserPasskey(username, verifiedRegistrationResponse.registrationInfo);
 
         /**
          * Creates a new Firebase custom token (JWT)
