@@ -85,7 +85,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
             timeout: registrationOptions.timeout!,
             challenge,
             username: body.username,
-            webAuthnUserId: registrationOptions.user.id,
         });
 
         res.status(200).json({

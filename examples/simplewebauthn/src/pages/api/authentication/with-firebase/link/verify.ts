@@ -41,11 +41,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
         logger.debug('verifiedRegistrationResponse', verifiedRegistrationResponse);
 
-        const { webAuthnUserId } = challengeSession;
         const userId = idTokenResult.uid;
 
         await addUserPasskey(userId, {
-            webAuthnUserId,
             registrationResponse,
             verifiedRegistrationInfo: verifiedRegistrationResponse.registrationInfo,
         });

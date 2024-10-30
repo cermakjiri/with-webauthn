@@ -15,11 +15,9 @@ export type InitializeChallengeSessionProps = {
     | {
           type: 'attestation';
           username: string;
-          webAuthnUserId: string;
       }
     | {
           type: 'assertion';
-          challenge: ArrayBuffer;
       }
 );
 

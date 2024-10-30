@@ -12,11 +12,6 @@ export type Passkey = {
     userId: string;
 
     /**
-     * User ID required by WebAuthn API
-     */
-    webAuthnUserId: Base64URLString;
-
-    /**
      * Credential ID as a base64url encoded string
      */
     credentialId: Base64URLString;
@@ -101,7 +96,6 @@ export type ChallengeSession = {
     | {
           type: 'attestation';
           username: string;
-          webAuthnUserId: string;
       }
     | {
           type: 'assertion';
