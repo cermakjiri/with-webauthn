@@ -43,6 +43,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
 
             challenge,
 
+            /**
+             * We might not want to provide list of available passkeys to unauthenticated users for privacy reasons:
+             * - https://w3c.github.io/webauthn/#sctn-credential-id-privacy-leak
+             * - https://w3c.github.io/webauthn/#sctn-unprotected-account-detection (This is not relevent for this demo but, I believe, developers should be aware of this when implementing WebAuthn in production.)
+             * // TODO: implement protection against privacy leaks above
+             */
             allowCredentials: passkeys.map(({ credentialId, transports }) => ({
                 id: credentialId,
                 transports,

@@ -56,15 +56,11 @@ export async function getUser(userId: User['id']) {
 }
 
 interface CreateUserPasskeyProps {
-    webAuthnUserId: string;
     registrationResponse: RegistrationResponseJSON;
     verifiedRegistrationInfo: VerifiedRegistrationResponse['registrationInfo'];
 }
 
-function mapPropsToPasskey(
-    userId: string,
-    { verifiedRegistrationInfo, registrationResponse, webAuthnUserId }: CreateUserPasskeyProps,
-) {
+function mapPropsToPasskey(userId: string, { verifiedRegistrationInfo, registrationResponse }: CreateUserPasskeyProps) {
     const { credentialID, credentialPublicKey, counter, credentialBackedUp, credentialDeviceType, aaguid, rpID } =
         verifiedRegistrationInfo!;
 
@@ -75,7 +71,6 @@ function mapPropsToPasskey(
         credentialDeviceType,
         credentialCounter: counter,
         userId,
-        webAuthnUserId,
         transports: registrationResponse.response.transports ?? [],
         rpId: rpID!,
         provider: getPasskeyProvider(aaguid),

@@ -42,13 +42,10 @@ export async function getPasskey(id: Passkey['id']) {
     return doc.data() as Passkey;
 }
 
-export async function getPasskeyBy<PropName extends keyof Passkey>(
-    propName: PropName,
-    webAuthnUserId: Passkey[PropName],
-) {
+export async function getPasskeyBy<PropName extends keyof Passkey>(propName: PropName, propValue: Passkey[PropName]) {
     const query = await db()
         .collection(collections.Passkeys)
-        .where(propName, '==', webAuthnUserId satisfies Passkey[PropName])
+        .where(propName, '==', propValue satisfies Passkey[PropName])
         .offset(0)
         .limit(1)
         .get();

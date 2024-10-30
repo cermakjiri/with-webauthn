@@ -42,7 +42,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
         // Just an example what you can do with the result, not needed for this current authentication process itself
         // parseRegistrationResponse(registrationResponse);
 
-        const { username, webAuthnUserId } = challengeSession;
+        const { username } = challengeSession;
 
         const existingUser = await findUserByUsername(username);
 
@@ -51,7 +51,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
         }
 
         const userId = await createUserPasskey(username, {
-            webAuthnUserId,
             registrationResponse,
             verifiedRegistrationInfo: verifiedRegistrationResponse.registrationInfo,
         });
