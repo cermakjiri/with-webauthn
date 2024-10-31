@@ -1,6 +1,7 @@
 export * from './Button';
 export * from './Card';
 export * from './Code';
+export * from './ExampleDescription';
 export * from './ExampleFrame';
 export * from './ExampleHeader';
 export * from './ExternalLink';
