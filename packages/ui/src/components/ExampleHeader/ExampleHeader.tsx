@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react';
+import { Box } from '@mui/material';
 
 import { Words } from '../Words';
 
@@ -10,20 +11,17 @@ export interface ExampleHeaderProps {
 export const ExampleHeader = ({ title, description }: ExampleHeaderProps) => {
     return (
         <>
-            <Words variant='h2' sx={{ fontWeight: 'bold' }}>
+            <Words variant='h2' sx={{ fontWeight: 'bold', marginBottom: 2 }}>
                 {title}
             </Words>
-            <Words
-                variant='body2'
+            <Box
                 mt={1}
                 sx={{
-                    maxWidth: '600px',
-                    textWrap: 'balance',
-                    lineHeight: '1.65',
+                    maxWidth: '800px',
                 }}
             >
                 {description}
-            </Words>
+            </Box>
         </>
     );
 };

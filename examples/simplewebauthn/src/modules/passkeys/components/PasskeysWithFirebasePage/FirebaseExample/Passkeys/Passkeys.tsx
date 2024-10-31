@@ -17,8 +17,6 @@ export const Passkeys = () => {
     const postRemovalDialog = useDialog<PostRemovalDialogProps['data']>();
     const removePasskey = useRemovePasskey(postRemovalDialog.openDialog);
 
-    // TODO: How to detect if given passkey has been removed from a authenticator (e.g. removed from Apple keychain)?
-
     return (
         <>
             <PasskeysHeader>

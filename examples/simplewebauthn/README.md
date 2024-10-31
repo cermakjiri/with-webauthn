@@ -1,6 +1,6 @@
 # Passkeys with SimpleWebAuthn & Firebase
 
--   Creating (user registration), retrieving (user login), linking, removing of passkeys.
+-   Creating (user registration), retrieving (user login), linking multiple, and removing passkeys.
 -   Issuing a JWT token via Firebase Auth once user is authenticated.
 -   Passkes are stored in Firebase Firestore.
 -   Formatting and parsing of WebAuthn API request / responses done via SimpleWebAuthn library.

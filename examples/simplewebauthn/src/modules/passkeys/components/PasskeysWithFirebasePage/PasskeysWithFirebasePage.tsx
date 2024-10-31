@@ -1,4 +1,6 @@
-import { Container, ExampleHeader } from '@workspace/ui';
+import Link from 'next/link';
+
+import { Container, ExampleDescription, ExampleHeader } from '@workspace/ui';
 
 import { MainHeader } from '~modules/layout/components';
 
@@ -8,64 +10,33 @@ import { ExampleWrapper } from './PasskeysWithFirebasePage.styles';
 export const PasskeysWithFirebasePage = () => {
     return (
         <>
-            <MainHeader pageTitle='Passkeys Authentication with Firebase' />
+            <MainHeader pageTitle='Passkeys authentication' />
 
             <ExampleWrapper>
                 <Container maxWidth='lg'>
                     <ExampleHeader
-                        title='Passkeys authentication with Firebase'
+                        title='Authenticate with passkeys'
                         description={
-                            <>
-                                A full-stack example of creating a passkey (attestation ceremony) and then retrieving it
-                                (assertation ceremony) with Firebase Firestore integration to store the passkey and
-                                Firebase Auth for issuing a JWT token.
-                            </>
+                            <ExampleDescription
+                                description='This demo showcases the use of WebAuthn API:'
+                                features={[
+                                    'Creating (user registration), retrieving (user login), linking multiple, and removing passkeys.',
+                                    <>
+                                        Formatting and parsing of WebAuthn API requests / responses with{' '}
+                                        <Link href='https://simplewebauthn.dev' target='_blank'>
+                                            SimpleWebAuthn
+                                        </Link>
+                                        .
+                                    </>,
+                                    'Issuing a JWT token via Firebase Auth once user is authenticated.',
+                                    'Passkes are stored in Firebase Firestore.',
+                                ]}
+                            />
                         }
                     />
-
                     <FirebaseExample />
-
-                    {/* <Words variant='body2' sx={{ mt: 6 }}>
-                        TODO: example stack - list of badges (and tooltips) TODO: complete diagrams for registration and
-                        login ceremonies
-                    </Words> */}
                 </Container>
             </ExampleWrapper>
-
-            {/* <FeaturesContainer maxWidth='lg'>
-                <Features
-                    featuresWithCategory={[
-                        {
-                            icon: <Add />,
-                            name: 'Pros',
-                            features: [
-                                {
-                                    label: 'Feature 1',
-                                    description: 'The passkey is stored in Firebase Firestore database.',
-                                },
-                                {
-                                    label: 'Feature 2',
-                                    description: 'The email is used as passkey username.',
-                                },
-                            ],
-                        },
-                        {
-                            icon: <Remove />,
-                            name: 'Cons',
-                            features: [
-                                {
-                                    label: 'Feature 1',
-                                    description: 'Description 1 of the feature 1 of the pros section',
-                                },
-                                {
-                                    label: 'Feature 2',
-                                    description: 'Description 1 of the feature 1 of the pros section',
-                                },
-                            ],
-                        },
-                    ]}
-                />
-            </FeaturesContainer> */}
         </>
     );
 };
