@@ -3084,6 +3084,7 @@ __metadata:
     next: "npm:15.0.3"
     react: "npm:18.3.1"
     react-dom: "npm:18.3.1"
+    typescript: "npm:5.6.3"
     typescript-eslint: "npm:8.13.0"
   bin:
     eslint-lint: ./bin/cli.js
@@ -3726,6 +3727,7 @@ __metadata:
     "@types/react-dom": "npm:18.3.1"
     "@workspace/logger": "workspace:*"
     cookie: "npm:1.0.1"
+    core-js: "npm:3.39.0"
     firebase: "npm:11.0.1"
     firebase-admin: "npm:12.7.0"
     next: "npm:15.0.3"
@@ -4467,6 +4469,13 @@ __metadata:
   version: 1.0.1
   resolution: "cookie@npm:1.0.1"
   checksum: 10c0/80afdcad7fe9cab7a0ea1802629f6f4cf9ff957e9489daa7a813e3ac4ca842b0e5ab3f8e6a6ddc1f3f5c771b81c229afd6f0f3c083025d68c48d214ea8fb1097
+  languageName: node
+  linkType: hard
+
+"core-js@npm:3.39.0":
+  version: 3.39.0
+  resolution: "core-js@npm:3.39.0"
+  checksum: 10c0/f7602069b6afb2e3298eec612a5c1e0c3e6a458930fbfc7a4c5f9ac03426507f49ce395eecdd2d9bae9024f820e44582b67ffe16f2272395af26964f174eeb6b
   languageName: node
   linkType: hard
 
@@ -9526,6 +9535,8 @@ __metadata:
     "@workspace/common": "workspace:*"
     browserslist-config-custom: "workspace:*"
     next: "npm:15.0.3"
+    react: "npm:18.3.1"
+    react-dom: "npm:18.3.1"
   languageName: unknown
   linkType: soft
 
