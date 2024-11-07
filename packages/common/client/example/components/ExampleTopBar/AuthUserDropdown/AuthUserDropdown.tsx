@@ -1,9 +1,9 @@
 import { useState } from 'react';
 
-import { useExampleAuthSession } from '~client/example/components';
 import { Box, Divider, IconButton, Menu, MenuItem } from '~client/ui-kit';
 import { AccountCircle } from '~client/ui-kit/icons';
 
+import { useExampleAuthSession } from '../../ExampleAuth';
 import { useLogout } from './hooks/useLogout';
 
 export interface AuthUserDropdownProps {

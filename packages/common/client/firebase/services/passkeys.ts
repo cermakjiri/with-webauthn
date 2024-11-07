@@ -4,7 +4,7 @@ import { db } from '@workspace/common/client/firebase/config';
 import { collections } from '@workspace/common/server/constants/collections';
 import type { Passkey } from '@workspace/common/types';
 
-export const getPasskeys = async (userId: Passkey['userId']) => {
+export const fetchUserPasskeys = async (userId: Passkey['userId']) => {
     const passkeysCollection = collection(db(), collections.Passkeys);
 
     const withUserId = where('userId' satisfies keyof Passkey, '==', userId satisfies Passkey['userId']);
@@ -17,6 +17,6 @@ export const getPasskeys = async (userId: Passkey['userId']) => {
             ({
                 ...doc.data(),
                 id: doc.id,
-            }) as Passkey & { id: string },
+            }) as Passkey,
     );
 };

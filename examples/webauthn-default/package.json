@@ -13,7 +13,7 @@
     },
     "dependencies": {
         "@workspace/common": "workspace:*",
-        "next": "15.0.2"
+        "next": "15.0.3"
     },
     "devDependencies": {
         "@tooling/eslint": "workspace:*",

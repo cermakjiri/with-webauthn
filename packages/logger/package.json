@@ -7,7 +7,7 @@
         "react": "18.x"
     },
     "dependencies": {
-        "@sentry/browser": "8.35.0",
+        "@sentry/browser": "8.37.1",
         "loglevel": "1.9.2"
     },
     "devDependencies": {

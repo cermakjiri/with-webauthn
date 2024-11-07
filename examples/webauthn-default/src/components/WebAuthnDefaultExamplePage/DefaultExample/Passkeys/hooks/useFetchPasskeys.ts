@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 
 import { useAuthUser } from '@workspace/common/client/example/components';
-import { getPasskeys } from '@workspace/common/server/services/passkeys';
+import { fetchUserPasskeys } from '@workspace/common/client/firebase/services/passkeys';
 
 export function useFetchPasskeys() {
     const authUser = useAuthUser();
@@ -9,7 +9,7 @@ export function useFetchPasskeys() {
 
     return useQuery({
         queryKey: ['passkeys', uid],
-        queryFn: async () => getPasskeys(uid),
+        queryFn: () => fetchUserPasskeys(uid),
         initialData: [],
     });
 }
