@@ -12,9 +12,6 @@ import { compat } from './utils/index.js';
 export const typescript = tseslint.config({
     files: ['**/*.{ts,tsx}'],
     languageOptions: {
-        parserOptions: {
-            warnOnUnsupportedTypeScriptVersion: false,
-        },
         parser: tseslint.parser,
     },
     plugins: {
