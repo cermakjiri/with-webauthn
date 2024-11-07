@@ -1,0 +1,16 @@
+{
+    "extends": "@tooling/typescript/nextjs",
+    "compilerOptions": {
+        "baseUrl": ".",
+        "paths": {
+            "~*": [
+                "./*"
+            ],
+        }
+    },
+    "include": [
+        "**/*.ts",
+        "**/*.tsx",
+        "client/env/env.mjs",
+    ]
+}
