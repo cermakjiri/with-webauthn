@@ -4,24 +4,24 @@ export type Pathname = string;
 export type RenderRoute = () => ReactElement;
 export type UnknownRoutes = Readonly<Record<Pathname, RenderRoute>>;
 
+export type ExampleRouterContextValue<Routes extends UnknownRoutes> = {
+    routes: Routes;
+    currentRoute: keyof Routes;
+    redirect: (route: keyof Routes) => void;
+};
+
+export interface ExampleRouterProps<Routes extends UnknownRoutes> {
+    children: ReactNode;
+    initialRoute: keyof Routes;
+    routes: Routes;
+}
+
 export function createExampleRouter<Routes extends UnknownRoutes>() {
     type Route = keyof Routes;
 
-    type ExampleRouterContextValue = {
-        routes: Routes;
-        currentRoute: Route;
-        redirect: (route: Route) => void;
-    };
+    const ExampleRouterContext = createContext<ExampleRouterContextValue<Routes> | undefined>(undefined);
 
-    const ExampleRouterContext = createContext<ExampleRouterContextValue | undefined>(undefined);
-
-    interface ExampleRouterProps {
-        children: ReactNode;
-        initialRoute: Route;
-        routes: Routes;
-    }
-
-    const ExampleRouter = ({ children, initialRoute, routes }: ExampleRouterProps) => {
+    const ExampleRouter = ({ children, initialRoute, routes }: ExampleRouterProps<Routes>) => {
         const [currentRoute, setCurrentRoute] = useState<keyof Routes>(initialRoute);
 
         return (

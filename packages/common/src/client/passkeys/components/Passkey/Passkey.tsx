@@ -1,8 +1,8 @@
 import type { UseMutationResult } from '@tanstack/react-query';
 
-import type { Passkey as TPasskey } from '~client/types';
 import { Button, Card, CardContent } from '~client/ui-kit';
 import { Delete } from '~client/ui-kit/icons';
+import type { Passkey as TPasskey } from '~types';
 
 import { BackedUp } from './BackedUp';
 import { Caption } from './Caption';

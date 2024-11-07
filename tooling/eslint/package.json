@@ -5,10 +5,6 @@
     "bin": {
         "eslint-lint": "./bin/cli.js"
     },
-    "files": [
-        "bin",
-        "config"
-    ],
     "exports": {
         "./config": "./config/next.js"
     },

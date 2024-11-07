@@ -66,6 +66,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
 
         await updatePasskey(passkey.id, {
             credentialCounter: result.authenticationInfo.newCounter,
+            // @ts-expect-error
             lastUsedAt: FieldValue.serverTimestamp(),
         });
 

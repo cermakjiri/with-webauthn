@@ -1,8 +1,8 @@
 import { collection, getDocs, limit, orderBy, query, where } from 'firebase/firestore';
 
-import { db } from '@workspace/common/client/firebase/config';
-import { collections } from '@workspace/common/server/constants/collections';
-import type { Passkey } from '@workspace/common/types';
+import { db } from '~client/firebase/config';
+import { collections } from '~server/constants/collections';
+import type { Passkey } from '~types';
 
 export const fetchUserPasskeys = async (userId: Passkey['userId']) => {
     const passkeysCollection = collection(db(), collections.Passkeys);

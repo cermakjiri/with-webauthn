@@ -2,22 +2,20 @@
     "extends": "@tooling/typescript/nextjs",
     "compilerOptions": {
         "baseUrl": ".",
-        "jsx": "preserve",
         "paths": {
             "~*": [
                 "./src/*",
             ],
-            "@workspace/common/*": [
-                "../../common/*",
-            ],
             "~public/*": [
                 "./public/*"
             ],
+            "@workspace/common/*": [
+                "../../packages/common/dist/*"
+            ]
         }
     },
     "include": [
         "**/*.ts",
-        "**/*.tsx",
-        "**/*.mts"
+        "**/*.tsx"
     ]
 }

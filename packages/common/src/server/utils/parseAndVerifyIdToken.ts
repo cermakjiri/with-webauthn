@@ -1,5 +1,4 @@
-import { logger } from '@workspace/common/logger';
-
+import { logger } from '~logger';
 import { auth } from '~server/config/firebase';
 
 export async function parseAndVerifyIdToken(authorizationHeader: string | undefined) {

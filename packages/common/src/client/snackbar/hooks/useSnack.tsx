@@ -1,10 +1,21 @@
+// @ts-ignore
 import { useCallback, type ReactNode } from 'react';
 import { toast as toasts, type ToastOptions } from 'react-toastify';
 
 import { Alert, alertClasses, Words } from '~client/ui-kit';
 
+export type * from 'react-toastify';
+
+export type SnackType = 'success' | 'error';
+
+export type UseSnack = (
+    type: SnackType,
+    message: ReactNode,
+    options?: ToastOptions,
+) => Readonly<(typeof toasts)[SnackType]>;
+
 export function useSnack() {
-    return useCallback((type: 'success' | 'error', message: ReactNode, options?: ToastOptions) => {
+    return useCallback<UseSnack>((type, message, options) => {
         const toast = toasts[type];
 
         const toastId = toast(
@@ -32,6 +43,6 @@ export function useSnack() {
             },
         );
 
-        return { ...toasts, toastId };
+        return { ...toasts, toastId } as const;
     }, []);
 }

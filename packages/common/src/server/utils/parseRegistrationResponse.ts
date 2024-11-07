@@ -7,7 +7,7 @@ import {
 } from '@simplewebauthn/server/helpers';
 import type { RegistrationResponseJSON } from '@simplewebauthn/types';
 
-import { logger } from '@workspace/common/logger';
+import { logger } from '~logger';
 
 /**
  * An example of how to all data parse the registration response.

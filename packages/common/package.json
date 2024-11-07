@@ -7,7 +7,8 @@
         "lint": "eslint-lint --config=eslint.config.mjs ./**/*.{ts,tsx}",
         "lint:fix": "yarn lint --fix",
         "format": "prettier-format",
-        "cir-dep": "check-cir-deps ."
+        "cir-dep": "check-cir-deps .",
+        "build": "tsc && tsc-alias"
     },
     "dependencies": {
         "@ackee/antonio-core": "5.0.0",
@@ -38,6 +39,7 @@
         "react-intl": "6.8.7",
         "react-toastify": "10.0.6",
         "reset.css": "2.0.2",
+        "typescript": "5.6.3",
         "zod": "3.23.8"
     },
     "devDependencies": {
@@ -46,6 +48,7 @@
         "@tooling/prettier": "workspace:*",
         "@tooling/typescript": "workspace:*",
         "@types/react": "18.3.12",
-        "@types/react-dom": "18.3.1"
+        "@types/react-dom": "18.3.1",
+        "tsc-alias": "1.8.10"
     }
 }
