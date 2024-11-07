@@ -20,7 +20,7 @@
         "dev": {
             "cache": false,
             "persistent": true,
-            "dependsOn": ["cir-dep"]
+            "dependsOn": ["cir-dep", "format"]
         },
         "cir-dep": {
             "cache": true,

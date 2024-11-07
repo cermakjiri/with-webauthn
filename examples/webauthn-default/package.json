@@ -1,0 +1,29 @@
+{
+    "name": "webauthn-default-example",
+    "version": "0.0.1",
+    "type": "module",
+    "scripts": {
+        "dev": "next dev --turbopack",
+        "build": "next build",
+        "start": "next start",
+        "lint": "eslint-lint --config=eslint.config.mjs ./src/**/*.{ts,tsx}",
+        "lint:fix": "yarn lint --fix",
+        "format": "prettier-format",
+        "cir-dep": "check-cir-deps ./src"
+    },
+    "dependencies": {
+        "@workspace/common": "workspace:*",
+        "next": "15.0.2"
+    },
+    "devDependencies": {
+        "@tooling/eslint": "workspace:*",
+        "@tooling/madge": "workspace:*",
+        "@tooling/prettier": "workspace:*",
+        "@tooling/typescript": "workspace:*",
+        "browserslist-config-custom": "workspace:*"
+    },
+    "prettier": "@tooling/prettier/config",
+    "browserslist": [
+        "extends browserslist-config-custom"
+    ]
+}

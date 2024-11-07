@@ -3,7 +3,7 @@
     "version": "0.0.1",
     "type": "module",
     "peerDependencies": {
-        "next": "14.x",
+        "next": "15.x",
         "react": "18.x"
     },
     "dependencies": {
@@ -18,6 +18,6 @@
     "prettier": "@tooling/prettier/config",
     "scripts": {
         "format": "prettier-format --write ./*.ts",
-        "lint": "eslint-lint --config eslint.config.mjs './**/*.ts'"
+        "lint": "eslint-lint --config eslint.config.mjs ./**/*.ts"
     }
 }
