@@ -9,7 +9,7 @@
     },
     "scripts": {
         "postinstall": "turbo telemetry disable",
-        "build": "turbo run build --parallel",
+        "build": "turbo run build",
         "dev": "turbo run dev --concurrency 100%",
         "cir-dep": "turbo run cir-dep --parallel",
         "test:ci": "turbo run test:ci --parallel",
