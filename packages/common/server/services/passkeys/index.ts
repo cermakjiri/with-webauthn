@@ -21,7 +21,7 @@ export async function addPasskey(passkey: AddPasskeyProps) {
     return createdPasskey.data() as Passkey;
 }
 
-export async function getPasskeys(userId: Passkey['userId']) {
+export async function getPasskeys(userId: Passkey['userId']): Promise<Passkey[]> {
     const querySnapshot = await db()
         .collection(collections.Passkeys)
         .where('userId' satisfies keyof Passkey, '==', userId satisfies Passkey['userId'])
