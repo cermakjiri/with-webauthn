@@ -8,7 +8,7 @@ A repository with full stack WebAuthn API examples.
 
 ## Examples
 
-1. **[Passkeys with SimpleWebAuthn & Firebase](examples/simplewebauthn)**
+1. **[Default WebAuthn Example - Passkeys with SimpleWebAuthn & Firebase](examples/webauthn-default/README.md)**
     - Creating (user registration), retrieving (user login), linking multiple, and removing passkeys.
     - Issuing a JWT token via Firebase Auth once user is authenticated.
     - Passkes are stored in Firebase Firestore.
@@ -47,7 +47,7 @@ A repository with full stack WebAuthn API examples.
     ```
 
 3. Then continue with final steps for specific example:
-    - [Passkeys with SimpleWebAuthn & Firebase](examples/simplewebauthn/README.md)
+    - [Passkeys with SimpleWebAuthn & Firebase](examples/webauthn-default/README.md)
 
 ## Have you a found a bug?
 

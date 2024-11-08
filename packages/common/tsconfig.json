@@ -1,0 +1,24 @@
+{
+    "extends": "@tooling/typescript/nextjs",
+    "compilerOptions": {
+        "baseUrl": "./src",
+        "paths": {
+            "~*": [
+                "./*"
+            ],
+        },
+        "outDir": "dist",
+        "declaration": true,
+        "declarationMap": true,
+        "declarationDir": "dist",
+        "noEmit": false,
+    },
+    "include": [
+        "./src/**/*.ts",
+        "./src/**/*.tsx",
+    ],
+    "exclude": [
+        "dist",
+        "node_modules"
+    ],
+}
