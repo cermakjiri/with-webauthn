@@ -1,14 +1,12 @@
 {
-    "name": "@workspace/logger",
+    "name": "@workspace/sentry",
     "version": "0.0.1",
     "type": "module",
-    "peerDependencies": {
-        "@sentry/nextjs": "8.x",
-        "next": "15.x",
-        "react": "18.x"
-    },
     "dependencies": {
-        "loglevel": "1.9.2"
+        "@sentry/nextjs": "8.37.1",
+        "next": "15.0.3",
+        "react": "18.3.1",
+        "react-dom": "18.3.1"
     },
     "devDependencies": {
         "@tooling/eslint": "workspace:*",

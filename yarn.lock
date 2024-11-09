@@ -3749,14 +3749,28 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@workspace/logger@workspace:packages/logger"
   dependencies:
-    "@sentry/browser": "npm:8.37.1"
     "@tooling/eslint": "workspace:*"
     "@tooling/prettier": "workspace:*"
     "@tooling/typescript": "workspace:*"
     loglevel: "npm:1.9.2"
   peerDependencies:
+    "@sentry/nextjs": 8.x
     next: 15.x
     react: 18.x
+  languageName: unknown
+  linkType: soft
+
+"@workspace/sentry@workspace:*, @workspace/sentry@workspace:packages/sentry":
+  version: 0.0.0-use.local
+  resolution: "@workspace/sentry@workspace:packages/sentry"
+  dependencies:
+    "@sentry/nextjs": "npm:8.37.1"
+    "@tooling/eslint": "workspace:*"
+    "@tooling/prettier": "workspace:*"
+    "@tooling/typescript": "workspace:*"
+    next: "npm:15.0.3"
+    react: "npm:18.3.1"
+    react-dom: "npm:18.3.1"
   languageName: unknown
   linkType: soft
 
@@ -9581,6 +9595,24 @@ __metadata:
     "@tooling/prettier": "workspace:*"
     "@tooling/typescript": "workspace:*"
     "@workspace/common": "workspace:*"
+    "@workspace/sentry": "workspace:*"
+    browserslist-config-custom: "workspace:*"
+    next: "npm:15.0.3"
+    react: "npm:18.3.1"
+    react-dom: "npm:18.3.1"
+  languageName: unknown
+  linkType: soft
+
+"webauthn-upgrade-example@workspace:examples/webauthn-upgrade":
+  version: 0.0.0-use.local
+  resolution: "webauthn-upgrade-example@workspace:examples/webauthn-upgrade"
+  dependencies:
+    "@tooling/eslint": "workspace:*"
+    "@tooling/madge": "workspace:*"
+    "@tooling/prettier": "workspace:*"
+    "@tooling/typescript": "workspace:*"
+    "@workspace/common": "workspace:*"
+    "@workspace/sentry": "workspace:*"
     browserslist-config-custom: "workspace:*"
     next: "npm:15.0.3"
     react: "npm:18.3.1"

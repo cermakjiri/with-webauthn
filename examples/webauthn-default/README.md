@@ -33,3 +33,4 @@ Assuming you've already finished [those steps in the main README](../../README.m
     5. Create a Firebase firestore database
 
 2. Run `yarn dev` and checkout `http://localhost:3000` URL.
+3. Hey mate, welcome to the WebAuthn world. 🙌
