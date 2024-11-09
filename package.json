@@ -16,7 +16,7 @@
         "lint": "turbo run lint --parallel",
         "lint:fix": "turbo run lint --parallel -- --fix",
         "format": "turbo run format --parallel",
-        "audit": "yarn npm audit --severity moderate --environment production --all",
+        "audit": "yarn npm audit --severity moderate --all",
         "pre-commit": "prettier-format --staged --log-level=log && turbo run lint --parallel --force -- --staged --fix",
         "prepare": "husky"
     },
