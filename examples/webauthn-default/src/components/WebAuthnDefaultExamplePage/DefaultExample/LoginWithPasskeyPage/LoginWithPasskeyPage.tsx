@@ -12,7 +12,7 @@ import { useConditionalMediation } from './hooks/useConditionalMediation';
 import { useLoginWithPasskey } from './hooks/useLoginWithPasskey';
 import { loginFormSchema, type LoginFormSchema, type LoginFormValues } from './schema';
 
-export const LoginWithPasskey = () => {
+export const LoginWithPasskeyPage = () => {
     const conditionalMediation = useConditionalMediation();
     const loginWithPasskey = useLoginWithPasskey();
     const { redirect } = useExampleRouter();

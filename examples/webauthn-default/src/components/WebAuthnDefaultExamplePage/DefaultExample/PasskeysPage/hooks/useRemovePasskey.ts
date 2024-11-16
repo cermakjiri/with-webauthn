@@ -4,14 +4,13 @@ import { useMutation } from '@tanstack/react-query';
 import { queryClient } from '@workspace/common/client/api/components';
 import { fetcher } from '@workspace/common/client/api/fetcher';
 import { useAuthUser } from '@workspace/common/client/example/components';
+import type { PostRemovalDialogProps } from '@workspace/common/client/passkeys/components';
 import { useSnack } from '@workspace/common/client/snackbar/hooks';
 import { logger } from '@workspace/common/logger';
 import type { Passkey } from '@workspace/common/types';
 
 import type { StartRemovalResponseData } from '~pages/api/webauthn/remove/options';
 import type { VerifyRemovalRequestData } from '~pages/api/webauthn/remove/verify';
-
-import type { PostRemovalDialogProps } from '../PostRemovalDialog';
 
 /**
  * Remove a passkey from the user's account. User must verify their identity before removing the passkey.

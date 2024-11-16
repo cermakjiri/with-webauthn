@@ -1,20 +1,20 @@
-import { QueryError, QueryLoader } from '@workspace/common/client/api/components';
-import { useDialog } from '@workspace/common/client/dialog/hooks';
-import { Passkey } from '@workspace/common/client/passkeys/components';
-import { Button, Words } from '@workspace/common/client/ui-kit';
-import { Fingerprint } from '@workspace/common/client/ui-kit/icons';
+import { Fingerprint } from '@mui/icons-material';
+import type { UseMutationResult } from '@tanstack/react-query';
 
-import { useAddPasskey } from './hooks/useAddPasskey';
+import { QueryError, QueryLoader } from '~client/api/components';
+import { Button, Words } from '~client/ui-kit';
+
+import { Passkey, type PasskeyProps } from '../Passkey/Passkey';
 import { useFetchPasskeys } from './hooks/useFetchPasskeys';
-import { useRemovePasskey } from './hooks/useRemovePasskey';
 import { PasskeysHeader, PasskeysList } from './Passkeys.styles';
-import { PostRemovalDialog, type PostRemovalDialogProps } from './PostRemovalDialog';
 
-export const Passkeys = () => {
+export interface PasskeysProps {
+    addPasskey: UseMutationResult<void, any, void>;
+    removePasskey: PasskeyProps['removePasskey'];
+}
+
+export const Passkeys = ({ addPasskey, removePasskey }: PasskeysProps) => {
     const passkeysResult = useFetchPasskeys();
-    const addPasskey = useAddPasskey();
-    const postRemovalDialog = useDialog<PostRemovalDialogProps['data']>();
-    const removePasskey = useRemovePasskey(postRemovalDialog.openDialog);
 
     return (
         <>
@@ -45,11 +45,6 @@ export const Passkeys = () => {
                     </PasskeysList>
                 </QueryLoader>
             </QueryError>
-            <PostRemovalDialog
-                open={postRemovalDialog.open}
-                onClose={postRemovalDialog.closeDialog}
-                data={postRemovalDialog.data}
-            />
         </>
     );
 };

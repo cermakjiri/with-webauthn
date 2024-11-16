@@ -7,7 +7,7 @@ import { useExampleRouter } from '../DefaultExampleRouter';
 import { useRegisterWithPasskey } from './hooks';
 import { registerFormSchema, type RegisterFormSchema, type RegisterFormValues } from './schema';
 
-export const RegisterWithPasskey = () => {
+export const RegisterWithPasskeyPage = () => {
     const registerPasskey = useRegisterWithPasskey();
     const { redirect } = useExampleRouter();
 

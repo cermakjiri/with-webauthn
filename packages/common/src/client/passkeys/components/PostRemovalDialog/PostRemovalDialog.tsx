@@ -1,9 +1,10 @@
-import { Caption } from '@workspace/common/client/passkeys/components/Passkey/Caption';
-import { ProviderProfile } from '@workspace/common/client/passkeys/components/Passkey/ProviderProfile';
-import { Box, Button, Dialog, DialogActions, Icon, Stack, Words } from '@workspace/common/client/ui-kit';
-import { Warning } from '@workspace/common/client/ui-kit/icons';
-import type { Passkey } from '@workspace/common/types';
+import { Warning } from '@mui/icons-material';
 
+import { Box, Button, Dialog, DialogActions, Icon, Stack, Words } from '~client/ui-kit';
+import type { Passkey } from '~types';
+
+import { Caption } from '../Passkey/Caption';
+import { ProviderProfile } from '../Passkey/ProviderProfile';
 import { PasskeyDetails } from './PostRemovalDialog.styles';
 
 export interface PostRemovalDialogProps {

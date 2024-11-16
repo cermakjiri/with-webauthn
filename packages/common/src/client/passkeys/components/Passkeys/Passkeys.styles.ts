@@ -1,4 +1,4 @@
-import { styled } from '@workspace/common/client/ui-kit';
+import { styled } from '~client/ui-kit';
 
 export const PasskeysHeader = styled('header')(({ theme }) => ({
     marginBottom: theme.spacing(2),
