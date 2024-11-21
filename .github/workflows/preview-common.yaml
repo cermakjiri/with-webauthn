@@ -6,13 +6,10 @@ on:
         secrets:
             vercel_project_name:
                 required: true
-                type: string
             vercel_scope:
                 required: true
-                type: string
             vercel_token:
                 required: true
-                type: string
 
 jobs:
     shared-steps:
