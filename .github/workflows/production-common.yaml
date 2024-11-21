@@ -1,4 +1,4 @@
-name: Reusable Preview Workflow
+name: Reusable Production Workflow
 
 on:
     workflow_call:
@@ -26,13 +26,13 @@ jobs:
               run: corepack install
 
             - name: Link Project to Vercel
-              run: yarn dlx -q vercel link --project=${{ secrets.vercel_project_name }} --scope=${{ secrets.vercel_scope }} --yes --token=${{ secrets.vercel_token }}
+              run: yarn dlx -q vercel link --project=$VERCEL_PROJECT_NAME --scope=$VERCEL_SCOPE --yes --token=$VERCEL_TOKEN
 
             - name: Pull Vercel Environment Information
-              run: yarn dlx -q vercel pull --yes --environment=preview --token=${{ secrets.VERCEL_TOKEN }}
+              run: yarn dlx -q vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
 
             - name: Build Project Artifacts
-              run: yarn dlx -q vercel build --token=${{ secrets.VERCEL_TOKEN }}
+              run: yarn dlx -q vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
 
             - name: Deploy Project Artifacts to Vercel
-              run: yarn dlx -q vercel deploy --prebuilt --token=${{ secrets.VERCEL_TOKEN }}
+              run: yarn dlx -q vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}
