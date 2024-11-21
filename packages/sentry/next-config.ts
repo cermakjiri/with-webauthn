@@ -1,12 +1,19 @@
+/* eslint-disable no-console */
 import { withSentryConfig } from '@sentry/nextjs';
 
 export function withDefinedSentryConfig<C>(nextConfig: C) {
+    // TODO: remove this
+    console.log('Sentry is enabled');
+    console.log('Sentry organization:', process.env.SENTRY_ORG);
+    console.log('Sentry project:', process.env.SENTRY_PROJECT);
+
     return withSentryConfig(nextConfig, {
         // For all available options, see:
         // https://github.com/getsentry/sentry-webpack-plugin#options
 
         org: process.env.SENTRY_ORG,
         project: process.env.SENTRY_PROJECT,
+        authToken: process.env.SENTRY_AUTH_TOKEN,
 
         // Only print logs for uploading source maps in CI
         silent: !process.env.CI,
@@ -39,5 +46,7 @@ export function withDefinedSentryConfig<C>(nextConfig: C) {
         // https://docs.sentry.io/product/crons/
         // https://vercel.com/docs/cron-jobs
         automaticVercelMonitors: true,
+
+        telemetry: false,
     });
 }
