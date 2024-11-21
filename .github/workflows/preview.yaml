@@ -5,7 +5,8 @@ on:
         branches:
             - dev
 jobs:
-    Default example:
+    default-example:
+        runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v4
             - uses: .github/workflows/common/preview.yaml
@@ -14,7 +15,8 @@ jobs:
                   vercel_scope: ${{ secrets.VERCEL_SCOPE }}
                   vercel_token: ${{ secrets.VERCEL_TOKEN }}
 
-    Upgrade example:
+    upgrade-example:
+        runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v4
             - uses: .github/workflows/common/preview.yaml
