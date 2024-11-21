@@ -21,6 +21,7 @@
         "@mui/icons-material": "6.1.8",
         "@mui/lab": "6.0.0-beta.14",
         "@mui/material": "6.1.8",
+        "@mui/system": "6.1.8",
         "@sentry/nextjs": "8.39.0",
         "@simplewebauthn/browser": "11.0.0",
         "@simplewebauthn/server": "11.0.0",

@@ -1762,6 +1762,34 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@mui/system@npm:6.1.8, @mui/system@npm:^6.1.8":
+  version: 6.1.8
+  resolution: "@mui/system@npm:6.1.8"
+  dependencies:
+    "@babel/runtime": "npm:^7.26.0"
+    "@mui/private-theming": "npm:^6.1.8"
+    "@mui/styled-engine": "npm:^6.1.8"
+    "@mui/types": "npm:^7.2.19"
+    "@mui/utils": "npm:^6.1.8"
+    clsx: "npm:^2.1.1"
+    csstype: "npm:^3.1.3"
+    prop-types: "npm:^15.8.1"
+  peerDependencies:
+    "@emotion/react": ^11.5.0
+    "@emotion/styled": ^11.3.0
+    "@types/react": ^17.0.0 || ^18.0.0 || ^19.0.0
+    react: ^17.0.0 || ^18.0.0 || ^19.0.0
+  peerDependenciesMeta:
+    "@emotion/react":
+      optional: true
+    "@emotion/styled":
+      optional: true
+    "@types/react":
+      optional: true
+  checksum: 10c0/af7902a1a6664055b4f764020746403749148f88c050edf509f557fd9f0b1d4d86ee9478d78e6c0356129f09b4101a93a345b05b5aa00125d3c164b148275faf
+  languageName: node
+  linkType: hard
+
 "@mui/system@npm:^6.1.6":
   version: 6.1.6
   resolution: "@mui/system@npm:6.1.6"
@@ -1787,34 +1815,6 @@ __metadata:
     "@types/react":
       optional: true
   checksum: 10c0/125d38ad5b0d610cfedace8253e43b4be47b46ad2d96eeac019c6c37b4f09286512e2280924753f8bb0314c4d7cc5e8f03fc7f97cf9830c4f6d1869b721eb8c2
-  languageName: node
-  linkType: hard
-
-"@mui/system@npm:^6.1.8":
-  version: 6.1.8
-  resolution: "@mui/system@npm:6.1.8"
-  dependencies:
-    "@babel/runtime": "npm:^7.26.0"
-    "@mui/private-theming": "npm:^6.1.8"
-    "@mui/styled-engine": "npm:^6.1.8"
-    "@mui/types": "npm:^7.2.19"
-    "@mui/utils": "npm:^6.1.8"
-    clsx: "npm:^2.1.1"
-    csstype: "npm:^3.1.3"
-    prop-types: "npm:^15.8.1"
-  peerDependencies:
-    "@emotion/react": ^11.5.0
-    "@emotion/styled": ^11.3.0
-    "@types/react": ^17.0.0 || ^18.0.0 || ^19.0.0
-    react: ^17.0.0 || ^18.0.0 || ^19.0.0
-  peerDependenciesMeta:
-    "@emotion/react":
-      optional: true
-    "@emotion/styled":
-      optional: true
-    "@types/react":
-      optional: true
-  checksum: 10c0/af7902a1a6664055b4f764020746403749148f88c050edf509f557fd9f0b1d4d86ee9478d78e6c0356129f09b4101a93a345b05b5aa00125d3c164b148275faf
   languageName: node
   linkType: hard
 
@@ -3909,6 +3909,7 @@ __metadata:
     "@mui/icons-material": "npm:6.1.8"
     "@mui/lab": "npm:6.0.0-beta.14"
     "@mui/material": "npm:6.1.8"
+    "@mui/system": "npm:6.1.8"
     "@sentry/nextjs": "npm:8.39.0"
     "@simplewebauthn/browser": "npm:11.0.0"
     "@simplewebauthn/server": "npm:11.0.0"

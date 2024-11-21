@@ -7,7 +7,7 @@
             "dependsOn": ["//#audit", "build"]
         },
         "build": {
-            "outputs": ["dist/**", ".next/**", "!.next/cache/**"],
+            "outputs": ["dist/**", ".next/**", "!.next/cache/**", ".cache/.tsbuildinfo"],
             "dependsOn": ["cir-dep", "format", "lint", "^build"],
             "inputs": ["$TURBO_DEFAULT$", ".env.local", ".env", ".env.server"]
         },
@@ -20,7 +20,7 @@
             "outputLogs": "errors-only"
         },
         "dev": {
-            "outputs": ["dist/**", ".cache/.tsbuildinfo"],
+            "outputs": ["dist/**"],
             "cache": false,
             "persistent": true,
             "dependsOn": ["cir-dep", "format"],

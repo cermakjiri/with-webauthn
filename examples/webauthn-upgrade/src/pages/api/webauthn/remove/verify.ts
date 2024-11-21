@@ -5,13 +5,13 @@ import type { AuthenticationResponseJSON } from '@simplewebauthn/types';
 
 import { env } from '@workspace/common/client/env';
 import { logger } from '@workspace/common/logger';
-import { revokenAndCreateCustomUserToken } from '@workspace/common/server/services/auth';
 import { retrieveAndInvalidateChallengeSession } from '@workspace/common/server/services/challenge-session';
 import { getPasskey, getPasskeyBy, getPasskeys } from '@workspace/common/server/services/passkeys';
 import { removeUserPasskey } from '@workspace/common/server/services/users';
 import type { Passkey } from '@workspace/common/types';
 
 import { tokenClaims } from '~server/constans/tokenClaims';
+import { revokenAndCreateCustomUserToken } from '~server/services/auth';
 import { parseAndVerifyIdTokenForMFA } from '~server/utils/parseAndVerifyIdTokenForMFA';
 
 export type VerifyRemovalRequestData = {
