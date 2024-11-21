@@ -3,9 +3,9 @@
     "version": "0.0.1",
     "type": "module",
     "scripts": {
-        "dev": "next dev --turbopack",
+        "dev": "next dev --turbopack -p 3001",
         "build": "next build",
-        "start": "next start",
+        "start": "next start -p 3001",
         "lint": "eslint-lint --config=eslint.config.mjs ./src/**/*.{ts,tsx}",
         "lint:fix": "yarn lint --fix",
         "format": "prettier-format",

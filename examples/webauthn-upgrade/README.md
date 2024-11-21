@@ -70,5 +70,5 @@ Assuming you've already finished [those steps in the main README](../../README.m
         - Fill up all those `FIREBASE_` env. vars.
         - Don't forget to set `FIREBASE_DB_ID=firestore-db-name`.
 
-2. Run `yarn dev` and checkout `http://localhost:3001` URL.
+2. Run `yarn dev` and checkout `http://localhost:3000` URL.
 3. Hey mate, welcome to the WebAuthn world. 🙌
