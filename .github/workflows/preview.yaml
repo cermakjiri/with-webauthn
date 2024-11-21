@@ -16,7 +16,7 @@ jobs:
     #               vercel_token: ${{ secrets.VERCEL_TOKEN }}
 
     upgrade-example:
-        uses: .github/workflows/common/preview.yaml
+        uses: ./.github/workflows/common/preview.yaml
         secrets:
             vercel_token: ${{ secrets.VERCEL_TOKEN }}
             vercel_project_name: ${{ secrets.VERCEL_NAME_EXAMPLE_UPGRADE }}
