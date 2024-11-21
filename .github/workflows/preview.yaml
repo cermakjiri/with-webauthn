@@ -5,22 +5,19 @@ on:
         branches:
             - dev
 jobs:
-    default-example:
-        runs-on: ubuntu-latest
-        steps:
-            - uses: actions/checkout@v4
-            - uses: ./common/preview.yaml
-              with:
-                  vercel_project_name: ${{ secrets.VERCEL_NAME_EXAMPLE_DEFAULT }}
-                  vercel_scope: ${{ secrets.VERCEL_SCOPE }}
-                  vercel_token: ${{ secrets.VERCEL_TOKEN }}
+    # default-example:
+    #     runs-on: ubuntu-latest
+    #     steps:
+    #         - uses: actions/checkout@v4
+    #         - uses: .github/workflows/common/preview.yaml
+    #           with:
+    #               vercel_project_name: ${{ secrets.VERCEL_NAME_EXAMPLE_DEFAULT }}
+    #               vercel_scope: ${{ secrets.VERCEL_SCOPE }}
+    #               vercel_token: ${{ secrets.VERCEL_TOKEN }}
 
     upgrade-example:
-        runs-on: ubuntu-latest
-        steps:
-            - uses: actions/checkout@v4
-            - uses: ./common/preview.yaml
-              with:
-                  vercel_project_name: ${{ secrets.VERCEL_NAME_EXAMPLE_UPGRADE }}
-                  vercel_scope: ${{ secrets.VERCEL_SCOPE }}
-                  vercel_token: ${{ secrets.VERCEL_TOKEN }}
+        uses: .github/workflows/common/preview.yaml
+        secrets:
+            vercel_token: ${{ secrets.VERCEL_TOKEN }}
+            vercel_project_name: ${{ secrets.VERCEL_NAME_EXAMPLE_UPGRADE }}
+            vercel_scope: ${{ secrets.VERCEL_SCOPE }}
