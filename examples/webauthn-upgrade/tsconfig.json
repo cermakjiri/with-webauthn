@@ -1,0 +1,21 @@
+{
+    "extends": "@tooling/typescript/nextjs",
+    "compilerOptions": {
+        "baseUrl": ".",
+        "paths": {
+            "~*": [
+                "./src/*",
+            ],
+            "~public/*": [
+                "./public/*"
+            ],
+            "@workspace/common/*": [
+                "../../packages/common/dist/*"
+            ]
+        }
+    },
+    "include": [
+        "**/*.ts",
+        "**/*.tsx",
+    ]
+}

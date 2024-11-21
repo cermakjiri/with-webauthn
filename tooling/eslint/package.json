@@ -12,24 +12,24 @@
         "format": "prettier-format --write ./**/*.js"
     },
     "dependencies": {
-        "@eslint/eslintrc": "3.1.0",
-        "@eslint/js": "9.14.0",
+        "@eslint/eslintrc": "3.2.0",
+        "@eslint/js": "9.15.0",
         "@tanstack/eslint-plugin-query": "5.60.1",
         "@tooling/typescript": "workspace:*",
         "@types/eslint__eslintrc": "2.1.2",
         "@types/eslint__js": "8.42.3",
-        "eslint": "9.14.0",
+        "eslint": "9.15.0",
         "eslint-config-next": "15.0.3",
         "eslint-config-prettier": "9.1.0",
-        "eslint-plugin-turbo": "2.2.3",
+        "eslint-plugin-turbo": "2.3.0",
         "next": "15.0.3",
         "react": "18.3.1",
         "react-dom": "18.3.1",
         "typescript": "5.6.3",
-        "typescript-eslint": "8.13.0"
+        "typescript-eslint": "8.15.0"
     },
     "devDependencies": {
-        "@eslint/compat": "1.2.2",
+        "@eslint/compat": "1.2.3",
         "@tooling/prettier": "workspace:*",
         "@tooling/staged": "workspace:^",
         "@types/eslint": "9.6.1"

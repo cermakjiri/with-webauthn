@@ -4,7 +4,7 @@ import type { RegistrationResponseJSON } from '@simplewebauthn/types';
 
 import { env } from '@workspace/common/client/env';
 import { logger } from '@workspace/common/logger';
-import { createCustomToken } from '@workspace/common/server/services/auth';
+import { auth } from '@workspace/common/server/config/firebase';
 import { retrieveAndInvalidateChallengeSession } from '@workspace/common/server/services/challenge-session';
 import { createUserPasskey, findUserByUsername } from '@workspace/common/server/services/users';
 
@@ -56,7 +56,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
          * Creates a new Firebase custom token (JWT)
          * that can be sent back to a client device to use to sign in with the client SDKs' signInWithCustomToken() methods.
          */
-        const customToken = await createCustomToken(userId);
+        const customToken = await auth().createCustomToken(userId);
 
         res.status(200).json({ customToken });
     } catch (error) {

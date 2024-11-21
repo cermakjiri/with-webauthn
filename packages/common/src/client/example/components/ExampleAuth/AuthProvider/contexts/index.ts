@@ -1,5 +1,5 @@
 import { createContext, type Dispatch, type SetStateAction } from 'react';
-import type { User } from 'firebase/auth';
+import type { ParsedToken, User } from 'firebase/auth';
 
 export type AuthSession =
     | {
@@ -9,6 +9,7 @@ export type AuthSession =
     | {
           state: 'authenticated';
           authUser: User;
+          tokenClaims: ParsedToken;
       };
 
 export type AuthContextType = Readonly<{

@@ -3,9 +3,9 @@
     "version": "0.0.1",
     "type": "module",
     "scripts": {
-        "dev": "next dev --turbopack",
+        "dev": "next dev --turbopack -p 3000",
         "build": "next build",
-        "start": "next start",
+        "start": "next start -p 3000",
         "lint": "eslint-lint --config=eslint.config.mjs ./src/**/*.{ts,tsx}",
         "lint:fix": "yarn lint --fix",
         "format": "prettier-format",
@@ -13,6 +13,7 @@
     },
     "dependencies": {
         "@workspace/common": "workspace:*",
+        "@workspace/sentry": "workspace:*",
         "next": "15.0.3",
         "react": "18.3.1",
         "react-dom": "18.3.1"

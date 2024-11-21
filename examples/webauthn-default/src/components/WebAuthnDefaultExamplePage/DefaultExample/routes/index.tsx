@@ -1,13 +1,13 @@
 import type { UnknownRoutes } from '@workspace/common/client/example/components';
 
-import { LoginWithPasskey } from '../LoginWithPasskey';
-import { Passkeys } from '../Passkeys';
-import { RegisterWithPasskey } from '../RegisterWithPasskey';
+import { LoginWithPasskeyPage } from '../LoginWithPasskeyPage';
+import { PasskeysPage } from '../PasskeysPage';
+import { RegisterWithPasskeyPage } from '../RegisterWithPasskeyPage';
 
 export const exampleRoutes = {
-    '/register': () => <RegisterWithPasskey />,
-    '/login': () => <LoginWithPasskey />,
-    '/passkeys': () => <Passkeys />,
+    '/register': RegisterWithPasskeyPage,
+    '/login': LoginWithPasskeyPage,
+    '/passkeys': PasskeysPage,
 } as const satisfies UnknownRoutes;
 
 export type ExampleRoutes = typeof exampleRoutes;

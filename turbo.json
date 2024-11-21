@@ -1,5 +1,7 @@
 {
     "$schema": "https://turbo.build/schema.json",
+    "cacheDir": ".cache/turbo",
+    "ui": "tui",
     "tasks": {
         "test:ci": {
             "dependsOn": ["//#audit", "build"]
@@ -18,9 +20,11 @@
             "outputLogs": "errors-only"
         },
         "dev": {
+            "outputs": ["dist/**", ".cache/.tsbuildinfo"],
             "cache": false,
             "persistent": true,
-            "dependsOn": ["cir-dep", "format"]
+            "dependsOn": ["cir-dep", "format"],
+            "inputs": ["src/**/*.ts", "src/**/*.tsx"]
         },
         "cir-dep": {
             "cache": true,

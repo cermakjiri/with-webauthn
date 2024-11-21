@@ -3,6 +3,7 @@ import 'reset.css';
 
 import type { AppProps } from 'next/app';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
+import { NuqsAdapter } from 'nuqs/adapters/next/pages';
 import { IntlProvider } from 'react-intl';
 
 import { AppQueryProvider } from '~client/api/components';
@@ -22,7 +23,9 @@ export function App({ Component, pageProps: { dehydratedState, ...pageProps }, e
         <EmotionClient emotionCache={emotionCache}>
             <AppQueryProvider dehydratedState={dehydratedState}>
                 <IntlProvider locale='en' messages={{}}>
-                    <Component {...pageProps} />
+                    <NuqsAdapter>
+                        <Component {...pageProps} />
+                    </NuqsAdapter>
                     <SnackbarProvider />
                 </IntlProvider>
                 <ReactQueryDevtools initialIsOpen={false} />

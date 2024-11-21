@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { onAuthStateChanged } from 'firebase/auth';
+import { onAuthStateChanged, type User } from 'firebase/auth';
 
 import { api } from '~client/api/fetcher';
 import { auth } from '~client/firebase/config';
@@ -11,6 +11,10 @@ export interface AuthProviderProps {
     Loader?: React.ComponentType;
 }
 
+const hasOnlyEmailProviderWithUnVerifiedEmail = (user: User) => {
+    return user.providerData.length === 1 && user.providerData[0].providerId === 'password' && !user.emailVerified;
+};
+
 export const AuthProvider = ({ children, Loader = () => null }: AuthProviderProps) => {
     const [session, setSession] = useState<AuthSession>({
         state: 'loading',
@@ -21,20 +25,7 @@ export const AuthProvider = ({ children, Loader = () => null }: AuthProviderProp
 
     useEffect(() => {
         return onAuthStateChanged(auth(), async user => {
-            if (user) {
-                interceptorId.current = api().interceptors.request.use(undefined, async request => {
-                    const idToken = await user.getIdToken();
-
-                    request.headers.set('Authorization', `Bearer ${idToken}`);
-
-                    return request;
-                });
-
-                setSession({
-                    authUser: user,
-                    state: 'authenticated',
-                });
-            } else {
+            if (!user || hasOnlyEmailProviderWithUnVerifiedEmail(user)) {
                 if (interceptorId.current) {
                     api().interceptors.request.eject(interceptorId.current);
                 }
@@ -43,7 +34,25 @@ export const AuthProvider = ({ children, Loader = () => null }: AuthProviderProp
                     authUser: null,
                     state: 'unauthenticated',
                 });
+
+                return;
             }
+
+            interceptorId.current = api().interceptors.request.use(undefined, async request => {
+                const idToken = await user.getIdToken();
+
+                request.headers.set('Authorization', `Bearer ${idToken}`);
+
+                return request;
+            });
+
+            const idTokenResult = await user.getIdTokenResult();
+
+            setSession({
+                authUser: user,
+                tokenClaims: idTokenResult.claims,
+                state: 'authenticated',
+            });
         });
     }, []);
 
