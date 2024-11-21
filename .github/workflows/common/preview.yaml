@@ -1,4 +1,4 @@
-# .github/workflows/reusable-workflow.yml
+# .github/workflows/common/preview.yaml
 name: Reusable Preview Workflow
 
 on:
