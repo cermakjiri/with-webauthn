@@ -8,7 +8,9 @@
         "lint:fix": "yarn lint --fix",
         "format": "prettier-format",
         "cir-dep": "check-cir-deps .",
-        "build": "tsc && tsc-alias"
+        "build": "tsc && tsc-alias",
+        "clean": "rm -rf dist .cache",
+        "dev": "tsc -w & tsc-alias -w"
     },
     "dependencies": {
         "@ackee/antonio-core": "5.0.0",
@@ -32,6 +34,7 @@
         "firebase-admin": "12.7.0",
         "next": "15.0.3",
         "normalize.css": "8.0.1",
+        "nuqs": "2.2.1",
         "radash": "12.1.0",
         "react": "18.3.1",
         "react-dom": "18.3.1",

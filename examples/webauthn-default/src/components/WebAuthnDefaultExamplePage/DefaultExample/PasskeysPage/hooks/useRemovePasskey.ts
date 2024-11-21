@@ -3,14 +3,14 @@ import { useMutation } from '@tanstack/react-query';
 
 import { queryClient } from '@workspace/common/client/api/components';
 import { fetcher } from '@workspace/common/client/api/fetcher';
+import { parseUnknownError } from '@workspace/common/client/errors';
 import { useAuthUser } from '@workspace/common/client/example/components';
 import type { PostRemovalDialogProps } from '@workspace/common/client/passkeys/components';
 import { useSnack } from '@workspace/common/client/snackbar/hooks';
 import { logger } from '@workspace/common/logger';
-import type { Passkey } from '@workspace/common/types';
 
 import type { StartRemovalResponseData } from '~pages/api/webauthn/remove/options';
-import type { VerifyRemovalRequestData } from '~pages/api/webauthn/remove/verify';
+import type { VerifyRemovalRequestData, VerifyRemovalResponseData } from '~pages/api/webauthn/remove/verify';
 
 /**
  * Remove a passkey from the user's account. User must verify their identity before removing the passkey.
@@ -35,9 +35,11 @@ export function useRemovePasskey(openDialog: (data: PostRemovalDialogProps['data
                     optionsJSON: publicKeyOptions,
                 });
 
-                logger.info('Authentication result:', result);
+                logger.info('WebAuthn API result:', result);
 
-                const { data: passkey } = await fetcher<Passkey>({
+                const {
+                    data: { passkey },
+                } = await fetcher<VerifyRemovalResponseData>({
                     method: 'POST',
                     url: '/webauthn/remove/verify',
                     body: {
@@ -58,7 +60,11 @@ export function useRemovePasskey(openDialog: (data: PostRemovalDialogProps['data
                     queryKey: ['passkeys'],
                 });
             } catch (error) {
-                snack('error', (error as Error).message);
+                const parsedError = await parseUnknownError(error);
+
+                snack('error', parsedError.message);
+
+                logger.error(error);
             }
         },
     });

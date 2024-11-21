@@ -2,9 +2,9 @@ import { startRegistration } from '@simplewebauthn/browser';
 import { signInWithCustomToken } from 'firebase/auth';
 
 import { fetcher } from '@workspace/common/client/api/fetcher';
+import { parseUnknownError } from '@workspace/common/client/errors';
 import { auth } from '@workspace/common/client/firebase/config';
 import type { FormProps } from '@workspace/common/client/form/components';
-import { parseWebAuthnError } from '@workspace/common/client/webauthn/utils';
 import { logger } from '@workspace/common/logger';
 
 import type { StartRegistrationRequestData, StartRegistrationResponseData } from '~pages/api/webauthn/register/options';
@@ -53,7 +53,7 @@ export function useRegisterWithPasskey(): FormProps<RegisterFormSchema, Register
 
             redirect('/passkeys');
         } catch (error) {
-            const parsedError = await parseWebAuthnError(error);
+            const parsedError = await parseUnknownError(error);
 
             setError('root', {
                 message: parsedError.message,

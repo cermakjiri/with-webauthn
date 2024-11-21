@@ -9,6 +9,7 @@ export interface FormProps<FormSchema extends UnkownFormSchema, FormValues exten
     children: React.ReactNode;
     onSubmit: (values: FormValues, form: UseFormReturn<FormValues>) => Promise<void> | void;
     defaultValues?: UseFormProps<FormValues>['defaultValues'];
+    mode?: UseFormProps<FormValues>['mode'];
 }
 
 export const Form = <FormSchema extends UnkownFormSchema, FormValues extends UnknownFormValues>({
@@ -16,12 +17,13 @@ export const Form = <FormSchema extends UnkownFormSchema, FormValues extends Unk
     children,
     defaultValues,
     onSubmit,
+    mode = 'onSubmit',
 }: FormProps<FormSchema, FormValues>) => {
     const resolver = useLocalizedResolver(schema);
     const form = useForm<FormValues>({
         resolver,
         defaultValues,
-        mode: 'onSubmit',
+        mode,
     });
 
     const submit = useMemo(() => form.handleSubmit(values => onSubmit(values, form)), [form, onSubmit]);

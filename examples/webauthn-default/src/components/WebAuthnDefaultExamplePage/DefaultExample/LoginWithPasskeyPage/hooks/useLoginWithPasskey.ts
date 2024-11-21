@@ -2,9 +2,9 @@ import { startAuthentication } from '@simplewebauthn/browser';
 import { signInWithCustomToken } from 'firebase/auth';
 
 import { fetcher } from '@workspace/common/client/api/fetcher';
+import { parseUnknownError } from '@workspace/common/client/errors';
 import { auth } from '@workspace/common/client/firebase/config';
 import type { FormProps } from '@workspace/common/client/form/components';
-import { parseWebAuthnError } from '@workspace/common/client/webauthn/utils';
 import { logger } from '@workspace/common/logger';
 
 import type { StartLoginRequestData, StartLoginResponseData } from '~pages/api/webauthn/login/options';
@@ -32,7 +32,7 @@ export function useLoginWithPasskey(): FormProps<LoginFormSchema, LoginFormValue
                 optionsJSON: publicKeyOptions,
             });
 
-            logger.info('Authentication result:', result);
+            logger.info('WebAuthn API result:', result);
 
             const { data } = await fetcher<VerifyLoginResponseData>({
                 method: 'POST',
@@ -50,7 +50,7 @@ export function useLoginWithPasskey(): FormProps<LoginFormSchema, LoginFormValue
 
             redirect('/passkeys');
         } catch (error) {
-            const parsedError = await parseWebAuthnError(error);
+            const parsedError = await parseUnknownError(error);
 
             setError('root', {
                 message: parsedError.message,

@@ -28,11 +28,17 @@ export const getFirebaseApp = () => {
     );
 };
 
-export const auth = () => getAuth(getFirebaseApp());
+export const auth = () => {
+    const auth = getAuth(getFirebaseApp());
+
+    auth.useDeviceLanguage();
+
+    return auth;
+};
 export const analytics = () => getAnalytics(getFirebaseApp());
 export const db = () => {
     const app = getFirebaseApp();
-    const databaseId = env.NEXT_PUBLIC_FIRBEASE_DB_ID;
+    const databaseId = env.NEXT_PUBLIC_FIREBASE_DB_ID;
 
     return databaseId ? getFirestore(app, databaseId) : getFirestore(app);
 };

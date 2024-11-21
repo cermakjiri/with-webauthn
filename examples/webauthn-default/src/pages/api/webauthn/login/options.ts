@@ -29,9 +29,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
 
         const passkeys = await getUserPasskeys(body?.username);
 
-        /**
-         * Generate a random string with enough entropy to prevent replay attacks.
-         */
+        // Generate a random string with enough entropy to prevent replay attacks.
         const challenge = await generateChallenge();
 
         const authenticationOptions = await generateAuthenticationOptions({

@@ -3,9 +3,9 @@ import { useQuery } from '@tanstack/react-query';
 import { signInWithCustomToken } from 'firebase/auth';
 
 import { fetcher } from '@workspace/common/client/api/fetcher';
+import { parseUnknownError } from '@workspace/common/client/errors';
 import { auth } from '@workspace/common/client/firebase/config';
 import { useSnack } from '@workspace/common/client/snackbar/hooks';
-import { parseWebAuthnError } from '@workspace/common/client/webauthn/utils';
 import { logger } from '@workspace/common/logger';
 
 import type { StartLoginResponseData } from '~pages/api/webauthn/login/options';
@@ -61,7 +61,7 @@ export function useConditionalMediation() {
 
                 return true;
             } catch (error) {
-                const parsedError = await parseWebAuthnError(error);
+                const parsedError = await parseUnknownError(error);
 
                 if (parsedError.type !== 'ABORT_ERROR') {
                     snack('error', parsedError.message);

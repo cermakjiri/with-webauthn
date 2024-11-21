@@ -40,7 +40,7 @@ export function useAddPasskey() {
                 queryKey: ['passkeys'],
             });
         },
-        onError(error: Error) {
+        async onError(error: Error) {
             snack('error', error.message);
         },
         onSuccess() {

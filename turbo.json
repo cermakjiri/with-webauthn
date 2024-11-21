@@ -20,9 +20,10 @@
             "outputLogs": "errors-only"
         },
         "dev": {
+            "outputs": ["dist/**", ".cache/.tsbuildinfo"],
             "cache": false,
             "persistent": true,
-            "dependsOn": ["cir-dep", "format", "@workspace/common#build"],
+            "dependsOn": ["cir-dep", "format"],
             "inputs": ["src/**/*.ts", "src/**/*.tsx"]
         },
         "cir-dep": {

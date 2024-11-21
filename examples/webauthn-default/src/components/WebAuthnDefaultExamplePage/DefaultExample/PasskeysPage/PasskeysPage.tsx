@@ -1,5 +1,10 @@
 import { useDialog } from '@workspace/common/client/dialog/hooks';
-import { Passkeys, PostRemovalDialog, type PostRemovalDialogProps } from '@workspace/common/client/passkeys/components';
+import {
+    PasskeysHeader,
+    PasskeysList,
+    PostRemovalDialog,
+    type PostRemovalDialogProps,
+} from '@workspace/common/client/passkeys/components';
 
 import { useAddPasskey } from './hooks/useAddPasskey';
 import { useRemovePasskey } from './hooks/useRemovePasskey';
@@ -11,7 +16,8 @@ export const PasskeysPage = () => {
 
     return (
         <>
-            <Passkeys addPasskey={addPasskey} removePasskey={removePasskey} />
+            <PasskeysHeader addPasskey={addPasskey} />
+            <PasskeysList removePasskey={removePasskey} />
             <PostRemovalDialog
                 open={postRemovalDialog.open}
                 onClose={postRemovalDialog.closeDialog}

@@ -1,8 +1,8 @@
 import { createContext, createElement, useContext, useState, type ReactElement, type ReactNode } from 'react';
 
 export type Pathname = string;
-export type RenderRoute = () => ReactElement;
-export type UnknownRoutes = Readonly<Record<Pathname, RenderRoute>>;
+export type RenderRouteComponent = () => ReactElement;
+export type UnknownRoutes = Readonly<Record<Pathname, RenderRouteComponent>>;
 
 export type ExampleRouterContextValue<Routes extends UnknownRoutes> = {
     routes: Routes;

@@ -11,16 +11,16 @@ export interface QueryErrorProps extends Omit<AlertProps, 'title' | 'severity'> 
     message: string;
 }
 
-function getError(result: QueryErrorProps['result']) {
+function hasError(result: QueryErrorProps['result']) {
     if (Array.isArray(result)) {
-        return result.find(r => r.error) ?? null;
+        return result.some(r => r.status === 'error');
     }
 
-    return result.error ?? null;
+    return result.status === 'error';
 }
 
 export const QueryError = ({ result, children = null, ...rest }: QueryErrorProps) => {
-    if (getError(result)) {
+    if (hasError(result)) {
         return (
             <Alert severity='error' sx={{ p: 2 }} action={<RefetchButton result={result} />} {...rest}>
                 {rest.message}

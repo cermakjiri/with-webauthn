@@ -21,7 +21,7 @@ export const env = createEnv({
         NEXT_PUBLIC_FIREBASE_APP_ID: z.string(),
         NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID: z.string(),
 
-        NEXT_PUBLIC_FIRBEASE_DB_ID: z.string().optional(),
+        NEXT_PUBLIC_FIREBASE_DB_ID: z.string().optional(),
     },
 
     /**
@@ -41,7 +41,7 @@ export const env = createEnv({
         NEXT_PUBLIC_FIREBASE_APP_ID: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
         NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID,
 
-        NEXT_PUBLIC_FIRBEASE_DB_ID: process.env.NEXT_PUBLIC_FIRBEASE_DB_ID,
+        NEXT_PUBLIC_FIREBASE_DB_ID: process.env.NEXT_PUBLIC_FIREBASE_DB_ID,
 
         // Dev
         NEXT_PUBLIC_DEV_RETRY_QUERIES: process.env.NEXT_PUBLIC_DEV_RETRY_QUERIES,

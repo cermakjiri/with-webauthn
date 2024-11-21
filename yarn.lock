@@ -3732,6 +3732,7 @@ __metadata:
     firebase-admin: "npm:12.7.0"
     next: "npm:15.0.3"
     normalize.css: "npm:8.0.1"
+    nuqs: "npm:2.2.1"
     radash: "npm:12.1.0"
     react: "npm:18.3.1"
     react-dom: "npm:18.3.1"
@@ -7323,6 +7324,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"mitt@npm:^3.0.1":
+  version: 3.0.1
+  resolution: "mitt@npm:3.0.1"
+  checksum: 10c0/3ab4fdecf3be8c5255536faa07064d05caa3dd332bd318ff02e04621f7b3069ca1de9106cfe8e7ced675abfc2bec2ce4c4ef321c4a1bb1fb29df8ae090741913
+  languageName: node
+  linkType: hard
+
 "mkdirp@npm:^1.0.3":
   version: 1.0.4
   resolution: "mkdirp@npm:1.0.4"
@@ -7561,6 +7569,27 @@ __metadata:
   version: 8.0.1
   resolution: "normalize.css@npm:8.0.1"
   checksum: 10c0/4ddf56d1af5ca755fa5e692e718316d8758ecb792aa96e1ad206824b5810a043763d681d6f7697d46573515f5e9690038b4c91a95c1997567128815545fb8cd7
+  languageName: node
+  linkType: hard
+
+"nuqs@npm:2.2.1":
+  version: 2.2.1
+  resolution: "nuqs@npm:2.2.1"
+  dependencies:
+    mitt: "npm:^3.0.1"
+  peerDependencies:
+    "@remix-run/react": ">=2"
+    next: ">=14.2.0"
+    react: ">=18.2.0 || ^19.0.0-0"
+    react-router-dom: ">=6"
+  peerDependenciesMeta:
+    "@remix-run/react":
+      optional: true
+    next:
+      optional: true
+    react-router-dom:
+      optional: true
+  checksum: 10c0/3c2c807c7fd3e0b3543ec90da3e54c041d5172a878978ddd18bf7db4a6f5b9b0db35340d4bfa952bc63b34470280896297ea8f2c9ff9bb05c0cef934e9e5c5b7
   languageName: node
   linkType: hard
 

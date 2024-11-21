@@ -6,7 +6,7 @@ import { FieldValue } from 'firebase-admin/firestore';
 
 import { env } from '@workspace/common/client/env';
 import { logger } from '@workspace/common/logger';
-import { createCustomToken } from '@workspace/common/server/services/auth';
+import { auth } from '@workspace/common/server/config/firebase';
 import { retrieveAndInvalidateChallengeSession } from '@workspace/common/server/services/challenge-session';
 import { getPasskeyBy, updatePasskey } from '@workspace/common/server/services/passkeys';
 
@@ -70,7 +70,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
             lastUsedAt: FieldValue.serverTimestamp(),
         });
 
-        const customToken = await createCustomToken(passkey.userId);
+        const customToken = await auth().createCustomToken(passkey.userId);
 
         res.status(200).json({ customToken });
     } catch (error) {

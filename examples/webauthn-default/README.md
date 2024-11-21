@@ -1,4 +1,4 @@
-# Default WebAuthn Example - Passkeys with SimpleWebAuthn & Firebase
+# Authenticate with passkeys example - Passkeys with SimpleWebAuthn & Firebase
 
 -   Creating (user registration), retrieving (user login), linking multiple, and removing passkeys.
 -   Issuing a JWT token via Firebase Auth once user is authenticated.
@@ -31,6 +31,31 @@ Assuming you've already finished [those steps in the main README](../../README.m
         - Firebase > Authentication > Settings > Authorised domains.
 
     5. Create a Firebase firestore database
+
+        - Don't forget to set security `Rules`:
+
+        ```
+        rules_version = '2';
+
+        service cloud.firestore {
+            match /databases/{database}/documents {
+                // Deny all access by default
+                match /{document=**} {
+                    allow read, write: if false;
+                }
+
+                // Match for users collection
+                match /users/{uid} {
+                    allow read: if request.auth != null && request.auth.uid == uid;
+                }
+
+                // Match for passkeys collection
+                match /passkeys/{passkeyId} {
+                    allow read: if request.auth != null && resource.data.userId == request.auth.uid;
+                }
+            }
+        }
+        ```
 
 2. Run `yarn dev` and checkout `http://localhost:3000` URL.
 3. Hey mate, welcome to the WebAuthn world. 🙌
