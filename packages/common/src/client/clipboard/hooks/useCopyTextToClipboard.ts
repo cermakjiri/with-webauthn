@@ -1,7 +1,6 @@
 import { useMutation } from '@tanstack/react-query';
 
 import { useSnack } from '~client/snackbar/hooks';
-import { logger } from '~logger';
 
 export function useCopyTextToClipboard() {
     const snack = useSnack();
@@ -15,9 +14,6 @@ export function useCopyTextToClipboard() {
             });
 
             await navigator.clipboard.write([clipboardItem]);
-        },
-        onError(error) {
-            logger.error(error);
         },
         onSuccess: () => {
             snack('success', 'Copied to clipboard');

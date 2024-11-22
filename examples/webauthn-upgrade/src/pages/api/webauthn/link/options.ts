@@ -10,9 +10,9 @@ import { RP_NAME } from '@workspace/common/server/constants/relyingParty';
 import { initializeChallengeSession } from '@workspace/common/server/services/challenge-session';
 import { getPasskeys } from '@workspace/common/server/services/passkeys';
 import { createUserWithNoPasskeys, getUser } from '@workspace/common/server/services/users';
-import { getRpId } from '@workspace/common/server/utils';
+import { getRpId, parseAndVerifyIdToken } from '@workspace/common/server/utils';
 
-import { parseAndVerifyIdTokenForMFA } from '~server/utils/parseAndVerifyIdTokenForMFA';
+import { tokenClaims } from '~server/constans/tokenClaims';
 
 export type StartLinkingResponseData = {
     publicKeyOptions: PublicKeyCredentialCreationOptionsJSON;
@@ -26,9 +26,11 @@ export type StartLinkingResponseData = {
  */
 export default async function handler(req: NextApiRequest, res: NextApiResponse<StartLinkingResponseData>) {
     try {
-        const idTokenResult = await parseAndVerifyIdTokenForMFA(req.headers.authorization);
+        const idTokenResult = await parseAndVerifyIdToken(req.headers.authorization);
 
-        if (!idTokenResult) {
+        if (!idTokenResult || !idTokenResult.email_verified) {
+            logger.error('User not authenticated. No ID token or email not verified.');
+
             return res.status(401).end('User not authenticated.');
         }
 
@@ -43,6 +45,13 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
         }
 
         const passkeys = await getPasskeys(userId);
+
+        // ID token claims must include 'mfa_enabled: true' once at least one passkey has been added.
+        if (passkeys.length > 0 && !idTokenResult[tokenClaims.MFA_ENABLED]) {
+            logger.error('User has passkeys but MFA is not enabled.');
+
+            return res.status(401).end('User not authenticated.');
+        }
 
         /**
          * Generate a random string with enough entropy to be signed by the authenticator to prevent replay attacks.
