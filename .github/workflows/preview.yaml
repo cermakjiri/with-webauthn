@@ -10,12 +10,12 @@ jobs:
         uses: ./.github/workflows/preview-common.yaml
         secrets: inherit
         with:
-            vercel_project_name: ${{ inputs.VERCEL_PROJECT_DEFAULT }}
-            vercel_scope: ${{ inputs.VERCEL_SCOPE }}
+            vercel_project_name: ${{ vars.VERCEL_PROJECT_DEFAULT }}
+            vercel_scope: ${{ vars.VERCEL_SCOPE }}
 
     upgrade-example:
         uses: ./.github/workflows/preview-common.yaml
         secrets: inherit
         with:
-            vercel_project_name: ${{ inputs.VERCEL_PROJECT_UPGRADE }}
-            vercel_scope: ${{ inputs.VERCEL_SCOPE }}
+            vercel_project_name: ${{ vars.VERCEL_PROJECT_UPGRADE }}
+            vercel_scope: ${{ vars.VERCEL_SCOPE }}
