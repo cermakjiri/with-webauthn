@@ -31,6 +31,10 @@ Assuming you've already finished [those steps in the main README](../../README.m
         - Enable `Email/Password` sign-in provider.
         - Add `localhost` as Authorized domain in Firebase:
             - `Firebase > Authentication > Settings > Authorised domains.`
+        - Set Email verification URL:
+            1. `Firebase > Authentication > Templates > Email address verification`
+            2. `Customize action URL`
+            3. `http://localhost:3001`
     3. Create a Firebase firestore database
 
         - Initialize a new database.
@@ -70,5 +74,5 @@ Assuming you've already finished [those steps in the main README](../../README.m
         - Fill up all those `FIREBASE_` env. vars.
         - Don't forget to set `FIREBASE_DB_ID=firestore-db-name`.
 
-2. Run `yarn dev` and checkout `http://localhost:3000` URL.
+2. Run `yarn dev` in **root repository** and checkout `http://localhost:3001` URL.
 3. Hey mate, welcome to the WebAuthn world. 🙌
