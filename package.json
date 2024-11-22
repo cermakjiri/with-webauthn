@@ -3,7 +3,7 @@
     "description": "A project with full-stack WebAuthn API examples.",
     "packageManager": "yarn@4.5.0",
     "private": true,
-    "type": "commonjs",
+    "type": "module",
     "engines": {
         "node": "20"
     },

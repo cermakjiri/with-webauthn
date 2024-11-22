@@ -5,30 +5,16 @@ on:
         branches:
             - main
 
-    workflow_call:
-        secrets:
-            VERCEL_NAME_EXAMPLE_DEFAULT:
-                required: true
-            VERCEL_NAME_EXAMPLE_UPGRADE:
-                required: true
-            VERCEL_SCOPE:
-                required: true
-            VERCEL_TOKEN:
-                required: true
-            SENTRY_AUTH_TOKEN:
-                required: true
-
 jobs:
     default-example:
         uses: ./.github/workflows/production-common.yaml
-        secrets:
-            vercel_project_name: ${{ secrets.VERCEL_NAME_EXAMPLE_DEFAULT }}
-            vercel_scope: ${{ secrets.VERCEL_SCOPE }}
-            vercel_token: ${{ secrets.VERCEL_TOKEN }}
+        secrets: inherit
+        with:
+            vercel_project_name: ${{ vars.VERCEL_PROJECT_DEFAULT }}
+            vercel_scope: ${{ vars.VERCEL_SCOPE }}
 
     upgrade-example:
         uses: ./.github/workflows/production-common.yaml
-        secrets:
-            vercel_token: ${{ secrets.VERCEL_TOKEN }}
-            vercel_project_name: ${{ secrets.VERCEL_NAME_EXAMPLE_UPGRADE }}
-            vercel_scope: ${{ secrets.VERCEL_SCOPE }}
+        with:
+            vercel_project_name: ${{ secrets.VERCEL_PROJECT_UPGRADE }}
+            vercel_scope: ${{ vars.VERCEL_SCOPE }}

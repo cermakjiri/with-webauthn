@@ -13,6 +13,8 @@ on:
         secrets:
             VERCEL_TOKEN:
                 required: true
+            SENTRY_AUTH_TOKEN:
+                required: true
 
 jobs:
     shared-steps:

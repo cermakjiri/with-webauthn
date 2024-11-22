@@ -1,4 +1,4 @@
-name: Vercel Previews Deployment
+name: Vercel Preview Deployment
 
 on:
     push:
