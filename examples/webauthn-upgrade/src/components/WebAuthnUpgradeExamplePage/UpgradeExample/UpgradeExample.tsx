@@ -4,6 +4,7 @@ import { ExampleAuth, ExampleBody, ExampleFrame } from '@workspace/common/client
 
 import { CurrentExampleRoute, DefaultExampleRouter } from './DefaultExampleRouter';
 import { DefaultExampleTopBar } from './DefaultExampleTopBar';
+import { EmailVerificationCode } from './EmailVerificationCode';
 import { EmailVerifiedAlert } from './EmailVerifiedAlert';
 import { exampleRoutes } from './routes';
 
@@ -18,7 +19,9 @@ export const UpgradeExample = () => {
 
                     <ExampleBody>
                         <EmailVerifiedAlert />
-                        <CurrentExampleRoute />
+                        <EmailVerificationCode>
+                            <CurrentExampleRoute />
+                        </EmailVerificationCode>
                     </ExampleBody>
                 </DefaultExampleRouter>
             </ExampleAuth>

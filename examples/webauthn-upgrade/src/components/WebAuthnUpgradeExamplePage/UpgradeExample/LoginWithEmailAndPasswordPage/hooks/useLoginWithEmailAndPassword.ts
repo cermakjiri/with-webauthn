@@ -13,7 +13,13 @@ import type { VerifyLoginRequestData, VerifyLoginResponseData } from '~pages/api
 import { useExampleRouter } from '../../DefaultExampleRouter';
 import type { LoginFormSchema, LoginFormValues } from '../schema';
 
-export function useLoginWithEmailAndPassword(): FormProps<LoginFormSchema, LoginFormValues>['onSubmit'] {
+export interface UseLoginWithEmailAndPasswordProps {
+    onSuccess: () => void;
+}
+
+export function useLoginWithEmailAndPassword({
+    onSuccess,
+}: UseLoginWithEmailAndPasswordProps): FormProps<LoginFormSchema, LoginFormValues>['onSubmit'] {
     const { redirect } = useExampleRouter();
 
     return async function loginWithEmailAndPassword({ email, password }, { setError }) {
@@ -51,6 +57,8 @@ export function useLoginWithEmailAndPassword(): FormProps<LoginFormSchema, Login
             logger.info('/webauthn/login/verify', webAuthnVerifiedResult);
 
             await signInWithCustomToken(auth(), webAuthnVerifiedResult.customToken);
+
+            onSuccess();
 
             redirect('/passkeys');
         } catch (error) {

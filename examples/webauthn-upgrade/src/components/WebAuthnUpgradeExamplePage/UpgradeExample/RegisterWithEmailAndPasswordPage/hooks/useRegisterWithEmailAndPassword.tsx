@@ -16,10 +16,10 @@ async function sendUserEmailVerification(user: User) {
     const returnUrl = new URL('/', window.location.origin);
 
     returnUrl.searchParams.set('verified', 'true');
+    returnUrl.searchParams.set('email', user.email!);
 
     await sendEmailVerification(user, {
-        // Let Firebase Auth provide UI for displaying email verification result.
-        handleCodeInApp: false,
+        handleCodeInApp: true,
         url: returnUrl.toString(),
     });
 }

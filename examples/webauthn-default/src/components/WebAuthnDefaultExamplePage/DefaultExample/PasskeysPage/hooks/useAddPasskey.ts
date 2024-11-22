@@ -3,6 +3,7 @@ import { useMutation } from '@tanstack/react-query';
 
 import { queryClient } from '@workspace/common/client/api/components';
 import { fetcher } from '@workspace/common/client/api/fetcher';
+import { parseUnknownError } from '@workspace/common/client/errors';
 import { useSnack } from '@workspace/common/client/snackbar/hooks';
 import { logger } from '@workspace/common/logger';
 
@@ -41,7 +42,11 @@ export function useAddPasskey() {
             });
         },
         async onError(error: Error) {
-            snack('error', error.message);
+            const parsedError = await parseUnknownError(error);
+
+            logger.error(parsedError);
+
+            snack('error', parsedError.message);
         },
         onSuccess() {
             snack('success', 'Passkey has been successfully added.');
