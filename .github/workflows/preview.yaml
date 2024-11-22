@@ -5,17 +5,29 @@ on:
         branches:
             - dev
 
+    workflow_call:
+        inputs:
+            VERCEL_PROJECT_DEFAULT:
+                required: true
+                type: string
+            VERCEL_PROJECT_UPGRADE:
+                required: true
+                type: string
+            VERCEL_SCOPE:
+                required: true
+                type: string
+
 jobs:
     default-example:
         uses: ./.github/workflows/preview-common.yaml
+        secrets: inherit
         with:
-            vercel_project_name: ${{ secrets.VERCEL_NAME_EXAMPLE_DEFAULT }}
-            vercel_scope: ${{ secrets.VERCEL_SCOPE }}
-            vercel_token: ${{ secrets.VERCEL_TOKEN }}
+            vercel_project_name: ${{ inputs.VERCEL_PROJECT_DEFAULT }}
+            vercel_scope: ${{ inputs.VERCEL_SCOPE }}
 
     upgrade-example:
         uses: ./.github/workflows/preview-common.yaml
+        secrets: inherit
         with:
-            vercel_token: ${{ secrets.VERCEL_TOKEN }}
-            vercel_project_name: ${{ secrets.VERCEL_NAME_EXAMPLE_UPGRADE }}
-            vercel_scope: ${{ secrets.VERCEL_SCOPE }}
+            vercel_project_name: ${{ inputs.VERCEL_PROJECT_UPGRADE }}
+            vercel_scope: ${{ inputs.VERCEL_SCOPE }}
