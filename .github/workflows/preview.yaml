@@ -16,13 +16,13 @@ jobs:
     default-example:
         uses: ./.github/workflows/preview-common.yaml
         secrets:
-            vercel_project_name: $VERCEL_NAME_EXAMPLE_DEFAULT
-            vercel_scope: $VERCEL_SCOPE
-            vercel_token: $VERCEL_TOKEN
+            vercel_project_name: ${{ secrets.VERCEL_NAME_EXAMPLE_DEFAULT }}
+            vercel_scope: ${{ secrets.VERCEL_SCOPE }}
+            vercel_token: ${{ secrets.VERCEL_TOKEN }}
 
     upgrade-example:
         uses: ./.github/workflows/preview-common.yaml
         secrets:
-            vercel_token: $VERCEL_TOKEN
-            vercel_project_name: $VERCEL_NAME_EXAMPLE_UPGRADE
-            vercel_scope: $VERCEL_SCOPE
+            vercel_token: ${{ secrets.VERCEL_TOKEN }}
+            vercel_project_name: ${{ secrets.VERCEL_NAME_EXAMPLE_UPGRADE }}
+            vercel_scope: ${{ secrets.VERCEL_SCOPE }}
