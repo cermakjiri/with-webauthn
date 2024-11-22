@@ -5,30 +5,24 @@ on:
         branches:
             - dev
 
-    workflow_call:
-        secrets:
-            VERCEL_NAME_EXAMPLE_DEFAULT:
-                required: true
-            VERCEL_NAME_EXAMPLE_UPGRADE:
-                required: true
-            VERCEL_SCOPE:
-                required: true
-            VERCEL_TOKEN:
-                required: true
-            SENTRY_AUTH_TOKEN:
-                required: true
+env:
+    VERCEL_NAME_EXAMPLE_DEFAULT: ${ secrets.VERCEL_NAME_EXAMPLE_DEFAULT }}
+    VERCEL_NAME_EXAMPLE_UPGRADE: ${ secrets.VERCEL_NAME_EXAMPLE_UPGRADE }}
+    VERCEL_SCOPE: ${ secrets.VERCEL_SCOPE }}
+    VERCEL_TOKEN: ${ secrets.VERCEL_TOKEN }}
+    SENTRY_AUTH_TOKEN: ${ secrets.SENTRY_AUTH_TOKEN }}
 
 jobs:
     default-example:
         uses: ./.github/workflows/preview-common.yaml
         secrets:
-            vercel_project_name: ${{ secrets.VERCEL_NAME_EXAMPLE_DEFAULT }}
-            vercel_scope: ${{ secrets.VERCEL_SCOPE }}
-            vercel_token: ${{ secrets.VERCEL_TOKEN }}
+            vercel_project_name: $VERCEL_NAME_EXAMPLE_DEFAULT
+            vercel_scope: $VERCEL_SCOPE
+            vercel_token: $VERCEL_TOKEN
 
     upgrade-example:
         uses: ./.github/workflows/preview-common.yaml
         secrets:
-            vercel_token: ${{ secrets.VERCEL_TOKEN }}
-            vercel_project_name: ${{ secrets.VERCEL_NAME_EXAMPLE_UPGRADE }}
-            vercel_scope: ${{ secrets.VERCEL_SCOPE }}
+            vercel_token: $VERCEL_TOKEN
+            vercel_project_name: $VERCEL_NAME_EXAMPLE_UPGRADE
+            vercel_scope: $VERCEL_SCOPE
