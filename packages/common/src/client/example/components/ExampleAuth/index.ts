@@ -1,3 +1,4 @@
-export * from './AuthProvider/hooks/useAuthUser';
-export * from './AuthProvider/hooks/useExampleAuthSession';
 export * from './ExampleAuth';
+export * from './hooks/useAuthTokenClaims';
+export * from './hooks/useAuthUser';
+export * from './hooks/useExampleAuthSession';

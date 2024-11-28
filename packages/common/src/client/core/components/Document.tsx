@@ -17,10 +17,8 @@ function MyDocument({ emotionStyleTags }: MyDocumentProps) {
                     name='description'
                     content='A full-stack WebAuthn example of creating a passkey (attestation ceremony) and then retrieving it (assertation ceremony) with Firebase Firestore integration to store the passkey and Firebase Auth for issuing a JWT token.'
                 />
-                {/* TODO: */}
                 {/* <meta name='theme-color' content='#D2D119' /> */}
                 <meta name='emotion-insertion-point' content='' />
-                {/* TODO: */}
                 {/* <link rel='shortcut icon' href='/favicon.ico' /> */}
                 {/* <link rel='apple-touch-icon' sizes='180x180' href='/apple-touch-icon.png' /> */}
                 {/* <link rel='icon' type='image/png' sizes='32x32' href='/favicon-32x32.png' /> */}

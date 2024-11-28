@@ -10,7 +10,7 @@ import { deleteChallengeSession, getChallengeSession, setChallengeSession } from
 
 export type InitializeChallengeSessionProps = {
     timeout: number;
-    challenge: ArrayBuffer;
+    challenge: Uint8Array;
 } & (
     | {
           type: 'attestation';
@@ -39,6 +39,7 @@ export async function initializeChallengeSession(
     await setChallengeSession({
         ...restProps,
         id: sessionId,
+        // @ts-ignore
         challenge: bufferToBase64URLString(challenge),
         expiresAt: expiresAt.toISOString(),
         origin: env.NEXT_PUBLIC_CLIENT_ORIGIN,

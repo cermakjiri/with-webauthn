@@ -1,4 +1,4 @@
-import { captureException, setExtras } from '@sentry/browser';
+import { captureException, setExtras } from '@sentry/nextjs';
 import type { Extras } from '@sentry/types';
 import { getLogger } from 'loglevel';
 

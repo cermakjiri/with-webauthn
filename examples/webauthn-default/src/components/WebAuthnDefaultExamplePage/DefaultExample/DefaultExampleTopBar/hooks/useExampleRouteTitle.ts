@@ -1,6 +1,6 @@
 import { useExampleAuthSession } from '@workspace/common/client/example/components';
 
-import { useExampleRouter } from '../../DefaultExampleRouter';
+import { useExampleRouter } from '../../router';
 import type { ExampleRoute } from '../../routes';
 
 const routeTitles = {
@@ -13,7 +13,7 @@ export function useExampleRouteTitle() {
     const { session } = useExampleAuthSession();
     const { currentRoute } = useExampleRouter();
 
-    if (session.state === 'loading') {
+    if (session.state === 'loading' || !currentRoute) {
         return 'Loading...';
     }
 

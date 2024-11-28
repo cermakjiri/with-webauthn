@@ -1,12 +1,11 @@
 import { bufferToBase64URLString } from '@simplewebauthn/browser';
 import type { VerifiedRegistrationResponse } from '@simplewebauthn/server';
 
-import { db } from '~server/config/firebase';
+import { auth, db } from '~server/config/firebase';
 import { collections } from '~server/constants/collections';
 import type { Passkey, User } from '~types';
 
 import { getPasskeyProvider } from '../aaguid';
-import { createAuthUser } from '../auth';
 import { addPasskey, getPasskeys, removePasskey, type AddPasskeyProps } from '../passkeys';
 
 export async function findUserByUsername(username: User['username']) {
@@ -40,6 +39,17 @@ export async function addUser(
     return user;
 }
 
+export async function createUserWithNoPasskeys(uid: string, email: string) {
+    await db()
+        .collection(collections.Users)
+        .doc(uid)
+        .set({
+            id: uid,
+            username: email,
+            passkeyIds: [],
+        } satisfies User);
+}
+
 export async function updateUser(userId: string, data: Partial<User>) {
     await db().collection(collections.Users).doc(userId).update(data);
 }
@@ -60,6 +70,7 @@ function mapPropsToPasskey(userId: string, verifiedRegistrationInfo: VerifiedReg
     return {
         credentialId: credential.id,
         credentialBackedUp,
+        // @ts-ignore
         credentialPublicKey: bufferToBase64URLString(credential.publicKey),
         credentialDeviceType,
         credentialCounter: credential.counter,
@@ -87,7 +98,7 @@ export async function createUserPasskey(
     });
 
     // Creates a new user in Firebase Authentication.
-    await createAuthUser({
+    await auth().createUser({
         uid: userId,
         email: username,
     });

@@ -1,7 +1,7 @@
 import Link from 'next/link';
 
 import { ExampleDescription, ExampleHeader, ExampleWrapper } from '@workspace/common/client/example/components';
-import { MainHeader } from '@workspace/common/client/layout/components';
+import { PageHeader } from '@workspace/common/client/layout/components';
 import { Container } from '@workspace/common/client/ui-kit';
 
 import { DefaultExample } from './DefaultExample';
@@ -9,7 +9,7 @@ import { DefaultExample } from './DefaultExample';
 export const WebAuthnDefaultExamplePage = () => {
     return (
         <>
-            <MainHeader pageTitle='Passkeys authentication' />
+            <PageHeader pageTitle='Passkeys authentication' />
 
             <ExampleWrapper>
                 <Container maxWidth='lg'>
@@ -32,6 +32,7 @@ export const WebAuthnDefaultExamplePage = () => {
                                 ]}
                             />
                         }
+                        githubUrl='https://github.com/cermakjiri/with-webauthn/tree/dev/examples/webauthn-default'
                     />
                     <DefaultExample />
                 </Container>

@@ -16,10 +16,17 @@ export type VerifyRemovalRequestData = {
     passkeyId: string;
 };
 
+export type VerifyRemovalResponseData = {
+    /**
+     * Removed passkey.
+     */
+    passkey: Passkey;
+};
+
 /**
  * Verify the user's identity before removing the passkey.
  */
-export default async function handler(req: NextApiRequest, res: NextApiResponse<Passkey>) {
+export default async function handler(req: NextApiRequest, res: NextApiResponse<VerifyRemovalResponseData>) {
     try {
         const idTokenResult = await parseAndVerifyIdToken(req.headers.authorization);
 
@@ -71,7 +78,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
 
         await removeUserPasskey(passkeyForRemoval.userId, passkeyForRemoval.id);
 
-        res.status(200).json(passkeyForRemoval);
+        res.status(200).json({ passkey: passkeyForRemoval });
     } catch (error) {
         logger.error(error);
 

@@ -1,22 +1,22 @@
 {
     "name": "with-webauthn",
     "description": "A project with full-stack WebAuthn API examples.",
-    "packageManager": "yarn@4.5.0",
+    "packageManager": "yarn@4.5.3+sha512.3003a14012e2987072d244c720506549c1aab73ee728208f1b2580a9fd67b92d61ba6b08fe93f6dce68fd771e3af1e59a0afa28dd242dd0940d73b95fedd4e90",
     "private": true,
-    "type": "commonjs",
+    "type": "module",
     "engines": {
-        "node": "20"
+        "node": "22"
     },
     "scripts": {
         "postinstall": "turbo telemetry disable",
-        "build": "turbo run build",
-        "dev": "turbo run dev --concurrency 100%",
+        "build": "yarn workspace @workspace/common build && turbo run build --parallel",
+        "dev": "yarn workspace @workspace/common build && turbo run dev --concurrency 100%",
         "cir-dep": "turbo run cir-dep --parallel",
         "test:ci": "turbo run test:ci",
         "lint": "turbo run lint --parallel",
         "lint:fix": "turbo run lint --parallel -- --fix",
         "format": "turbo run format --parallel",
-        "audit": "yarn npm audit --severity moderate --environment production --all",
+        "audit": "yarn npm audit --severity moderate --all",
         "pre-commit": "prettier-format --staged --log-level=log && turbo run lint --parallel --force -- --staged --fix",
         "prepare": "husky"
     },
@@ -30,8 +30,8 @@
         "@tooling/prettier": "workspace:*",
         "@tooling/typescript": "workspace:*",
         "dotenv": "16.4.5",
-        "husky": "9.1.6",
-        "turbo": "2.2.3"
+        "husky": "9.1.7",
+        "turbo": "2.3.3"
     },
     "prettier": "@tooling/prettier/config",
     "license": "GPL-3.0-only",

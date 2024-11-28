@@ -1,0 +1,44 @@
+name: Reusable Preview Workflow
+
+on:
+    workflow_call:
+        inputs:
+            vercel_project_name:
+                required: true
+                type: string
+            vercel_scope:
+                required: true
+                type: string
+
+        secrets:
+            VERCEL_TOKEN:
+                required: true
+            SENTRY_AUTH_TOKEN:
+                required: true
+
+jobs:
+    shared-steps:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+            - uses: actions/setup-node@v4
+              with:
+                  node-version: 22
+
+            - name: Enable Corepack
+              run: corepack enable
+
+            - name: Install Corepack
+              run: corepack install
+
+            - name: Link Project to Vercel
+              run: yarn dlx -q vercel link --project=${{ inputs.vercel_project_name }} --scope=${{ inputs.vercel_scope }} --yes --token=${{ secrets.VERCEL_TOKEN }}
+
+            - name: Pull Vercel Environment Information
+              run: yarn dlx -q vercel pull --yes --environment=preview --token=${{ secrets.VERCEL_TOKEN }}
+
+            - name: Build Project Artifacts
+              run: yarn dlx -q vercel build --token=${{ secrets.VERCEL_TOKEN }}
+
+            - name: Deploy Project Artifacts to Vercel
+              run: yarn dlx -q vercel deploy --prebuilt --token=${{ secrets.VERCEL_TOKEN }}

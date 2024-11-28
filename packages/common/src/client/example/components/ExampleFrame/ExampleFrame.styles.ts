@@ -3,7 +3,7 @@ import { Box, styled } from '@mui/material';
 export const Container = styled(Box)(({ theme }) => ({
     display: 'flex',
     justifyContent: 'center',
-    marginTop: theme.spacing(6),
+    marginTop: theme.spacing(4),
 }));
 
 export const Frame = styled(Box, {
@@ -23,4 +23,6 @@ export const Frame = styled(Box, {
     display: 'grid',
     gridTemplateRows: 'auto 1fr',
     boxShadow: '0px 8px 25px rgba(0, 0, 0, 0.1)',
+    overflow: 'hidden',
+    position: 'relative',
 }));

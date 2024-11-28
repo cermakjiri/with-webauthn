@@ -1,23 +1,13 @@
-import { LoadingButton, type LoadingButtonProps } from '@mui/lab';
+import type { LoadingButtonProps } from '@mui/lab';
+
+import { StyledButton } from './Button.styles';
 
 export interface ButtonProps extends LoadingButtonProps {}
 
 export const Button = ({ children, ...props }: ButtonProps) => {
     return (
-        <LoadingButton
-            variant='contained'
-            size='large'
-            {...props}
-            sx={{
-                textTransform: 'none',
-                boxShadow: 'none',
-                height: 48,
-                fontSize: '1rem',
-                fontWeight: '500',
-                ...props.sx,
-            }}
-        >
+        <StyledButton variant='contained' size='large' {...props}>
             {children}
-        </LoadingButton>
+        </StyledButton>
     );
 };
