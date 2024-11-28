@@ -1,6 +1,6 @@
 import { useExampleAuthSession } from '@workspace/common/client/example/components';
 
-import { useExampleRouter } from '../../DefaultExampleRouter';
+import { useExampleRouter } from '../../router';
 import type { ExampleRoute } from '../../routes';
 
 const routeTitles = {

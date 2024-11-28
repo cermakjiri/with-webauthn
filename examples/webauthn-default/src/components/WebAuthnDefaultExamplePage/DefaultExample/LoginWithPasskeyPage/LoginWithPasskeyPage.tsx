@@ -7,7 +7,7 @@ import { Alert, Box, Button, Divider, Words } from '@workspace/common/client/ui-
 import { Fingerprint, InfoOutlined } from '@workspace/common/client/ui-kit/icons';
 
 import { AuthFormContainer } from '../AuthFormContainer';
-import { useExampleRouter } from '../DefaultExampleRouter';
+import { useExampleRouter } from '../router';
 import { useConditionalMediation } from './hooks/useConditionalMediation';
 import { useLoginWithPasskey } from './hooks/useLoginWithPasskey';
 import { loginFormSchema, type LoginFormSchema, type LoginFormValues } from './schema';

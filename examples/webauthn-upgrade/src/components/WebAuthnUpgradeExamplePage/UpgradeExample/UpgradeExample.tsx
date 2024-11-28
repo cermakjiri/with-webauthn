@@ -2,10 +2,11 @@ import { useState } from 'react';
 
 import { ExampleAuth, ExampleBody, ExampleFrame } from '@workspace/common/client/example/components';
 
-import { CurrentExampleRoute, DefaultExampleRouter } from './DefaultExampleRouter';
 import { DefaultExampleTopBar } from './DefaultExampleTopBar';
 import { EmailVerificationCode } from './EmailVerificationCode';
 import { EmailVerifiedAlert } from './EmailVerifiedAlert';
+import { ResolveInitRoute } from './ResolveInitRoute';
+import { CurrentExampleRoute, ExampleRouter } from './router';
 import { exampleRoutes } from './routes';
 
 export const UpgradeExample = () => {
@@ -13,18 +14,20 @@ export const UpgradeExample = () => {
 
     return (
         <ExampleFrame expanded={expanded}>
-            <ExampleAuth>
-                <DefaultExampleRouter routes={exampleRoutes}>
-                    <DefaultExampleTopBar expanded={expanded} onToggleExpand={setExpanded} />
+            <ExampleRouter routes={exampleRoutes}>
+                <EmailVerificationCode>
+                    <ExampleAuth>
+                        <ResolveInitRoute />
 
-                    <ExampleBody>
-                        <EmailVerifiedAlert />
-                        <EmailVerificationCode>
+                        <DefaultExampleTopBar expanded={expanded} onToggleExpand={setExpanded} />
+
+                        <ExampleBody>
+                            <EmailVerifiedAlert />
                             <CurrentExampleRoute />
-                        </EmailVerificationCode>
-                    </ExampleBody>
-                </DefaultExampleRouter>
-            </ExampleAuth>
+                        </ExampleBody>
+                    </ExampleAuth>
+                </EmailVerificationCode>
+            </ExampleRouter>
         </ExampleFrame>
     );
 };

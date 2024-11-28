@@ -2,7 +2,7 @@ import { Alert, Box, Button, Divider, Stack, Words } from '@workspace/common/cli
 import { Email, Fingerprint, Google } from '@workspace/common/client/ui-kit/icons';
 
 import { AuthFormContainer } from '../AuthFormContainer';
-import { useExampleRouter } from '../DefaultExampleRouter';
+import { useExampleRouter } from '../router';
 import { useLoginWithPasskey } from './hooks/useLoginWithPasskey';
 
 export const LoginWithPasskeyPage = () => {

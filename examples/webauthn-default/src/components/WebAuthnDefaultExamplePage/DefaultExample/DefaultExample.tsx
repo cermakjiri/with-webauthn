@@ -2,8 +2,9 @@ import { useState } from 'react';
 
 import { ExampleAuth, ExampleBody, ExampleFrame } from '@workspace/common/client/example/components';
 
-import { CurrentExampleRoute, DefaultExampleRouter } from './DefaultExampleRouter';
 import { DefaultExampleTopBar } from './DefaultExampleTopBar';
+import { ResolveInitRoute } from './ResolveInitRoute';
+import { CurrentExampleRoute, ExampleRouter } from './router';
 import { exampleRoutes } from './routes';
 
 export const DefaultExample = () => {
@@ -11,15 +12,17 @@ export const DefaultExample = () => {
 
     return (
         <ExampleFrame expanded={expanded}>
-            <ExampleAuth>
-                <DefaultExampleRouter routes={exampleRoutes}>
+            <ExampleRouter routes={exampleRoutes}>
+                <ExampleAuth>
+                    <ResolveInitRoute />
+
                     <DefaultExampleTopBar expanded={expanded} onToggleExpand={setExpanded} />
 
                     <ExampleBody>
                         <CurrentExampleRoute />
                     </ExampleBody>
-                </DefaultExampleRouter>
-            </ExampleAuth>
+                </ExampleAuth>
+            </ExampleRouter>
         </ExampleFrame>
     );
 };

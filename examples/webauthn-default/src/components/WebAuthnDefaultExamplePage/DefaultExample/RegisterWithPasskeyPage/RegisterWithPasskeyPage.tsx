@@ -3,7 +3,7 @@ import { Box, Button, Divider, Words } from '@workspace/common/client/ui-kit';
 import { Fingerprint } from '@workspace/common/client/ui-kit/icons';
 
 import { AuthFormContainer } from '../AuthFormContainer';
-import { useExampleRouter } from '../DefaultExampleRouter';
+import { useExampleRouter } from '../router';
 import { useRegisterWithPasskey } from './hooks';
 import { registerFormSchema, type RegisterFormSchema, type RegisterFormValues } from './schema';
 

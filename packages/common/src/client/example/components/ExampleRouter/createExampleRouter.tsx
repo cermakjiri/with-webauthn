@@ -1,28 +1,27 @@
 import { createContext, createElement, useContext, useState, type ReactElement, type ReactNode } from 'react';
 
+import { Loader, LoaderContainer } from '~client/ui-kit';
+
 export type Pathname = string;
 export type RenderRouteComponent = () => ReactElement;
 export type UnknownRoutes = Readonly<Record<Pathname, RenderRouteComponent>>;
 
 export type ExampleRouterContextValue<Routes extends UnknownRoutes> = {
     routes: Routes;
-    currentRoute: keyof Routes;
+    currentRoute: keyof Routes | null;
     redirect: (route: keyof Routes) => void;
 };
 
 export interface ExampleRouterProps<Routes extends UnknownRoutes> {
     children: ReactNode;
-    initialRoute: keyof Routes;
     routes: Routes;
 }
 
 export function createExampleRouter<Routes extends UnknownRoutes>() {
-    type Route = keyof Routes;
-
     const ExampleRouterContext = createContext<ExampleRouterContextValue<Routes> | undefined>(undefined);
 
-    const ExampleRouter = ({ children, initialRoute, routes }: ExampleRouterProps<Routes>) => {
-        const [currentRoute, setCurrentRoute] = useState<keyof Routes>(initialRoute);
+    const ExampleRouter = ({ children, routes }: ExampleRouterProps<Routes>) => {
+        const [currentRoute, setCurrentRoute] = useState<keyof Routes | null>(null);
 
         return (
             <ExampleRouterContext.Provider value={{ routes, currentRoute, redirect: setCurrentRoute }}>
@@ -43,6 +42,14 @@ export function createExampleRouter<Routes extends UnknownRoutes>() {
 
     function CurrentExampleRoute() {
         const { routes, currentRoute } = useExampleRouter();
+
+        if (!currentRoute) {
+            return (
+                <LoaderContainer height='fullBox'>
+                    <Loader />
+                </LoaderContainer>
+            );
+        }
 
         return createElement(routes[currentRoute]);
     }

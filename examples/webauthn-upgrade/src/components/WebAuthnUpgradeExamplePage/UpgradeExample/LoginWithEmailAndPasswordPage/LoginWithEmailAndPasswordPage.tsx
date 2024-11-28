@@ -12,7 +12,7 @@ import { Button } from '@workspace/common/client/ui-kit';
 import { ArrowBack, Send } from '@workspace/common/client/ui-kit/icons';
 
 import { AuthFormContainer } from '../AuthFormContainer';
-import { useExampleRouter } from '../DefaultExampleRouter';
+import { useExampleRouter } from '../router';
 import { useLoginWithEmailAndPassword } from './hooks/useLoginWithEmailAndPassword';
 import { loginFormSchema, type LoginFormSchema, type LoginFormValues } from './schema';
 

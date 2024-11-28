@@ -13,7 +13,7 @@ import type {
     VerifyRegistrationResponseData,
 } from '~pages/api/webauthn/register/verify';
 
-import { useExampleRouter } from '../../DefaultExampleRouter';
+import { useExampleRouter } from '../../router';
 import type { RegisterFormSchema, RegisterFormValues } from '../schema';
 
 export function useRegisterWithPasskey(): FormProps<RegisterFormSchema, RegisterFormValues>['onSubmit'] {

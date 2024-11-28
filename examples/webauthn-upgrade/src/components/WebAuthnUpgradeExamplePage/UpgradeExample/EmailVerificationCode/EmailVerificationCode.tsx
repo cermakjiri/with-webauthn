@@ -8,7 +8,7 @@ import { QueryLoader } from '@workspace/common/client/api/components';
 import { env } from '@workspace/common/client/env';
 import { auth } from '@workspace/common/client/firebase/config';
 
-import { useExampleRouter } from '../DefaultExampleRouter';
+import { useExampleRouter } from '../router';
 
 export interface EmailVerificationCodeProps {
     children: ReactNode;
@@ -35,11 +35,10 @@ export function EmailVerificationCode({ children }: EmailVerificationCodeProps) 
             }
 
             await applyActionCode(auth(), oobCode);
-            await auth().currentUser?.reload();
-
-            await push(continueUrl);
 
             redirect('/login-with-password');
+
+            await push(continueUrl);
 
             return null;
         },

@@ -10,7 +10,7 @@ import { logger } from '@workspace/common/logger';
 import type { StartLoginRequestData, StartLoginResponseData } from '~pages/api/webauthn/login/options';
 import type { VerifyLoginRequestData, VerifyLoginResponseData } from '~pages/api/webauthn/login/verify';
 
-import { useExampleRouter } from '../../DefaultExampleRouter';
+import { useExampleRouter } from '../../router';
 import type { LoginFormSchema, LoginFormValues } from '../schema';
 
 export function useLoginWithPasskey(): FormProps<LoginFormSchema, LoginFormValues>['onSubmit'] {

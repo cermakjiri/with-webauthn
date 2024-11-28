@@ -10,7 +10,7 @@ import { logger } from '@workspace/common/logger';
 import type { LoginRequestData, LoginResponseData } from '~pages/api/auth/login';
 import type { VerifyLoginRequestData, VerifyLoginResponseData } from '~pages/api/webauthn/login/verify';
 
-import { useExampleRouter } from '../../DefaultExampleRouter';
+import { useExampleRouter } from '../../router';
 import type { LoginFormSchema, LoginFormValues } from '../schema';
 
 export interface UseLoginWithEmailAndPasswordProps {

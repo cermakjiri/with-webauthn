@@ -1,4 +1,4 @@
-import { sendEmailVerification, signInWithCustomToken, type User } from 'firebase/auth';
+import { sendEmailVerification, signInWithCustomToken, signOut, type User } from 'firebase/auth';
 
 import { fetcher } from '@workspace/common/client/api/fetcher';
 import { parseUnknownError } from '@workspace/common/client/errors';
@@ -9,7 +9,7 @@ import { logger } from '@workspace/common/logger';
 
 import type { RegisterRequestData, RegisterResponseData } from '~pages/api/auth/register';
 
-import { useExampleRouter } from '../../DefaultExampleRouter';
+import { useExampleRouter } from '../../router';
 import type { RegisterFormSchema, RegisterFormValues } from '../schema';
 
 async function sendUserEmailVerification(user: User) {
@@ -42,6 +42,7 @@ export function useRegisterWithEmailAndPassword(): FormProps<RegisterFormSchema,
 
             if (!user.emailVerified) {
                 await sendUserEmailVerification(user);
+                await signOut(auth());
             } else {
                 redirect('/passkeys');
             }

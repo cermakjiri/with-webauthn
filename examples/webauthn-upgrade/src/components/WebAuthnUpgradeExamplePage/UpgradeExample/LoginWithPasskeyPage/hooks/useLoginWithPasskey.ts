@@ -10,7 +10,7 @@ import { logger } from '@workspace/common/logger';
 import type { StartLoginResponseData } from '~pages/api/webauthn/login/options';
 import type { VerifyLoginRequestData, VerifyLoginResponseData } from '~pages/api/webauthn/login/verify';
 
-import { useExampleRouter } from '../../DefaultExampleRouter';
+import { useExampleRouter } from '../../router';
 
 export function useLoginWithPasskey() {
     const { redirect } = useExampleRouter();

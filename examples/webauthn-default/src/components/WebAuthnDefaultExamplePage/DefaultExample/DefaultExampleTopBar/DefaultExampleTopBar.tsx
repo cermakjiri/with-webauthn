@@ -1,6 +1,6 @@
 import { ExampleTopBar, type ExampleTopBarProps } from '@workspace/common/client/example/components';
 
-import { useExampleRouter } from '../DefaultExampleRouter';
+import { useExampleRouter } from '../router';
 import { useExampleRouteTitle } from './hooks/useExampleRouteTitle';
 
 export interface DefaultExampleTopBarProps extends Pick<ExampleTopBarProps, 'expanded' | 'onToggleExpand'> {}

@@ -10,7 +10,7 @@ import { Box, Button, Divider, Words } from '@workspace/common/client/ui-kit';
 import { Send } from '@workspace/common/client/ui-kit/icons';
 
 import { AuthFormContainer } from '../AuthFormContainer';
-import { useExampleRouter } from '../DefaultExampleRouter';
+import { useExampleRouter } from '../router';
 import { useRegisterWithEmailAndPassword } from './hooks';
 import { registerFormSchema, type RegisterFormSchema, type RegisterFormValues } from './schema';
 
@@ -24,6 +24,10 @@ export const RegisterWithEmailAndPasswordPage = () => {
                 schema={registerFormSchema}
                 onSubmit={register}
                 mode='onTouched'
+                defaultValues={{
+                    email: 'jiri.cermak482+6@gmail.com',
+                    password: 'Password123*',
+                }}
             >
                 <FieldsStack>
                     <FormError />
