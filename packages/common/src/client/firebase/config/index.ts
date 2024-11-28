@@ -8,6 +8,7 @@ import { env } from '~client/env';
 let app: ReturnType<typeof initializeApp>;
 
 export const getFirebaseApp = () => {
+    // @ts-ignore
     if (app) {
         return app;
     }

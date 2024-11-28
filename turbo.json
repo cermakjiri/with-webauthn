@@ -2,14 +2,14 @@
     "$schema": "https://turbo.build/schema.json",
     "cacheDir": ".cache/turbo",
     "ui": "stream",
+    "globalDependencies": [".env.local", ".env", ".env.server", ".env.sentry-build-plugin"],
     "tasks": {
         "test:ci": {
             "dependsOn": ["//#audit", "build"]
         },
         "build": {
             "outputs": ["dist/**", ".next/**", "!.next/cache/**", ".cache/.tsbuildinfo"],
-            "dependsOn": ["cir-dep", "format", "lint", "^build"],
-            "inputs": ["$TURBO_DEFAULT$", ".env.local", ".env", ".env.server"]
+            "dependsOn": ["cir-dep", "format", "lint", "^build"]
         },
         "lint": {
             "cache": true,
@@ -23,8 +23,7 @@
             "outputs": ["dist/**"],
             "cache": false,
             "persistent": true,
-            "dependsOn": ["cir-dep", "format"],
-            "inputs": ["src/**/*.ts", "src/**/*.tsx"]
+            "dependsOn": ["cir-dep", "format"]
         },
         "cir-dep": {
             "cache": true,

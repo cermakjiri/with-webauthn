@@ -70,6 +70,7 @@ function mapPropsToPasskey(userId: string, verifiedRegistrationInfo: VerifiedReg
     return {
         credentialId: credential.id,
         credentialBackedUp,
+        // @ts-ignore
         credentialPublicKey: bufferToBase64URLString(credential.publicKey),
         credentialDeviceType,
         credentialCounter: credential.counter,

@@ -5,9 +5,8 @@ import type { dependencies } from 'package.json';
 import { withDefinedSentryConfig } from '@workspace/sentry/next-config';
 
 if (process.env.NODE_ENV === 'development') {
-    config({
-        path: '.env.local',
-    });
+    config({ path: '.env.local' });
+    config({ path: '../../.env' });
 }
 
 type Dependency = keyof typeof dependencies;

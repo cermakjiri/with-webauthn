@@ -24,10 +24,6 @@ export const RegisterWithEmailAndPasswordPage = () => {
                 schema={registerFormSchema}
                 onSubmit={register}
                 mode='onTouched'
-                defaultValues={{
-                    email: 'jiri.cermak482+6@gmail.com',
-                    password: 'Password123*',
-                }}
             >
                 <FieldsStack>
                     <FormError />

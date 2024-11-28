@@ -7,5 +7,4 @@ export * from './Icon';
 export * from './InfoTooltip';
 export * from './Loader';
 export * from './MenuItem';
-export * from './PageHeader';
 export * from './Words';
