@@ -23,7 +23,7 @@ export const EmailVerifiedAlert = ({}: EmailVerifiedAlertProps) => {
                 <Words variant='body2'>
                     Email verified.
                     <br />
-                    You can now add passkey to your account.
+                    You can now sign-in and add passkey.
                 </Words>
             </Alert>
             <Divider />
