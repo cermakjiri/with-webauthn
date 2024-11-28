@@ -32,6 +32,7 @@ export const WebAuthnDefaultExamplePage = () => {
                                 ]}
                             />
                         }
+                        githubUrl='https://github.com/cermakjiri/with-webauthn/tree/dev/examples/webauthn-default'
                     />
                     <DefaultExample />
                 </Container>

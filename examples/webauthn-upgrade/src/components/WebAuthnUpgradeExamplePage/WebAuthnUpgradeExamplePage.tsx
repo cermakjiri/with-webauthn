@@ -32,6 +32,7 @@ export const WebAuthnUpgradeExamplePage = () => {
                                 ]}
                             />
                         }
+                        githubUrl='https://github.com/cermakjiri/with-webauthn/tree/dev/examples/webauthn-upgrade'
                     />
                     <UpgradeExample />
                 </Container>
