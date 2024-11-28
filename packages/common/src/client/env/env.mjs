@@ -55,5 +55,5 @@ export const env = createEnv({
         NEXT_PUBLIC_UPGRADE_EXAMPLE_ORIGIN: process.env.NEXT_PUBLIC_UPGRADE_EXAMPLE_ORIGIN,
     },
 
-    skipValidation: !!process.env.CI || !!process.env.SKIP_ENV_VALIDATION || process.env.npm_lifecycle_event === 'lint',
+    skipValidation: !!process.env.SKIP_ENV_VALIDATION || process.env.npm_lifecycle_event === 'lint',
 });
