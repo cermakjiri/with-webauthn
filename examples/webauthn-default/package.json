@@ -3,7 +3,8 @@
     "version": "0.0.1",
     "type": "module",
     "scripts": {
-        "dev": "next dev --turbopack -p 3000",
+        "types-check": "tsc --noEmit -w",
+        "dev": "next dev --turbopack -p 3000 & yarn types-check",
         "build": "next build",
         "start": "next start -p 3000",
         "lint": "eslint-lint --config=eslint.config.mjs ./src/**/*.{ts,tsx}",
@@ -16,7 +17,8 @@
         "@workspace/sentry": "workspace:*",
         "next": "15.0.3",
         "react": "18.3.1",
-        "react-dom": "18.3.1"
+        "react-dom": "18.3.1",
+        "typescript": "5.7.2"
     },
     "devDependencies": {
         "@tooling/eslint": "workspace:*",

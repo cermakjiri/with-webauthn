@@ -9862,6 +9862,7 @@ __metadata:
     next: "npm:15.0.3"
     react: "npm:18.3.1"
     react-dom: "npm:18.3.1"
+    typescript: "npm:5.7.2"
   languageName: unknown
   linkType: soft
 
@@ -9879,6 +9880,7 @@ __metadata:
     next: "npm:15.0.3"
     react: "npm:18.3.1"
     react-dom: "npm:18.3.1"
+    typescript: "npm:5.7.2"
   languageName: unknown
   linkType: soft
 

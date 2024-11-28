@@ -9,7 +9,7 @@
     },
     "scripts": {
         "postinstall": "turbo telemetry disable",
-        "build": "turbo run build --parallel",
+        "build": "yarn workspace @workspace/common build && turbo run build --parallel",
         "dev": "yarn workspace @workspace/common build && turbo run dev --concurrency 100%",
         "cir-dep": "turbo run cir-dep --parallel",
         "test:ci": "turbo run test:ci",

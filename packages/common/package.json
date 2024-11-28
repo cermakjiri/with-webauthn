@@ -8,7 +8,7 @@
         "lint:fix": "yarn lint --fix",
         "format": "prettier-format",
         "cir-dep": "check-cir-deps .",
-        "build": "yarn clean && tsc && tsc-alias",
+        "build": "tsc && tsc-alias",
         "clean": "rm -rf dist .cache",
         "dev": "tsc -w & tsc-alias -w"
     },
