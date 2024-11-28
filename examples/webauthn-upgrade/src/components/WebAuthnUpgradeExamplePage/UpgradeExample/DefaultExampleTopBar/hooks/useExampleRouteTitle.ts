@@ -14,7 +14,7 @@ export function useExampleRouteTitle() {
     const { session } = useExampleAuthSession();
     const { currentRoute } = useExampleRouter();
 
-    if (session.state === 'loading') {
+    if (session.state === 'loading' || !currentRoute) {
         return 'Loading...';
     }
 

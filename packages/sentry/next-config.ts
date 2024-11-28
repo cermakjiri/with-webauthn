@@ -2,7 +2,6 @@
 import { withSentryConfig } from '@sentry/nextjs';
 
 export function withDefinedSentryConfig<C>(nextConfig: C) {
-    // TODO: remove this
     console.log('Sentry is enabled');
     console.log('Sentry organization:', process.env.SENTRY_ORG);
     console.log('Sentry project:', process.env.SENTRY_PROJECT);

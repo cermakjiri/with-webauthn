@@ -14,6 +14,9 @@ export interface EmailVerificationCodeProps {
     children: ReactNode;
 }
 
+/**
+ * Parse the email verification code from the query parameters and attempt to verify the email.
+ */
 export function EmailVerificationCode({ children }: EmailVerificationCodeProps) {
     const [params] = useQueryStates({
         apiKey: parseAsString,
