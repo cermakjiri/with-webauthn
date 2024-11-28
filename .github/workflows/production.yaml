@@ -15,6 +15,7 @@ jobs:
 
     upgrade-example:
         uses: ./.github/workflows/production-common.yaml
+        secrets: inherit
         with:
-            vercel_project_name: ${{ secrets.VERCEL_PROJECT_UPGRADE }}
+            vercel_project_name: ${{ vars.VERCEL_PROJECT_UPGRADE }}
             vercel_scope: ${{ vars.VERCEL_SCOPE }}
