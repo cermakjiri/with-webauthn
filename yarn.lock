@@ -4709,18 +4709,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cross-spawn@npm:^7.0.0":
-  version: 7.0.4
-  resolution: "cross-spawn@npm:7.0.4"
-  dependencies:
-    path-key: "npm:^3.1.0"
-    shebang-command: "npm:^2.0.0"
-    which: "npm:^2.0.1"
-  checksum: 10c0/04f6c70dcbdd156f53073f13730f71160dabb91c8dfbdb24a873f4580ad7ca4b73c062ddfaaa2ba46d0dac433856d0cc0a07ff7173cd5404fefde952e87c9dbf
-  languageName: node
-  linkType: hard
-
-"cross-spawn@npm:^7.0.5":
+"cross-spawn@npm:^7.0.0, cross-spawn@npm:^7.0.5":
   version: 7.0.6
   resolution: "cross-spawn@npm:7.0.6"
   dependencies:
