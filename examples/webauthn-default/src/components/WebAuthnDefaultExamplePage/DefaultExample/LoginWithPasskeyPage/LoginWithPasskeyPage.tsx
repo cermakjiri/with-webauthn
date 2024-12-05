@@ -1,7 +1,6 @@
 import Link from 'next/link';
 
 import { queryClient } from '@workspace/common/client/api/components';
-import { track } from '@workspace/common/client/firebase/analytics';
 import { EmailField, Form, FormError, SubmitButton } from '@workspace/common/client/form/components';
 import { FieldsStack } from '@workspace/common/client/form/components/';
 import { Alert, Box, Button, Divider, Words } from '@workspace/common/client/ui-kit';
@@ -59,13 +58,7 @@ export const LoginWithPasskeyPage = () => {
                     />
                 </FieldsStack>
 
-                <SubmitButton
-                    sx={{ mt: 3 }}
-                    endIcon={<Fingerprint />}
-                    onClick={() => {
-                        track('example_default_login');
-                    }}
-                >
+                <SubmitButton sx={{ mt: 3 }} endIcon={<Fingerprint />}>
                     Login with Passkey
                 </SubmitButton>
             </Form>
