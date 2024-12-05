@@ -4,6 +4,7 @@ import { signInWithCustomToken } from 'firebase/auth';
 
 import { fetcher } from '@workspace/common/client/api/fetcher';
 import { parseUnknownError } from '@workspace/common/client/errors';
+import { track } from '@workspace/common/client/firebase/analytics';
 import { auth } from '@workspace/common/client/firebase/config';
 import { logger } from '@workspace/common/logger';
 
@@ -17,6 +18,7 @@ export function useLoginWithPasskey() {
 
     return useMutation<void, Awaited<ReturnType<typeof parseUnknownError>>>({
         mutationFn: async () => {
+            track('example_upgrade_login_passkey_request');
             try {
                 const {
                     data: { publicKeyOptions },
@@ -47,7 +49,10 @@ export function useLoginWithPasskey() {
 
                 // NOTE: The Authorization header with ID token is set in request inceptor in AuthProvider.tsx component.
                 redirect('/passkeys');
+
+                track('example_upgrade_login_passkey_success');
             } catch (error) {
+                track('example_upgrade_login_passkey_failure');
                 throw await parseUnknownError(error);
             }
         },

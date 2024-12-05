@@ -4,6 +4,7 @@ import { Close, Menu } from '@mui/icons-material';
 import { Divider, Drawer, IconButton, List, ListItem, ListItemButton, Stack } from '@mui/material';
 
 import { env } from '~client/env';
+import { track } from '~client/firebase/analytics';
 import { Words } from '~client/ui-kit';
 
 import { DrawerContent } from './PageDrawer.styles';
@@ -13,7 +14,17 @@ export const PageDrawer = () => {
 
     return (
         <>
-            <IconButton onClick={() => setOpen(!open)} size='large' aria-label='menu'>
+            <IconButton
+                onClick={() => {
+                    if (!open) {
+                        track('hamburger_menu_open');
+                    }
+
+                    return setOpen(!open);
+                }}
+                size='large'
+                aria-label='menu'
+            >
                 <Menu sx={{ color: '#000' }} />
             </IconButton>
             <Drawer anchor='left' open={open} onClose={() => setOpen(false)}>
@@ -35,6 +46,7 @@ export const PageDrawer = () => {
                                 href={env.NEXT_PUBLIC_DEFAULT_EXAMPLE_ORIGIN}
                                 onClick={() => {
                                     setOpen(false);
+                                    track('hamburger_default_example');
                                 }}
                             >
                                 <Words variant='body2'>Authenticate with passkeys</Words>
@@ -46,6 +58,7 @@ export const PageDrawer = () => {
                                 href={env.NEXT_PUBLIC_UPGRADE_EXAMPLE_ORIGIN}
                                 onClick={() => {
                                     setOpen(false);
+                                    track('hamburger_upgrade_example');
                                 }}
                             >
                                 <Words variant='body2'>Upgrade to passkeys</Words>

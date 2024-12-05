@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react';
 import { Fullscreen, FullscreenExit } from '@mui/icons-material';
 
+import { track } from '~client/firebase/analytics';
 import { IconButton, Words } from '~client/ui-kit';
 
 import { useExampleAuthSession } from '../ExampleAuth';
@@ -20,7 +21,13 @@ export const ExampleTopBar = ({ onToggleExpand, expanded, title, onLogout }: Exa
     return (
         <Topbar>
             <div>
-                <IconButton onClick={() => onToggleExpand(!expanded)} sx={{ mr: 'auto' }}>
+                <IconButton
+                    onClick={() => {
+                        onToggleExpand(!expanded);
+                        track('account_menu_open');
+                    }}
+                    sx={{ mr: 'auto' }}
+                >
                     {expanded ? <FullscreenExit /> : <Fullscreen />}
                 </IconButton>
             </div>
