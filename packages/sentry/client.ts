@@ -10,6 +10,8 @@ import {
     replayIntegration,
 } from '@sentry/nextjs';
 
+import './styles/feedback-form.css';
+
 export function initSentryForClient(dsn: string) {
     init({
         dsn,
