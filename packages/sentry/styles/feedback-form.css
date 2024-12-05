@@ -1,0 +1,7 @@
+:root {
+    --font-family: 'Montserrat';
+}
+
+#sentry-feedback {
+    font-family: var(--font-family);
+}

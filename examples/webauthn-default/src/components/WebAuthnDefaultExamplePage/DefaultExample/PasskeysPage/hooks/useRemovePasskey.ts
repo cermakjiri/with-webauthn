@@ -5,6 +5,7 @@ import { queryClient } from '@workspace/common/client/api/components';
 import { fetcher } from '@workspace/common/client/api/fetcher';
 import { parseUnknownError } from '@workspace/common/client/errors';
 import { useAuthUser } from '@workspace/common/client/example/components';
+import { track } from '@workspace/common/client/firebase/analytics';
 import type { PostRemovalDialogProps } from '@workspace/common/client/passkeys/components';
 import { useSnack } from '@workspace/common/client/snackbar/hooks';
 import { logger } from '@workspace/common/logger';
@@ -21,6 +22,8 @@ export function useRemovePasskey(openDialog: (data: PostRemovalDialogProps['data
 
     return useMutation({
         mutationFn: async (passkeyId: string) => {
+            track('example_default_remove_passkey_request');
+
             try {
                 const {
                     data: { publicKeyOptions },
@@ -59,12 +62,16 @@ export function useRemovePasskey(openDialog: (data: PostRemovalDialogProps['data
                 await queryClient.invalidateQueries({
                     queryKey: ['passkeys'],
                 });
+
+                track('example_default_remove_passkey_success');
             } catch (error) {
                 const parsedError = await parseUnknownError(error);
 
                 snack('error', parsedError.message);
 
                 logger.error(error);
+
+                track('example_default_remove_passkey_failure');
             }
         },
     });

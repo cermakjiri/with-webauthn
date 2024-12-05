@@ -2,6 +2,8 @@ import Head from 'next/head';
 import Link from 'next/link';
 import { GitHub } from '@mui/icons-material';
 
+import { track } from '~client/firebase/analytics';
+
 import { PageDrawer } from '../PageDrawer';
 import { IconGithub, LeftSide, PageTitle, StyledContainer } from './PageHeader.styles';
 
@@ -28,6 +30,9 @@ export const PageHeader = ({ pageTitle }: PageHeaderProps) => {
                     href='https://github.com/cermakjiri/with-webauthn'
                     target='_blank'
                     title='A repository with full stack WebAuthn API examples.'
+                    onClick={() => {
+                        track('view_github_repo');
+                    }}
                 >
                     <IconGithub icon={GitHub} sx={{ pr: 1.5 }} />
                 </Link>

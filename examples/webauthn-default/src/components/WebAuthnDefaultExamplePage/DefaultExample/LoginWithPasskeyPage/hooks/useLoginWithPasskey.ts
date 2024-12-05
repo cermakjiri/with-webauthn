@@ -3,6 +3,7 @@ import { signInWithCustomToken } from 'firebase/auth';
 
 import { fetcher } from '@workspace/common/client/api/fetcher';
 import { parseUnknownError } from '@workspace/common/client/errors';
+import { track } from '@workspace/common/client/firebase/analytics';
 import { auth } from '@workspace/common/client/firebase/config';
 import type { FormProps } from '@workspace/common/client/form/components';
 import { logger } from '@workspace/common/logger';
@@ -17,6 +18,7 @@ export function useLoginWithPasskey(): FormProps<LoginFormSchema, LoginFormValue
     const { redirect } = useExampleRouter();
 
     return async function loginWithPasskey({ email: username }, { setError }) {
+        track('example_default_login_request');
         try {
             const {
                 data: { publicKeyOptions },
@@ -49,6 +51,8 @@ export function useLoginWithPasskey(): FormProps<LoginFormSchema, LoginFormValue
             // NOTE: The Authorization header with ID token is set in request inceptor in AuthProvider.tsx component.
 
             redirect('/passkeys');
+
+            track('example_default_login_success');
         } catch (error) {
             const parsedError = await parseUnknownError(error);
 
@@ -57,6 +61,8 @@ export function useLoginWithPasskey(): FormProps<LoginFormSchema, LoginFormValue
             });
 
             logger.error(error);
+
+            track('example_default_login_failure');
         }
     };
 }

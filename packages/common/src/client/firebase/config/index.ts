@@ -36,7 +36,13 @@ export const auth = () => {
 
     return auth;
 };
+
 export const analytics = () => getAnalytics(getFirebaseApp());
+
+if ('window' in globalThis) {
+    analytics().app.automaticDataCollectionEnabled = true;
+}
+
 export const db = () => {
     const app = getFirebaseApp();
     const databaseId = env.NEXT_PUBLIC_FIREBASE_DB_ID;

@@ -20,8 +20,6 @@ const nextConfig: NextConfig = {
     },
 
     transpilePackages: ['@workspace/common'] satisfies Dependency[],
-
-    redirects: async () => [],
 };
 
 // Make sure adding Sentry options is the last code to run before exporting, to

@@ -1,5 +1,14 @@
-import { createContext, createElement, useContext, useState, type ReactElement, type ReactNode } from 'react';
+import {
+    createContext,
+    createElement,
+    useContext,
+    useEffect,
+    useState,
+    type ReactElement,
+    type ReactNode,
+} from 'react';
 
+import { track } from '~client/firebase/analytics';
 import { Loader, LoaderContainer } from '~client/ui-kit';
 
 export type Pathname = string;
@@ -42,6 +51,14 @@ export function createExampleRouter<Routes extends UnknownRoutes>() {
 
     function CurrentExampleRoute() {
         const { routes, currentRoute } = useExampleRouter();
+
+        useEffect(() => {
+            if (!currentRoute) {
+                return;
+            }
+
+            track('example_route_change', { route: currentRoute });
+        }, [currentRoute]);
 
         if (!currentRoute) {
             return (

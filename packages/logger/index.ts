@@ -1,6 +1,7 @@
 import { captureException, setExtras } from '@sentry/nextjs';
-import type { Extras } from '@sentry/types';
 import { getLogger } from 'loglevel';
+
+type Extras = Parameters<typeof setExtras>[0];
 
 export function createLogger(
     name: string,

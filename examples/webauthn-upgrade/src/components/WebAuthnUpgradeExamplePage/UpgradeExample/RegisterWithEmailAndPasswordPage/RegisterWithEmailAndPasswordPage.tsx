@@ -41,7 +41,12 @@ export const RegisterWithEmailAndPasswordPage = () => {
             <Box sx={{ textAlign: 'center', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                 <Words variant='body2'>Already have an account?</Words>
 
-                <Button variant='text' onClick={() => redirect('/login')}>
+                <Button
+                    variant='text'
+                    onClick={() => {
+                        redirect('/login');
+                    }}
+                >
                     Login
                 </Button>
             </Box>
