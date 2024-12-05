@@ -13,12 +13,12 @@
     },
     "dependencies": {
         "@eslint/eslintrc": "3.2.0",
-        "@eslint/js": "9.15.0",
-        "@tanstack/eslint-plugin-query": "5.61.4",
+        "@eslint/js": "9.16.0",
+        "@tanstack/eslint-plugin-query": "5.62.1",
         "@tooling/typescript": "workspace:*",
         "@types/eslint__eslintrc": "2.1.2",
         "@types/eslint__js": "8.42.3",
-        "eslint": "9.15.0",
+        "eslint": "9.16.0",
         "eslint-config-next": "15.0.3",
         "eslint-config-prettier": "9.1.0",
         "eslint-plugin-turbo": "2.3.3",
@@ -26,10 +26,10 @@
         "react": "18.3.1",
         "react-dom": "18.3.1",
         "typescript": "5.7.2",
-        "typescript-eslint": "8.16.0"
+        "typescript-eslint": "8.17.0"
     },
     "devDependencies": {
-        "@eslint/compat": "1.2.3",
+        "@eslint/compat": "1.2.4",
         "@tooling/prettier": "workspace:*",
         "@tooling/staged": "workspace:^",
         "@types/eslint": "9.6.1"
