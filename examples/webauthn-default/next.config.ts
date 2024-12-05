@@ -20,20 +20,6 @@ const nextConfig: NextConfig = {
     },
 
     transpilePackages: ['@workspace/common'] satisfies Dependency[],
-
-    redirects: async () => [],
-
-    headers: async () => [
-        {
-            source: '/(.*)',
-            headers: [
-                {
-                    key: 'Document-Policy',
-                    value: 'js-profiling',
-                },
-            ],
-        },
-    ],
 };
 
 // Make sure adding Sentry options is the last code to run before exporting, to

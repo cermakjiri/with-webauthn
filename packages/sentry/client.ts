@@ -2,13 +2,7 @@
 // The config you add here will be used whenever a users loads a page in their browser.
 // https://docs.sentry.io/platforms/javascript/guides/nextjs/
 
-import {
-    browserProfilingIntegration,
-    browserTracingIntegration,
-    feedbackIntegration,
-    init,
-    replayIntegration,
-} from '@sentry/nextjs';
+import { browserTracingIntegration, feedbackIntegration, init, replayIntegration } from '@sentry/nextjs';
 
 import './styles/feedback-form.css';
 
@@ -23,13 +17,10 @@ export function initSentryForClient(dsn: string) {
                 colorScheme: 'system',
             }),
             browserTracingIntegration(),
-            browserProfilingIntegration(),
         ],
 
         // Define how likely traces are sampled. Adjust this value in production, or use tracesSampler for greater control.
         tracesSampleRate: 0.5,
-
-        profilesSampleRate: 0.5,
 
         // Define how likely Replay events are sampled.
         // This sets the sample rate to be 10%. You may want this to be 100% while
