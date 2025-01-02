@@ -34,7 +34,7 @@ export const PasskeysPage = () => {
                         color: theme.palette.text.secondary,
                     })}
                 >
-                    Enable multi-factor authentication by adding a passkey.
+                    Enable multi-factor authentication by creating a passkey.
                 </Words>
             )}
             <PostRemovalDialog
