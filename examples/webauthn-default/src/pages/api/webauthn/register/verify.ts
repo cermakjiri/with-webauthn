@@ -2,7 +2,6 @@ import type { NextApiRequest, NextApiResponse } from 'next';
 import { verifyRegistrationResponse } from '@simplewebauthn/server';
 import type { RegistrationResponseJSON } from '@simplewebauthn/types';
 
-import { env } from '@workspace/common/client/env';
 import { logger } from '@workspace/common/logger';
 import { auth } from '@workspace/common/server/config/firebase';
 import { retrieveAndInvalidateChallengeSession } from '@workspace/common/server/services/challenge-session';
@@ -62,10 +61,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
     } catch (error) {
         logger.error(error);
 
-        res.status(500).end(
-            error instanceof Error && env.NEXT_PUBLIC_NODE_ENV !== 'production'
-                ? error.message
-                : 'Internal Server Error',
-        );
+        res.status(500).end((error as Error).message);
     }
 }

@@ -3,7 +3,7 @@ import { z } from 'zod';
 import { email } from '@workspace/common/client/form/validators';
 
 export const loginFormSchema = z.object({
-    email,
+    email: email.optional(),
 });
 
 export type LoginFormSchema = typeof loginFormSchema;
