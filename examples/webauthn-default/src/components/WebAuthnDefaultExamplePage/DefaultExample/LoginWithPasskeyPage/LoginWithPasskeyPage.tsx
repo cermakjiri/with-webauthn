@@ -51,7 +51,11 @@ export const LoginWithPasskeyPage = () => {
             >
                 <FieldsStack>
                     <FormError />
-                    <EmailField<LoginFormValues> name='email' autoComplete='username webauthn' label='Email' />
+                    <EmailField<LoginFormValues>
+                        name='email'
+                        autoComplete='username webauthn'
+                        label='Email (optional)'
+                    />
                 </FieldsStack>
 
                 <SubmitButton sx={{ mt: 3 }} endIcon={<Fingerprint />}>

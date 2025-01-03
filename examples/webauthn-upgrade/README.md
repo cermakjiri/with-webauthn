@@ -1,16 +1,16 @@
 # Upgrade to passkeys example - From email/password to passkeys
 
--   A user registers with traditional email/password and verifies their email afterwards.
--   Then the user can link passkey/s and therefore upgrades to MFA.
--   The user can downgrade to single-factor authentication by removing all their passkeys.
--   Built with [SimpleWebAuthn](https://simplewebauthn.dev), [Firebase Auth](https://firebase.google.com/docs/auth/admin/create-custom-tokens) and Firestore SDKs.
+- A user registers with traditional email/password and verifies their email afterwards.
+- Then the user can link passkey/s and therefore upgrades to MFA.
+- The user can downgrade to single-factor authentication by removing all their passkeys.
+- Built with [SimpleWebAuthn](https://simplewebauthn.dev), [Firebase Auth](https://firebase.google.com/docs/auth/admin/create-custom-tokens) and Firestore SDKs.
 
 A part from that, the demo includes:
 
--   Creating (user registration), retrieving (user login), linking multiple, and removing passkeys.
--   Issuing a JWT token via Firebase Auth once user is authenticated.
--   Passkes are stored in Firebase Firestore.
--   Formatting and parsing of WebAuthn API request / responses done via SimpleWebAuthn library.
+- Creating (user registration), retrieving (user login), linking multiple, and removing passkeys.
+- Issuing a JWT token via Firebase Auth once user is authenticated.
+- Passkeys are stored in Firebase Firestore.
+- Formatting and parsing of WebAuthn API request / responses done via SimpleWebAuthn library.
 
 👉 **[Check out the demo](https://upgrade.with-webauthn.dev)**.
 

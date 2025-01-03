@@ -3,7 +3,6 @@ import { base64URLStringToBuffer } from '@simplewebauthn/browser';
 import { verifyAuthenticationResponse } from '@simplewebauthn/server';
 import type { AuthenticationResponseJSON } from '@simplewebauthn/types';
 
-import { env } from '@workspace/common/client/env';
 import { logger } from '@workspace/common/logger';
 import { retrieveAndInvalidateChallengeSession } from '@workspace/common/server/services/challenge-session';
 import { getPasskey, getPasskeyBy, getPasskeys } from '@workspace/common/server/services/passkeys';
@@ -116,10 +115,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
     } catch (error) {
         logger.error(error);
 
-        res.status(500).end(
-            error instanceof Error && env.NEXT_PUBLIC_NODE_ENV !== 'production'
-                ? error.message
-                : 'Internal Server Error',
-        );
+        res.status(500).end((error as Error).message);
     }
 }

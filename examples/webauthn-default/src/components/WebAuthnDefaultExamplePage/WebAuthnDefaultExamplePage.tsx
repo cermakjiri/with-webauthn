@@ -28,7 +28,7 @@ export const WebAuthnDefaultExamplePage = () => {
                                         .
                                     </>,
                                     'Issuing a JWT token via Firebase Auth once user is authenticated.',
-                                    'Passkes are stored in Firebase Firestore.',
+                                    'Passkeys are stored in Firebase Firestore.',
                                 ]}
                             />
                         }
