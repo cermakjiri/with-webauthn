@@ -74,6 +74,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
                  * If the authenticator does not support user verification, the registration will fail.
                  */
                 userVerification: 'required',
+
+                residentKey: 'preferred',
             },
 
             /**
@@ -97,10 +99,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
     } catch (error) {
         logger.error(error);
 
-        res.status(500).end(
-            error instanceof Error && env.NEXT_PUBLIC_NODE_ENV !== 'production'
-                ? error.message
-                : 'Internal Server Error',
-        );
+        res.status(500).end((error as Error).message);
     }
 }

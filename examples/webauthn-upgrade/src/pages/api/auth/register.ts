@@ -2,7 +2,6 @@ import type { NextApiRequest, NextApiResponse } from 'next';
 import { AuthErrorCodes } from 'firebase/auth';
 import z from 'zod';
 
-import { env } from '@workspace/common/client/env';
 import { email, password } from '@workspace/common/client/form/validators';
 import { logger } from '@workspace/common/logger';
 import { auth } from '@workspace/common/server/config/firebase';
@@ -61,10 +60,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
     } catch (error) {
         logger.error(error);
 
-        res.status(500).end(
-            error instanceof Error && env.NEXT_PUBLIC_NODE_ENV !== 'production'
-                ? error.message
-                : 'Internal Server Error',
-        );
+        res.status(500).end((error as Error).message);
     }
 }

@@ -33,6 +33,7 @@ async function generateUserAuthenticationOptions(email: string, challenge: Uint8
          * We might not want to provide list of available passkeys to unauthenticated users for privacy reasons:
          * - https://w3c.github.io/webauthn/#sctn-credential-id-privacy-leak
          * - https://w3c.github.io/webauthn/#sctn-unprotected-account-detection (This is not relevent for this demo but, I believe, developers should be aware of this when implementing WebAuthn in production.)
+         * However `allowCredentials` are required if user has registered passkey with the authenticator that doesn't support discoverable credentials (i.e. list of credentials IDs must be provide so that the authenticator can show list of available passkeys to the user).
          */
         allowCredentials: passkeys.map(({ credentialId, transports }) => ({
             id: credentialId,
@@ -115,10 +116,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
     } catch (error) {
         logger.error(error);
 
-        res.status(500).end(
-            error instanceof Error && env.NEXT_PUBLIC_NODE_ENV !== 'production'
-                ? error.message
-                : 'Internal Server Error',
-        );
+        res.status(500).end((error as Error).message);
     }
 }
