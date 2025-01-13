@@ -59,3 +59,9 @@ Assuming you've already finished [those steps in the main README](../../README.m
 
 2. Run `yarn dev` in **root repository** and checkout `http://localhost:3000` URL.
 3. Hey mate, welcome to the WebAuthn world. 🙌
+
+---
+
+> #### 💡 Are you want to learn more about WebAuthn and passkeys?
+>
+> Check out my developer guide [Welcome to the world of passkeys](https://www.ackee.agency/blog/welcome-to-the-world-of-passkeys) blog post (česky [Vítejte ve světě passkeys](https://www.ackee.cz/blog/vitejte-ve-svete-passkeys)).
