@@ -33,7 +33,7 @@
         "core-js": "3.39.0",
         "firebase": "11.0.2",
         "firebase-admin": "13.0.1",
-        "next": "15.0.3",
+        "next": "15.1.4",
         "normalize.css": "8.0.1",
         "nuqs": "2.2.3",
         "radash": "12.1.0",

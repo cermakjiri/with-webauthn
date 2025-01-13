@@ -15,7 +15,7 @@
     "dependencies": {
         "@workspace/common": "workspace:*",
         "@workspace/sentry": "workspace:*",
-        "next": "15.0.3",
+        "next": "15.1.4",
         "react": "18.3.1",
         "react-dom": "18.3.1",
         "typescript": "5.7.2"
