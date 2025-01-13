@@ -15,7 +15,7 @@ export const BlogPostCallout = ({}: BlogPostCalloutProps) => {
                 </Words>
                 <Words variant='body2'>
                     Let me share with you a developer guide to passkeys in my{' '}
-                    <Link href='https://www.ackee.agency/blog/blog/welcome-to-the-world-of-passkeys' target='_blank'>
+                    <Link href='https://www.ackee.agency/blog/welcome-to-the-world-of-passkeys' target='_blank'>
                         Welcome to the world of passkeys
                     </Link>{' '}
                     blog post. 💡
