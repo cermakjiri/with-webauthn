@@ -1,5 +1,6 @@
 import Link from 'next/link';
 
+import { BlogPostCallout } from '@workspace/common/client/blog-post/components';
 import { ExampleDescription, ExampleHeader, ExampleWrapper } from '@workspace/common/client/example/components';
 import { PageHeader } from '@workspace/common/client/layout/components';
 import { Container } from '@workspace/common/client/ui-kit';
@@ -37,6 +38,7 @@ export const WebAuthnDefaultExamplePage = () => {
                     <DefaultExample />
                 </Container>
             </ExampleWrapper>
+            <BlogPostCallout />
         </>
     );
 };

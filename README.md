@@ -23,18 +23,22 @@ A repository with full stack **WebAuthn API** examples.
     - Built with [SimpleWebAuthn](https://simplewebauthn.dev), [Firebase Auth](https://firebase.google.com/docs/auth/admin/create-custom-tokens) and Firestore SDKs.
     - 👉 [**Check out the demo**](https://upgrade.with-webauthn.dev)
 
+> #### 💡 Are you want to learn more about WebAuthn and passkeys?
+>
+> Check out my developer guide [Welcome to the world of passkeys](https://www.ackee.agency/blog/welcome-to-the-world-of-passkeys) blog post (česky [Vítejte ve světě passkeys](https://www.ackee.cz/blog/vitejte-ve-svete-passkeys)).
+
 ---
 
 ## Development
 
 ### Common Stack notes:
 
--   The whole project is managed using tuborepo.
--   All examples are in NextJS (React) framework.
--   API calls are handled with React Tanstack query on client.
--   API endpoints are built via NextJS API routes.
--   Forms are built with react-hook-form and validated with zod schemas.
--   Material UI with styled components as UI SDK.
+- The whole project is managed using tuborepo.
+- All examples are in NextJS (React) framework.
+- API calls are handled with React Tanstack query on client.
+- API endpoints are built via NextJS API routes.
+- Forms are built with react-hook-form and validated with zod schemas.
+- Material UI with styled components as UI SDK.
 
 ### How to start the project locally?
 
