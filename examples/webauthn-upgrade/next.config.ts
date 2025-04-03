@@ -45,6 +45,14 @@ const nextConfig: NextConfig = {
                     key: 'Referrer-Policy',
                     value: 'no-referrer',
                 },
+                {
+                    key: 'Strict-Transport-Security',
+                    value: 'max-age=63072000; includeSubDomains; preload',
+                },
+                {
+                    key: 'Access-Control-Allow-Origin',
+                    value: process.env.NEXT_PUBLIC_CLIENT_ORIGIN!,
+                },
             ],
         },
     ],
