@@ -3,7 +3,6 @@ import { signInWithCustomToken } from 'firebase/auth';
 
 import { fetcher } from '@workspace/common/client/api/fetcher';
 import { parseUnknownError } from '@workspace/common/client/errors';
-import { track } from '@workspace/common/client/firebase/analytics';
 import { auth } from '@workspace/common/client/firebase/config';
 import type { FormProps } from '@workspace/common/client/form/components';
 import { logger } from '@workspace/common/logger';
@@ -24,7 +23,6 @@ export function useLoginWithEmailAndPassword({
     const { redirect } = useExampleRouter();
 
     return async function loginWithEmailAndPassword({ email, password }, { setError }) {
-        track('example_upgrade_login_request');
         try {
             const { data: loginResult } = await fetcher<LoginResponseData>({
                 method: 'POST',
@@ -63,8 +61,6 @@ export function useLoginWithEmailAndPassword({
             onSuccess();
 
             redirect('/passkeys');
-
-            track('example_upgrade_login_success');
         } catch (error) {
             const parsedError = await parseUnknownError(error);
 
@@ -73,8 +69,6 @@ export function useLoginWithEmailAndPassword({
             });
 
             logger.error(error);
-
-            track('example_upgrade_login_failure');
         }
     };
 }

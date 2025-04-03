@@ -6,7 +6,6 @@ import { parseAsString, parseAsStringLiteral, useQueryStates } from 'nuqs';
 
 import { QueryLoader } from '@workspace/common/client/api/components';
 import { env } from '@workspace/common/client/env';
-import { track } from '@workspace/common/client/firebase/analytics';
 import { auth } from '@workspace/common/client/firebase/config';
 
 import { useExampleRouter } from '../router';
@@ -41,8 +40,6 @@ export function EmailVerificationCode({ children }: EmailVerificationCodeProps) 
             await applyActionCode(auth(), oobCode);
 
             redirect('/login-with-password');
-
-            track('example_upgrade_register_email_verified');
 
             await push(continueUrl);
 
