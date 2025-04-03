@@ -4,7 +4,7 @@
     "type": "module",
     "scripts": {
         "types-check": "tsc --noEmit -w",
-        "dev": "next dev --turbopack -p 3000 & yarn types-check",
+        "dev": "yarn types-check & next dev --turbopack -p 3000",
         "build": "next build",
         "start": "next start -p 3000",
         "lint": "eslint-lint --config=eslint.config.mjs ./src/**/*.{ts,tsx}",

@@ -23,7 +23,7 @@ const nextConfig: NextConfig = {
 
     headers: async () => [
         {
-            source: '**',
+            source: '/:path*',
             headers: [
                 {
                     key: 'X-Frame-Options',
@@ -35,7 +35,7 @@ const nextConfig: NextConfig = {
                 },
                 {
                     key: 'Permissions-Policy',
-                    value: 'camera=(), microphone=(), geolocation=(), payment=(), usb=(), midi=(), magnetometer=(), gyroscope=(), speaker=(), ambient-light-sensor=(), accelerometer=(), xr-spatial-tracking=(), picture-in-picture=(), autoplay=(), document-domain=(), fullscreen=(), wake-lock=()',
+                    value: 'camera=(), microphone=(), geolocation=(), payment=(), usb=(), midi=(), magnetometer=(), gyroscope=(), fullscreen=()',
                 },
                 {
                     key: 'X-Content-Type-Options',
