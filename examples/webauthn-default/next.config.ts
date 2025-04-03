@@ -66,8 +66,12 @@ const nextConfig: NextConfig = {
                     key: 'Content-Security-Policy',
                     value: [
                         `default-src 'self'`,
-                        `connect-src 'self' https://identitytoolkit.googleapis.com https://firestore.googleapis.com`,
+                        `connect-src 'self' https://identitytoolkit.googleapis.com https://firestore.googleapis.com https://o133290.ingest.us.sentry.io`,
                         `img-src 'self' https://www.google.com/images/cleardot.gif data:`,
+                        `object-src 'none'`,
+                        `frame-ancestors 'none'`,
+
+                        // For local server only:
                         ...(process.env.NODE_ENV === 'development'
                             ? [`style-src 'self' 'unsafe-inline'`, `style-src-elem 'self' 'unsafe-inline'`]
                             : []),

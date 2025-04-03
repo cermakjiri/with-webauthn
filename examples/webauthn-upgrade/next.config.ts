@@ -23,12 +23,21 @@ const nextConfig: NextConfig = {
 
     headers: async () => [
         {
-            source: '/:path*',
+            source: '/',
             headers: [
                 {
                     key: 'X-Frame-Options',
                     value: 'DENY',
                 },
+                {
+                    key: 'Cross-Origin-Embedder-Policy',
+                    value: 'require-corp',
+                },
+            ],
+        },
+        {
+            source: '/:path*',
+            headers: [
                 {
                     key: 'Upgrade-Insecure-Requests',
                     value: '1',
@@ -52,6 +61,21 @@ const nextConfig: NextConfig = {
                 {
                     key: 'Access-Control-Allow-Origin',
                     value: process.env.NEXT_PUBLIC_CLIENT_ORIGIN!,
+                },
+                {
+                    key: 'Content-Security-Policy',
+                    value: [
+                        `default-src 'self'`,
+                        `connect-src 'self' https://identitytoolkit.googleapis.com https://firestore.googleapis.com`,
+                        `img-src 'self' https://www.google.com/images/cleardot.gif data:`,
+
+                        // For local server only:
+                        ...(process.env.NODE_ENV === 'development'
+                            ? [`style-src 'self' 'unsafe-inline'`, `style-src-elem 'self' 'unsafe-inline'`]
+                            : []),
+                    ]
+                        .filter(Boolean)
+                        .join('; '),
                 },
             ],
         },
