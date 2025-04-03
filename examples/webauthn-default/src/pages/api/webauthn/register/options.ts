@@ -1,7 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { generateRegistrationOptions } from '@simplewebauthn/server';
+import { generateRegistrationOptions, type PublicKeyCredentialCreationOptionsJSON } from '@simplewebauthn/server';
 import { generateChallenge } from '@simplewebauthn/server/helpers';
-import type { PublicKeyCredentialCreationOptionsJSON } from '@simplewebauthn/types';
 import { z } from 'zod';
 
 import { env } from '@workspace/common/client/env';

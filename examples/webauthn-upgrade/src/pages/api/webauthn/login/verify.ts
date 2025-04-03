@@ -1,7 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { base64URLStringToBuffer } from '@simplewebauthn/browser';
-import { verifyAuthenticationResponse } from '@simplewebauthn/server';
-import type { AuthenticationResponseJSON } from '@simplewebauthn/types';
+import { verifyAuthenticationResponse, type AuthenticationResponseJSON } from '@simplewebauthn/server';
 import { FieldValue } from 'firebase-admin/firestore';
 
 import { logger } from '@workspace/common/logger';

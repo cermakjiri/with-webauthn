@@ -1,6 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { verifyRegistrationResponse } from '@simplewebauthn/server';
-import type { RegistrationResponseJSON } from '@simplewebauthn/types';
+import { verifyRegistrationResponse, type RegistrationResponseJSON } from '@simplewebauthn/server';
 
 import { logger } from '@workspace/common/logger';
 import { auth } from '@workspace/common/server/config/firebase';
