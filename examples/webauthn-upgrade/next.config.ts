@@ -20,6 +20,34 @@ const nextConfig: NextConfig = {
     },
 
     transpilePackages: ['@workspace/common'] satisfies Dependency[],
+
+    headers: async () => [
+        {
+            source: '**',
+            headers: [
+                {
+                    key: 'X-Frame-Options',
+                    value: 'DENY',
+                },
+                {
+                    key: 'Upgrade-Insecure-Requests',
+                    value: '1',
+                },
+                {
+                    key: 'Permissions-Policy',
+                    value: 'camera=(), microphone=(), geolocation=(), payment=(), usb=(), midi=(), magnetometer=(), gyroscope=(), speaker=(), ambient-light-sensor=(), accelerometer=(), xr-spatial-tracking=(), picture-in-picture=(), autoplay=(), document-domain=(), fullscreen=(), wake-lock=()',
+                },
+                {
+                    key: 'X-Content-Type-Options',
+                    value: 'nosniff',
+                },
+                {
+                    key: 'Referrer-Policy',
+                    value: 'no-referrer',
+                },
+            ],
+        },
+    ],
 };
 
 // Make sure adding Sentry options is the last code to run before exporting, to
