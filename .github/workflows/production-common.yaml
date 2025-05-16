@@ -33,11 +33,8 @@ jobs:
             - name: Link Project to Vercel
               run: yarn dlx -q vercel link --project=${{ inputs.vercel_project_name }} --scope=${{ inputs.vercel_scope }} --yes --token=${{ secrets.VERCEL_TOKEN }}
 
-            - name: Pull Vercel Environment Information
-              run: yarn dlx -q vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
-
             - name: Build Project Artifacts
-              run: yarn dlx -q vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
+              run: yarn dlx -q vercel build --prod --token=${{ secrets.VERCEL_TOKEN }} --yes --scope=${{ inputs.vercel_scope }}
 
             - name: Deploy Project Artifacts to Vercel
-              run: yarn dlx -q vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}
+              run: yarn dlx -q vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }} --force --scope=${{ inputs.vercel_scope }}
