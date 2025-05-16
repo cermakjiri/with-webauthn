@@ -15,6 +15,12 @@ on:
                 required: true
             SENTRY_AUTH_TOKEN:
                 required: true
+            SENTRY_REPORT_URI:
+                required: true
+            SENTRY_ORG:
+                required: true
+            SENTRY_PROJECT:
+                required: true
 
 jobs:
     shared-steps:
