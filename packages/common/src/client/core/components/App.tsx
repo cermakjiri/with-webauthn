@@ -2,6 +2,7 @@ import 'normalize.css';
 import 'reset.css';
 
 import type { AppProps } from 'next/app';
+import { ErrorBoundary } from '@sentry/nextjs';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { NuqsAdapter } from 'nuqs/adapters/next/pages';
 import { IntlProvider } from 'react-intl';
@@ -20,16 +21,18 @@ export interface ExtendedAppProps extends AppProps {
 
 export function App({ Component, pageProps: { dehydratedState, ...pageProps }, emotionCache }: ExtendedAppProps) {
     return (
-        <EmotionClient emotionCache={emotionCache}>
-            <AppQueryProvider dehydratedState={dehydratedState}>
-                <IntlProvider locale='en' messages={{}}>
-                    <NuqsAdapter>
-                        <Component {...pageProps} />
-                    </NuqsAdapter>
-                    <SnackbarProvider />
-                </IntlProvider>
-                <ReactQueryDevtools initialIsOpen={false} />
-            </AppQueryProvider>
-        </EmotionClient>
+        <ErrorBoundary>
+            <EmotionClient emotionCache={emotionCache}>
+                <AppQueryProvider dehydratedState={dehydratedState}>
+                    <IntlProvider locale='en' messages={{}}>
+                        <NuqsAdapter>
+                            <Component {...pageProps} />
+                        </NuqsAdapter>
+                        <SnackbarProvider />
+                    </IntlProvider>
+                    <ReactQueryDevtools initialIsOpen={false} />
+                </AppQueryProvider>
+            </EmotionClient>
+        </ErrorBoundary>
     );
 }
