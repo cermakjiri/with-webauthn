@@ -13,7 +13,7 @@
         "dev": "tsc -w & tsc-alias -w"
     },
     "dependencies": {
-        "@ackee/antonio-core": "5.0.0",
+        "@ackee/antonio-core": "5.0.3",
         "@emotion/react": "11.13.5",
         "@emotion/server": "11.11.0",
         "@emotion/styled": "11.13.5",
@@ -22,20 +22,20 @@
         "@mui/lab": "6.0.0-beta.14",
         "@mui/material": "6.1.8",
         "@mui/system": "6.1.8",
-        "@sentry/nextjs": "9.10.1",
+        "@sentry/nextjs": "9.19.0",
         "@simplewebauthn/browser": "13.1.0",
         "@simplewebauthn/server": "13.1.1",
         "@t3-oss/env-nextjs": "0.11.1",
-        "@tanstack/react-query": "5.62.2",
-        "@tanstack/react-query-devtools": "5.62.2",
+        "@tanstack/react-query": "5.76.1",
+        "@tanstack/react-query-devtools": "5.76.1",
         "@workspace/logger": "workspace:*",
         "cookie": "1.0.2",
         "core-js": "3.39.0",
-        "firebase": "11.0.2",
-        "firebase-admin": "13.0.1",
-        "next": "15.2.4",
+        "firebase": "11.7.3",
+        "firebase-admin": "13.4.0",
+        "next": "15.3.2",
         "normalize.css": "8.0.1",
-        "nuqs": "2.2.3",
+        "nuqs": "2.4.3",
         "radash": "12.1.0",
         "react": "18.3.1",
         "react-dom": "18.3.1",
@@ -43,8 +43,8 @@
         "react-intl": "7.0.1",
         "react-toastify": "10.0.6",
         "reset.css": "2.0.2",
-        "typescript": "5.7.2",
-        "zod": "3.23.8"
+        "typescript": "5.8.3",
+        "zod": "3.24.4"
     },
     "devDependencies": {
         "@tooling/eslint": "workspace:*",
@@ -53,6 +53,6 @@
         "@tooling/typescript": "workspace:*",
         "@types/react": "18.3.13",
         "@types/react-dom": "18.3.1",
-        "tsc-alias": "1.8.10"
+        "tsc-alias": "1.8.16"
     }
 }
