@@ -2,7 +2,14 @@
     "$schema": "https://turbo.build/schema.json",
     "cacheDir": ".cache/turbo",
     "ui": "stream",
-    "globalDependencies": [".env.local", ".env", ".env.server", ".env.sentry-build-plugin"],
+    "globalDependencies": [
+        ".env.local",
+        ".env",
+        ".env.server",
+        ".env.sentry-build-plugin",
+        ".env.preview.local",
+        ".env.production.local"
+    ],
     "tasks": {
         "test:ci": {
             "dependsOn": ["//#audit", "build"]

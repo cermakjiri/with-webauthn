@@ -7,6 +7,9 @@ import { withDefinedSentryConfig } from '@workspace/sentry/next-config';
 if (process.env.NODE_ENV === 'development') {
     config({ path: '.env.local' });
     config({ path: '../../.env' });
+} else {
+    config({ path: '../../.vercel/.env.preview.local' });
+    config({ path: '../../.vercel/.env.production.local' });
 }
 
 type Dependency = keyof typeof dependencies;
