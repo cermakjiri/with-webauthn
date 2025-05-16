@@ -62,7 +62,7 @@ const nextConfig: NextConfig = {
                     key: 'Content-Security-Policy',
                     value: [
                         `default-src 'self'`,
-                        `connect-src 'self' https://*.googleapis.com ${new URL(process.env.NEXT_PUBLIC_SENTRY_REPORT_URI!).origin}`,
+                        `connect-src 'self' https://*.googleapis.com ${new URL(process.env.SENTRY_REPORT_URI!).origin}`,
                         `img-src 'self' https://www.google.com/images/cleardot.gif data:`,
                         `object-src 'none'`,
                         `frame-ancestors 'none'`,
@@ -80,7 +80,7 @@ const nextConfig: NextConfig = {
 
                         'upgrade-insecure-requests',
 
-                        `report-uri ${process.env.NEXT_PUBLIC_SENTRY_REPORT_URI}`,
+                        `report-uri ${process.env.SENTRY_REPORT_URI}`,
                         'report-to csp-endpoint',
                     ]
                         .filter(Boolean)
@@ -93,7 +93,7 @@ const nextConfig: NextConfig = {
                         max_age: 10886400,
                         endpoints: [
                             {
-                                url: `${process.env.NEXT_PUBLIC_SENTRY_REPORT_URI}`,
+                                url: `${process.env.SENTRY_REPORT_URI}`,
                             },
                         ],
                         include_subdomains: true,
@@ -101,7 +101,7 @@ const nextConfig: NextConfig = {
                 },
                 {
                     key: 'Reporting-Endpoints',
-                    value: `csp-endpoint="${process.env.NEXT_PUBLIC_SENTRY_REPORT_URI}"`,
+                    value: `csp-endpoint="${process.env.SENTRY_REPORT_URI}"`,
                 },
             ],
         },
