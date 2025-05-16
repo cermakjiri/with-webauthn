@@ -4,10 +4,10 @@ import type { dependencies } from 'package.json';
 
 import { withDefinedSentryConfig } from '@workspace/sentry/next-config';
 
-if (process.env.NODE_ENV === 'development') {
-    config({ path: '.env.local' });
-    config({ path: '../../.env' });
-}
+// if (process.env.NODE_ENV === 'development') {
+config({ path: '.env.local' });
+config({ path: '../../.env' });
+// }
 
 type Dependency = keyof typeof dependencies;
 
@@ -62,10 +62,12 @@ const nextConfig: NextConfig = {
                     key: 'Content-Security-Policy',
                     value: [
                         `default-src 'self'`,
-                        `connect-src 'self' https://identitytoolkit.googleapis.com https://firestore.googleapis.com ${new URL(process.env.SENTRY_REPORT_URI!).origin}`,
+                        `connect-src 'self' https://*.googleapis.com ${new URL(process.env.SENTRY_REPORT_URI!).origin}`,
                         `img-src 'self' https://www.google.com/images/cleardot.gif data:`,
                         `object-src 'none'`,
                         `frame-ancestors 'none'`,
+                        `style-src 'self' 'unsafe-inline'`,
+                        `worker-src 'self' blob:`,
 
                         // For local server only:
                         ...(process.env.NODE_ENV === 'development'

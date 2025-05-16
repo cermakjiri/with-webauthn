@@ -1,17 +1,18 @@
-import { CacheProvider } from '@emotion/react';
+import type { EmotionCache } from '@emotion/react';
+import { AppCacheProvider } from '@mui/material-nextjs/v15-pagesRouter';
 
-import { createEmotionCache } from '../../utils/createEmotionCache';
 import { ThemeProvider } from '../ThemeProvider';
 
 export interface EmotionClientProps {
-    emotionCache: ReturnType<typeof createEmotionCache>;
+    emotionCache: EmotionCache;
     children: React.ReactNode;
+    nonce: string;
 }
 
-export const EmotionClient = ({ children, emotionCache = createEmotionCache() }: EmotionClientProps) => {
+export const EmotionClient = ({ children, emotionCache }: EmotionClientProps) => {
     return (
-        <CacheProvider value={emotionCache}>
+        <AppCacheProvider emotionCache={emotionCache}>
             <ThemeProvider>{children}</ThemeProvider>
-        </CacheProvider>
+        </AppCacheProvider>
     );
 };
