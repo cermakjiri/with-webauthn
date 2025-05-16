@@ -13,6 +13,7 @@ type Dependency = keyof typeof dependencies;
 
 const nextConfig: NextConfig = {
     reactStrictMode: true,
+    poweredByHeader: false,
 
     i18n: {
         locales: ['en'],
@@ -23,7 +24,7 @@ const nextConfig: NextConfig = {
 
     headers: async () => [
         {
-            source: '/',
+            source: '/:path*',
             headers: [
                 {
                     key: 'X-Frame-Options',
@@ -33,11 +34,6 @@ const nextConfig: NextConfig = {
                     key: 'Cross-Origin-Embedder-Policy',
                     value: 'require-corp',
                 },
-            ],
-        },
-        {
-            source: '/:path*',
-            headers: [
                 {
                     key: 'Upgrade-Insecure-Requests',
                     value: '1',
@@ -66,16 +62,40 @@ const nextConfig: NextConfig = {
                     key: 'Content-Security-Policy',
                     value: [
                         `default-src 'self'`,
-                        `connect-src 'self' https://identitytoolkit.googleapis.com https://firestore.googleapis.com`,
+                        `connect-src 'self' https://identitytoolkit.googleapis.com https://firestore.googleapis.com ${new URL(process.env.SENTRY_REPORT_URI!).origin}`,
                         `img-src 'self' https://www.google.com/images/cleardot.gif data:`,
+                        `object-src 'none'`,
+                        `frame-ancestors 'none'`,
 
                         // For local server only:
                         ...(process.env.NODE_ENV === 'development'
                             ? [`style-src 'self' 'unsafe-inline'`, `style-src-elem 'self' 'unsafe-inline'`]
                             : []),
+
+                        'upgrade-insecure-requests',
+
+                        `report-uri ${process.env.SENTRY_REPORT_URI}`,
+                        'report-to csp-endpoint',
                     ]
                         .filter(Boolean)
                         .join('; '),
+                },
+                {
+                    key: 'Report-To',
+                    value: `Report-To: ${JSON.stringify({
+                        group: 'csp-endpoint',
+                        max_age: 10886400,
+                        endpoints: [
+                            {
+                                url: `${process.env.SENTRY_REPORT_URI}`,
+                            },
+                        ],
+                        include_subdomains: true,
+                    })}`,
+                },
+                {
+                    key: 'Reporting-Endpoints',
+                    value: `csp-endpoint="${process.env.SENTRY_REPORT_URI}"`,
                 },
             ],
         },
