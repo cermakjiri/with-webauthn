@@ -34,7 +34,7 @@ jobs:
               run: yarn dlx -q vercel link --project=${{ inputs.vercel_project_name }} --scope=${{ inputs.vercel_scope }} --yes --token=${{ secrets.VERCEL_TOKEN }}
 
             - name: Build Project Artifacts
-              run: yarn dlx -q vercel build --yes --target=preview
+              run: yarn dlx -q vercel build --yes --target=preview --scope=${{ inputs.vercel_scope }} --token=${{ secrets.VERCEL_TOKEN }}
 
             - name: Deploy Project Artifacts to Vercel
-              run: yarn dlx -q vercel deploy --prebuilt --force --target=preview
+              run: yarn dlx -q vercel deploy --prebuilt --force --target=preview --scope=${{ inputs.vercel_scope }} --token=${{ secrets.VERCEL_TOKEN }}
