@@ -1,6 +1,6 @@
 import { base64URLStringToBuffer } from '@simplewebauthn/browser';
+import type { AuthenticationResponseJSON } from '@simplewebauthn/server';
 import { decodeClientDataJSON, parseAuthenticatorData } from '@simplewebauthn/server/helpers';
-import type { AuthenticationResponseJSON } from '@simplewebauthn/types';
 
 import { logger } from '~logger';
 

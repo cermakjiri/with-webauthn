@@ -1,4 +1,4 @@
-import type { CredentialDeviceType } from '@simplewebauthn/types';
+import type { CredentialDeviceType } from '@simplewebauthn/browser';
 
 import { ExternalLink, Icon, Strong, TextBlock } from '~client/ui-kit';
 import { Check, Clear } from '~client/ui-kit/icons';

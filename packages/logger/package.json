@@ -3,7 +3,7 @@
     "version": "0.0.1",
     "type": "module",
     "peerDependencies": {
-        "@sentry/nextjs": "8.x",
+        "@sentry/nextjs": "9.x",
         "next": "15.x",
         "react": "18.x"
     },

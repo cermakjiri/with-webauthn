@@ -4,7 +4,6 @@ import { useMutation } from '@tanstack/react-query';
 import { queryClient } from '@workspace/common/client/api/components';
 import { fetcher } from '@workspace/common/client/api/fetcher';
 import { parseUnknownError } from '@workspace/common/client/errors';
-import { track } from '@workspace/common/client/firebase/analytics';
 import { useSnack } from '@workspace/common/client/snackbar/hooks';
 import { logger } from '@workspace/common/logger';
 
@@ -15,8 +14,6 @@ export function useAddPasskey() {
 
     return useMutation({
         mutationFn: async () => {
-            track('example_default_add_passkey_request');
-
             const {
                 data: { publicKeyOptions },
             } = await fetcher<StartLinkingResponseData>({
@@ -50,11 +47,9 @@ export function useAddPasskey() {
             logger.error(parsedError);
 
             snack('error', parsedError.message);
-            track('example_default_add_passkey_failure');
         },
         onSuccess() {
             snack('success', 'Passkey has been successfully added.');
-            track('example_default_add_passkey_success');
         },
     });
 }

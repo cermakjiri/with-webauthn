@@ -2,7 +2,6 @@ import { sendEmailVerification, signInWithCustomToken, signOut, type User } from
 
 import { fetcher } from '@workspace/common/client/api/fetcher';
 import { parseUnknownError } from '@workspace/common/client/errors';
-import { track } from '@workspace/common/client/firebase/analytics';
 import { auth } from '@workspace/common/client/firebase/config';
 import type { FormProps } from '@workspace/common/client/form/components';
 import { useSnack } from '@workspace/common/client/snackbar/hooks';
@@ -30,8 +29,6 @@ export function useRegisterWithEmailAndPassword(): FormProps<RegisterFormSchema,
     const snack = useSnack();
 
     return async function registerPasskey({ email, password }, { setError, reset }) {
-        track('example_upgrade_register_request');
-
         try {
             const {
                 data: { customToken },
@@ -64,8 +61,6 @@ export function useRegisterWithEmailAndPassword(): FormProps<RegisterFormSchema,
                     )}
                 </>,
             );
-
-            track('example_upgrade_register_success');
         } catch (error) {
             const parsedError = await parseUnknownError(error);
 
@@ -74,8 +69,6 @@ export function useRegisterWithEmailAndPassword(): FormProps<RegisterFormSchema,
             });
 
             logger.error(error);
-
-            track('example_upgrade_register_failure');
         }
     };
 }

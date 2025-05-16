@@ -1,7 +1,7 @@
 {
     // ESlint
     "eslint.format.enable": true,
-    "eslint.experimental.useFlatConfig": true,
+    "eslint.useFlatConfig": true,
     "eslint.debug": true,
     "eslint.runtime": "node",
     "eslint.nodePath": "node_modules",

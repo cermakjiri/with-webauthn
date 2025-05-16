@@ -3,7 +3,6 @@ import Link from 'next/link';
 import { GitHub } from '@mui/icons-material';
 import { Box } from '@mui/material';
 
-import { track } from '~client/firebase/analytics';
 import { Button } from '~client/ui-kit';
 
 import { Words } from '../../../ui-kit/components/Words';
@@ -36,9 +35,6 @@ export const ExampleHeader = ({ title, description, githubUrl }: ExampleHeaderPr
                     href={githubUrl}
                     startIcon={<GitHub />}
                     variant='text'
-                    onClick={() => {
-                        track('view_github_repo');
-                    }}
                     sx={theme => ({ color: theme.palette.text.primary })}
                 >
                     View on Github

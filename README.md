@@ -25,7 +25,7 @@ A repository with full stack **WebAuthn API** examples.
 
 > #### 💡 Are you want to learn more about WebAuthn and passkeys?
 >
-> Check out my developer guide [Welcome to the world of passkeys](https://www.ackee.agency/blog/welcome-to-the-world-of-passkeys) blog post (česky [Vítejte ve světě passkeys](https://www.ackee.cz/blog/vitejte-ve-svete-passkeys)).
+> Let me share with you a developer guide to passkeys in my [Welcome to the world of passkeys](https://www.ackee.agency/blog/welcome-to-the-world-of-passkeys) blog post (česky [Vítejte ve světě passkeys](https://www.ackee.cz/blog/vitejte-ve-svete-passkeys)).
 
 ---
 

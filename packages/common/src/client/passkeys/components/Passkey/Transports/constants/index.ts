@@ -1,4 +1,4 @@
-import type { AuthenticatorTransportFuture } from '@simplewebauthn/types';
+import type { AuthenticatorTransportFuture } from '@simplewebauthn/browser';
 
 import { Bluetooth, Cable, Fingerprint, Nfc, QrCode, SdStorage, type SvgIconComponent } from '~client/ui-kit/icons';
 

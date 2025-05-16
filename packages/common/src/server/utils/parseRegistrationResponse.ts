@@ -1,11 +1,11 @@
 import { base64URLStringToBuffer } from '@simplewebauthn/browser';
+import type { RegistrationResponseJSON } from '@simplewebauthn/server';
 import {
     decodeAttestationObject,
     decodeClientDataJSON,
     decodeCredentialPublicKey,
     parseAuthenticatorData,
 } from '@simplewebauthn/server/helpers';
-import type { RegistrationResponseJSON } from '@simplewebauthn/types';
 
 import { logger } from '~logger';
 

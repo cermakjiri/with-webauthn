@@ -1,4 +1,4 @@
-import type { AuthenticatorTransportFuture, Base64URLString, CredentialDeviceType } from '@simplewebauthn/types';
+import type { AuthenticatorTransportFuture, Base64URLString, CredentialDeviceType } from '@simplewebauthn/server';
 import type { Timestamp } from 'firebase/firestore';
 
 import type { PasskeyProvider } from '~server/services/aaguid';

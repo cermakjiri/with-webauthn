@@ -1,4 +1,4 @@
-import type { AuthenticatorTransportFuture } from '@simplewebauthn/types';
+import type { AuthenticatorTransportFuture } from '@simplewebauthn/browser';
 
 import { Chip, Code, ExternalLink, Icon, InfoTooltip, Space, Strong, TextBlock, Words } from '~client/ui-kit';
 

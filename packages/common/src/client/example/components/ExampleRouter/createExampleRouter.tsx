@@ -8,7 +8,6 @@ import {
     type ReactNode,
 } from 'react';
 
-import { track } from '~client/firebase/analytics';
 import { Loader, LoaderContainer } from '~client/ui-kit';
 
 export type Pathname = string;
@@ -56,8 +55,6 @@ export function createExampleRouter<Routes extends UnknownRoutes>() {
             if (!currentRoute) {
                 return;
             }
-
-            track('example_route_change', { route: currentRoute });
         }, [currentRoute]);
 
         if (!currentRoute) {
