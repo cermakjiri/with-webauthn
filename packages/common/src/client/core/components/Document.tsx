@@ -8,10 +8,9 @@ import {
 
 interface MyDocumentProps extends DocumentProps, DocumentHeadTagsProps {
     emotionStyleTags: JSX.Element[];
-    nonce?: string;
 }
 
-function MyDocument({ emotionStyleTags, nonce }: MyDocumentProps) {
+function MyDocument({ emotionStyleTags }: MyDocumentProps) {
     return (
         <Html lang='en'>
             <Head>
@@ -30,7 +29,7 @@ function MyDocument({ emotionStyleTags, nonce }: MyDocumentProps) {
             </Head>
             <body>
                 <Main />
-                <NextScript nonce={nonce} />
+                <NextScript />
             </body>
         </Html>
     );

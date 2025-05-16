@@ -6,7 +6,6 @@ import { ThemeProvider } from '../ThemeProvider';
 export interface EmotionClientProps {
     emotionCache: EmotionCache;
     children: React.ReactNode;
-    nonce: string;
 }
 
 export const EmotionClient = ({ children, emotionCache }: EmotionClientProps) => {
